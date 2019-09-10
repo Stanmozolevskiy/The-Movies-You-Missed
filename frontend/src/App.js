@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Movie from "./components/movies";
+import Movie from "./components/movies/movies";
+
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
             {/* <Route path="/register" component={RegisterForm} />
             
             <Route path="/not-found" component={NotFound} /> */}
-            <Route path="/movies" component={Movie} /> */}
+            <Route path="/" component={Movie} /> */}
             <Redirect to="/not-found" />
           </Switch>
         </main>
