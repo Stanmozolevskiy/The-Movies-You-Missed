@@ -69,15 +69,30 @@
   }
 }
 .pagination{
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: bold;
   line-height: 2;
   margin: 5px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center
 }
 .break-me{
+  color: black;
   margin-left: 8px;
   margin-right: 8px;
 }
 .each-page-paginate{
-  margin-left: 4px;
-  margin-right: 4px;
+  color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.active-page-paginate{
+  border: 1px solid black
+}
+.previous-pagination-butto{
+  color: black
+}
+.next-pagination-butto{
+  color: black;
 }

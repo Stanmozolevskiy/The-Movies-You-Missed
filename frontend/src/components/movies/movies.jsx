@@ -19,6 +19,7 @@ class Movie extends Component {
     this.setState({ movies: movies.data.results });
     this.setState({ curentPage: movies.data.page });
     this.setState({ totalPages: [...Array(movies.data.total_pages).keys()].filter(x => x !== 0) });
+    console.log(this.state)
   };
 
   // get populat movies
@@ -28,7 +29,6 @@ class Movie extends Component {
     this.setState({ movies: movies.data.results });
     this.setState({ curentPage: movies.data.page });
     this.setState({ totalPages: [...Array(movies.data.total_pages).keys()].filter(x => x !== 0) });
-
   }
 
   handleSearch = e => {
@@ -83,8 +83,10 @@ class Movie extends Component {
           </div>
         </div>
 
-        <ReactPaginate
+        {this.state.totalPages.length > 1 ? <ReactPaginate
           previousLabel={'previous'}
+          previousLinkClassName={'previous-pagination-butto'}
+          nextLinkClassName={'next-pagination-butto'}
           nextLabel={'next'}
           breakLabel={'...'}
           breakClassName={'break-me'}
@@ -94,9 +96,9 @@ class Movie extends Component {
           onPageChange={this.handlePageChange}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
+          activeLinkClassName={'active-page-paginate'}
           pageLinkClassName={'each-page-paginate'}
-        />
+        /> : null}
 
       </div>
     );
