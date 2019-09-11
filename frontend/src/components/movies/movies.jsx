@@ -1,47 +1,50 @@
 import React, { Component } from "react";
 import { getMovies, getPopularMovies } from "../../services/movieServise";
 import MovieContainer from "./movieContainer";
-import Pagination from "../common/pagination";
+import ReactPaginate from 'react-paginate';
 
 class Movie extends Component {
   state = {
     search: "",
     movies: [],
-    curentPage: 1,
-    totalPages: []
+    totalPages: [],
+    curentPages: '',
+    curentPage: 1
   };
 
   // search
   getData = async () => {
     const movies = await getMovies(this.state.search, 1);
+
     this.setState({ movies: movies.data.results });
     this.setState({ curentPage: movies.data.page });
-    this.setState({ totalPages: [...Array(movies.data.total_pages).keys()] });
-    console.log(movies);
+    this.setState({ totalPages: [...Array(movies.data.total_pages).keys()].filter(x => x !== 0) });
   };
 
   // get populat movies
   async componentDidMount() {
     const movies = await getPopularMovies(this.state.curentPage);
-    console.log(movies);
+
     this.setState({ movies: movies.data.results });
     this.setState({ curentPage: movies.data.page });
-    this.setState({ totalPages: [...Array(movies.data.total_pages).keys()] });
+    this.setState({ totalPages: [...Array(movies.data.total_pages).keys()].filter(x => x !== 0) });
+
   }
 
-  handleChange = e => {
+  handleSearch = e => {
     this.setState({ search: e.target.value });
   };
 
-  handlePageChange = async e => {
-    e.preventDefault();
+  handlePageChange = async data => {
+    const selected = data.selected + 1;
+
     if (this.state.search === "") {
-      this.setState({ curentPage: e.target.value });
-      const movies = await getPopularMovies(e.target.value);
+      this.setState({ curentPage: selected });
+      const movies = await getPopularMovies(selected);
       this.setState({ movies: movies.data.results });
     }
     if (this.state.search !== "") {
-      const movies = await getMovies(this.state.search, e.target.value);
+      const movies = await getMovies(this.state.search, selected);
       this.setState({ movies: movies.data.results });
     }
   };
@@ -58,7 +61,7 @@ class Movie extends Component {
             <div className="active-cyan-3 active-cyan-4 mb-4">
               <input
                 className="form-control"
-                onChange={this.handleChange}
+                onChange={this.handleSearch}
                 type="text"
                 placeholder="Search"
                 aria-label="Search"
@@ -79,11 +82,22 @@ class Movie extends Component {
             ))}
           </div>
         </div>
-        <Pagination
-          curentPage={this.state.curentPage}
-          totalPages={this.state.totalPages}
+
+        <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={this.state.totalPages.length - 1}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
           onPageChange={this.handlePageChange}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+          pageLinkClassName={'each-page-paginate'}
         />
+
       </div>
     );
   }
