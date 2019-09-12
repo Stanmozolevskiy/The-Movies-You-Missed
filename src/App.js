@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route path="/movie" component={Movie} /> */}
           <Route path="/tv" component={TvShow} /> */}
-          <Redirect to="/not-found" />
+          <Redirect to="/movie" />
           {/* <Route path="/register" component={RegisterForm} />
             
             <Route path="/not-found" component={NotFound} /> */}
