@@ -11,7 +11,6 @@ const MovieContainer = ({ data }) => {
           <img
             src={`https://image.tmdb.org/t/p/w400${data.poster_path}`}
             className="card-img image-fit"
-            alt="..."
           />
         </div>
         <div className="col-md-7">

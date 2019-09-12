@@ -1,19 +1,9 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 .image-in-container {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
   display: block;
 }
-
 .multiline-ellipsis {
   display: block;
   display: -webkit-box;
@@ -34,32 +24,16 @@
   border: none;
   max-height: 290px;
 }
-.image-fit{
+.image-fit {
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
 }
-
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -68,31 +42,68 @@
     transform: rotate(360deg);
   }
 }
-.pagination{
+.pagination {
   font-size: 14px;
   font-weight: bold;
   line-height: 2;
   margin: 5px;
+  text-align: center;
+  width: 35%;
+  margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  text-align: center
 }
-.break-me{
+.break-me {
   color: black;
   margin-left: 8px;
   margin-right: 8px;
 }
-.each-page-paginate{
+.each-page-paginate {
   color: black;
   margin-left: 5px;
   margin-right: 5px;
 }
-.active-page-paginate{
-  border: 1px solid black
+.active-page-paginate {
+  border: 1px solid black;
 }
-.previous-pagination-butto{
-  color: black
-}
-.next-pagination-butto{
+.previous-pagination-butto {
   color: black;
+  margin-right: 5px;
 }
+.next-pagination-butto {
+  color: black;
+  margin-left: 5px;
+}
+.search-box {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid darkseagreen;
+  border-radius: 0;
+  text-align: inherit;
+}
+.logo {
+  margin-top: 10px;
+  color: #fff;
+}
+.logo-img {
+  margin-left: 130px;
+  margin-top: 10px;
+  width: 75px;
+}
+.header {
+  background: #201d1d;
+  display: block;
+  height: 110px;
+}
+.navbar-btn  {
+  color: #ECD4D4;
+  margin: 15px;
+  outline: none;
+}
+.navbar-btn:hover {
+  text-decoration: none;
+  color: #FEFEFE;
+}
+
