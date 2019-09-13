@@ -8,9 +8,10 @@ const SearchBox = ({ onSearch, onSearchSubmit }) => {
           onKeyDown={onSearchSubmit}
           className="search-box"
           type="text"
-          placeholder="Search for a movie, tv show or a person..."
+          placeholder=" Search for a movie, tv show or a person..."
           onChange={onSearch}
           aria-label="Search"
+          style={{"marginLeft": "100px"}}
         />
       </div>
     </div>

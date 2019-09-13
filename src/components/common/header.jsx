@@ -11,19 +11,18 @@ const Header = () => {
               <tr>
                 <th style={{ border: "none" }}>
                   <Link to="/">
-                    <img src="Thmdb.png" className="logo-img" />
+                    <img src="Thmdb.png" className="logo-img" alt="..." />
                   </Link>
                 </th>
                 <th style={{ border: "none" }}>
                   <h2 className="logo">The Movies You Missed</h2>
-                  <h6 className="logo"></h6>
                   <a className="navbar-btn" href="/movie">
                     Movies
                   </a>
                   <a className="navbar-btn" href="/tv">
                     Tv Show
                   </a>
-                  <a className="navbar-btn" href="/movie">
+                  <a className="navbar-btn" href="/people">
                     People
                   </a>
                 </th>
