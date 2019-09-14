@@ -2,17 +2,17 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div class="footer" id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <div className="footer" id="footer">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <h4 style={{ marginTop: "3em" }}> Logo or image will be here </h4>
           </div>
-          <div class="col-lg-3 col-sm-2 col-xs-3" style={{ marginTop: "4em" }}>
+          <div className="col-lg-3 col-sm-2 col-xs-3" style={{ marginTop: "4em" }}>
             <h3 > Contact </h3>
             <ul>
               <li>
-                <a class="email" href="" >
+                <a className="email" href="" >
                   insert email here
                 </a>
               </li>
@@ -25,7 +25,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="col-lg-3 col-sm-2 col-xs-3">
+          <div className="col-lg-3 col-sm-2 col-xs-3">
             <ul>
               <li>                
                 <h5>                

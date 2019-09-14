@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getMovies, getPopularMovies } from "../../services/movieServise";
-import MovieContainer from "./movieContainer";
+import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
@@ -14,7 +14,7 @@ class Movie extends Component {
     totalPages: [],
     curentPages: "",
     curentPage: 1,
-    title: "Popular Movies"
+    title: "Popular Movies",
   };
 
   // get populat movies
@@ -27,6 +27,7 @@ class Movie extends Component {
       totalPages: totalPages(data)
     });
   }
+
   // search
   getData = async e => {
     if (e.key === "Enter" && this.state.search !== "") {
@@ -72,7 +73,7 @@ class Movie extends Component {
             <Title text={this.state.title} />
             <div className="row">
               {this.state.data.map(data => (
-                <MovieContainer key={data.id} data={data} />
+                <MovieContainer key={data.id} data={data} genres={this.state.genres} />
               ))}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getTvShows, getPopularTvShows } from "../../services/tvShowServise";
-import MovieContainer from "../movies/movieContainer";
+import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
