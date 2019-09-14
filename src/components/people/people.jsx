@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { getPerson, getPopularPerson } from "../../services/peopleServise";
-import MovieContainer from "../movies/movieContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
