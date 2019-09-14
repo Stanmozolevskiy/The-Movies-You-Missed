@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
 import { easeQuadInOut } from "d3-ease";
@@ -8,7 +9,6 @@ const MovieContainer = ({ data }) => {
   //move
   const now = new Date(data.release_date || data.first_air_date);
   const dateOut = date.format(now, "MMMM DD, YYYY ");
-
   return (
     <div
       className=" container-size card mb-3 col-5 m-3 mx-auto"
@@ -16,11 +16,13 @@ const MovieContainer = ({ data }) => {
     >
       <div className="row no-gutters">
         <div className="col-md-5">
-          <img
-            src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-            className="card-img image-fit"
-            alt="..."
-          />
+          <Link to={`/movie/${data.id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+              className="card-img image-fit"
+              alt="..."
+            />
+          </Link>
         </div>
         <div className="col-md-7">
           <div className="card-body" style={{ padding: "10px" }}>
@@ -75,7 +77,7 @@ const MovieContainer = ({ data }) => {
             <div className="container">
               <div className="row">
                 <div className="col-12">
-                  <button className="btn">more information</button>
+                  <Link to={`/movie/${data.id}`}>more information</Link>
                 </div>
               </div>
             </div>
