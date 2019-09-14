@@ -5,11 +5,14 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "d3-ease": "^1.0.5",
     "dotenv": "^8.1.0",
     "font-awesome": "^4.7.0",
     "joi-browser": "^13.4.0",
     "react": "^16.9.0",
+    "react-circular-progressbar": "^2.0.2",
     "react-dom": "^16.9.0",
+    "react-move": "^6.0.0",
     "react-paginate": "^6.3.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1"

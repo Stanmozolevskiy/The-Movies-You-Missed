@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
-      <div className="container">
+      <div className="container" style={{ padding: "0px" }}>
         <div className="row">
-          <table className="col-12 table header">
+          <table className="col-12 table">
             <tbody>
               <tr>
                 <th style={{ border: "none" }}>
