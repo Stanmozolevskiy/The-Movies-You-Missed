@@ -112,6 +112,17 @@
   margin-right: 5px;
   color: red;
 }
+.movie-background {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+.movie-description-container {
+  margin-top: 30px;
+  max-width: 300px;
+  max-height: 450px;
+  margin-bottom: 30px;
+}
 
 @media only screen and (max-width: 770px) {
   .navbar-btn {
@@ -136,7 +147,7 @@
   position: relative;
   width: 100%;
   border-bottom: 1px solid #cccccc;
-  border-top: 1px solid #dddddd;
+  /* border-top: 1px solid #dddddd; */
 }
 .footer p {
   margin: 0;
