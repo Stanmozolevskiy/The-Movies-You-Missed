@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import AnimatedProgressProvider from "./AnimatedProgressProvider";
-import { easeQuadInOut } from "d3-ease";
-import date from "date-and-time";
+import RatingCircle from './ratingCircle'
+import formatDate from '../../utilities/dataFormat'
 
 const MovieContainer = ({ data }) => {
-  //move
-  const now = new Date(data.release_date || data.first_air_date);
-  const dateOut = date.format(now, "MMMM DD, YYYY ");
+
   return (
     <div
       className=" container-size card mb-3 col-5 m-3 mx-auto"
@@ -16,6 +12,7 @@ const MovieContainer = ({ data }) => {
     >
       <div className="row no-gutters">
         <div className="col-md-5">
+
           <Link to={`/movie/${data.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
@@ -29,30 +26,7 @@ const MovieContainer = ({ data }) => {
             <div className="container">
               <div className="row">
                 <div className="col-4" style={{ marginBottom: "5px" }}>
-                  {/* need to move */}
-                  <AnimatedProgressProvider
-                    className="rating"
-                    valueStart={0}
-                    valueEnd={data.vote_average * 10}
-                    duration={0.9}
-                    easingFunction={easeQuadInOut}
-                  >
-                    {value => {
-                      const roundedValue = Math.round(value);
-                      return (
-                        <CircularProgressbar
-                          value={value}
-                          text={`${roundedValue}%`}
-                          strokeWidth={5}
-                          styles={buildStyles({
-                            pathTransition: "none",
-                            trailColor: "white",
-                            pathColor: "gold"
-                          })}
-                        />
-                      );
-                    }}
-                  </AnimatedProgressProvider>
+                  <RatingCircle rating={data.vote_average}  className='rating-movie-card'/>
                 </div>
                 <div
                   className="col-8"
@@ -65,7 +39,7 @@ const MovieContainer = ({ data }) => {
                     {data.title || data.name}
                   </strong>
                   <p style={{ marginBottom: "10px", marginTop: "15px" }}>
-                    {dateOut}
+                    {formatDate(data.release_date || data.first_air_date)}
                   </p>
                 </div>
               </div>

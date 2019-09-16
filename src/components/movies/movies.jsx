@@ -18,6 +18,7 @@ class Movie extends Component {
   };
 
   // get populat movies
+
   async componentDidMount() {
     const data = await getPopularMovies(this.state.curentPage);
 

@@ -105,13 +105,19 @@
   text-decoration: none;
   color: #fefefe;
 }
-.CircularProgressbar {
+.rating-movie-card {
   dominant-baseline: middle;
   width: 50px;
   text-anchor: middle;
   margin-right: 5px;
-  color: red;
 }
+.rating-movie-detail{
+  dominant-baseline: middle;
+  width: 70px;
+  text-anchor: middle;
+  margin-top: 20px;
+}
+
 .movie-background {
   background-repeat: no-repeat;
   background-size: 100%;
