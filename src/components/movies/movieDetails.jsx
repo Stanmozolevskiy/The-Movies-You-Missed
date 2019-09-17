@@ -5,17 +5,27 @@ import SearchBox from "../common/searchBox";
 import formatDate from '../../utilities/dataFormat'
 import RatingCircle from '../common/ratingCircle'
 import roundBudjet from '../../utilities/roundBudjet'
+import ModalVideo from 'react-modal-video'
+
 
 class MovieDetais extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      data: [],
+      isOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this)
   }
 
-  state = {
-    data: []
-  };
 
 
+
+  openModal() {
+    this.setState({ isOpen: true })
+  }
 
   async componentDidMount() {
     const dataId = window.location.pathname.match(/\d/gi).join("");
@@ -24,19 +34,22 @@ class MovieDetais extends Component {
     this.setState({ data });
     console.log(data);
   }
+  palyTrailer(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
 
   render() {
     if (this.state.data.genres === undefined) {
       return null
     } else {
 
-
       return (
         <div>
           <Header />
           <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} />
           <div
-            className=" movie-background"
+            className="movie-background"
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.data.backdrop_path})`
             }}
@@ -51,28 +64,47 @@ class MovieDetais extends Component {
                       className="movie-description-container"
                       alt="..."
                     />
+                    {/* cover over image start */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '82%',
+                      left: '50%',
+                      transform: ' translate(-50%, -50%)',
+                      color: 'white',
+                      width: '320px',
+                      height: '30px',
+                      backgroundColor: "rgba(85, 58, 58, .8)",
+                      textAlign: 'center',
+                    }} onClick={this.openModal} >
+                      trailer
+
+
+
+                    </div>
+                    {/* cover over image end */}
                   </div>
                   <div className="col-8 movie-description-container" style={{ color: "white" }}>
                     <h1>{this.state.data.title}</h1>
-                    <br />
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-3">{formatDate(this.state.data.release_date)}</div>
-                        <div className="col-2">
-                          {this.state.data.runtime + " m"}
-                        </div>
-                        <div className="col-3">{this.state.data.genres.map(g => g.name).join(' ')}</div>
-                        <div className="col-3">{this.state.data.production_countries.map(c => c.iso_3166_1).join(' / ')}</div>
-                        <div className="col-1"></div>
+
+                    <div className="container"><div className="row"  >
+                      <div className="col-2" style={{ padding: '0px' }} >
+                        <RatingCircle rating={this.state.data.vote_average} className='rating-movie-detail' />
+
                       </div>
-                    </div>
-                    <RatingCircle rating={this.state.data.vote_average} className='rating-movie-detail' />
+                      <div className="col-10" style={{ padding: '0px', marginTop: '30px' }}>
+                        <h6>Date : {formatDate(this.state.data.release_date)}</h6>
+                        <h6>Budget : {roundBudjet(this.state.data.budget)}</h6>
+                        <h6>Genres : {this.state.data.genres.map(g => g.name).join(' ')}</h6>
+                        <h6>Duration : {this.state.data.runtime + " m"}</h6>
+                        <h6>Country : {this.state.data.production_countries.map(c => c.iso_3166_1).join(' / ')}</h6>
+
+                      </div>
+                    </div></div>
                     <br />
                     <br />
                     <h6 style={{ lineHeight: 2 }}>
                       {this.state.data.overview}
                     </h6>
-                    <p>Budget : {roundBudjet(this.state.data.budget)}</p>
                   </div>
                 </div>
               </div>
@@ -80,9 +112,18 @@ class MovieDetais extends Component {
             {/* image gackgroung container  end*/}
             <div style={{ backgroundColor: "white" }}>
               <h6>area for acters, revues etc ...</h6>
+
+              <ModalVideo channel='youtube'
+                classNames="modalVideoClose"
+                isOpen={this.state.isOpen}
+                videoId={this.state.data.videos.results[0].key}
+                onClose={() => this.setState({ isOpen: false })}
+                
+
+              />
             </div>
           </div>
-        </div>
+        </div >
       );
     }
   }

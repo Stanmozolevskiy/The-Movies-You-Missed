@@ -14,16 +14,16 @@ export default function roundBudjet(num, decimalPlaces) {
         str = num;
     } else if (num < 1000000) {
         str = Math.floor(num / (1000 / factor)) / factor;
-        suffix = 'K';
+        suffix = ' K';
     } else if (num < 1000000000) {
         str = Math.floor(num / (1000000 / factor)) / factor;
-        suffix = 'M';
+        suffix = ' M';
     } else if (num < 1000000000000) {
         str = Math.floor(num / (1000000000 / factor)) / factor;
-        suffix = 'B';
+        suffix = ' B';
     } else if (num < 1000000000000000) {
         str = Math.floor(num / (1000000000000 / factor)) / factor;
-        suffix = 'T';
+        suffix = ' T';
     }
     return str + suffix;
 }
