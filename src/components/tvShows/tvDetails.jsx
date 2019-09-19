@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { getMovie } from "../../services/movieServise";
+import { getTvShow } from "../../services/tvShowServise";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import MovieModal from "../common/movieModal";
-import MovieDescription from './movieDescription'
 import Image from '../common/imageMovieDetails'
 import TrailerButton from '../common/trailerButton'
+import TvDescription from '../tvShows/tvDescription'
 
-class MovieDetais extends Component {
+class TvDetails extends Component {
   state = {
     data: [],
     modalIsOpen: false
@@ -15,14 +15,16 @@ class MovieDetais extends Component {
 
   async componentDidMount() {
     const dataId = window.location.pathname.match(/\d/gi).join("");
-    const { data } = await getMovie(dataId);
+    const { data } = await getTvShow(dataId);
 
     this.setState({ data });
     console.log(data);
   }
+
   openModal = () => {
     this.setState({ modalIsOpen: true });
   };
+
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
@@ -31,7 +33,6 @@ class MovieDetais extends Component {
     if (this.state.data.genres === undefined) {
       return null;
     } else {
-
       return (
         <div id='modal'>
           <Header />
@@ -59,10 +60,8 @@ class MovieDetais extends Component {
                     <Image imageId={this.state.data.poster_path} />
                     <TrailerButton handleTrailer={this.openModal} />
                   </div>
-
-                  <div
-                    className="col-8 movie-description-container" >
-                    <MovieDescription data={this.state.data} />
+                  <div className="col-8 movie-description-container" >
+                    <TvDescription data={this.state.data} />
 
                   </div>
                 </div>
@@ -73,11 +72,10 @@ class MovieDetais extends Component {
               <h6>area for acters, revues etc ...</h6>
             </div>
           </div>
-
         </div>
       );
     }
   }
 }
 
-export default MovieDetais;
+export default TvDetails;

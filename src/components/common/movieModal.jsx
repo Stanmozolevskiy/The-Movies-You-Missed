@@ -1,93 +1,39 @@
 import React from "react";
 import Modal from "react-modal";
+import YouTube from "react-youtube";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+const opts = {
+  height: '390',
+  width: '640',
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 1
   }
 };
+// work around, important
+Modal.setAppElement('#root')
 
+const MovieModal = ({ modalIsOpen, afterOpenModal, closeModal, videoId }) => {
 
-
-const MovieModal = ({ modalIsOpen ,afterOpenModal, closeModal, openModal }) => {
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      {/* Modal */}
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="Modal"
+        overlayClassName="Modal-Overlay"
         contentLabel="Example Modal"
       >
-        {/* <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2> */}
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        {/* The youtube video */}
+        <YouTube
+          videoId={videoId}
+          opts={opts}
+        />
       </Modal>
     </div>
   );
 };
 
 export default MovieModal;
-
-// class MovieModal extends Component {
-//   constructor() {
-//     super();
-//     this.openModal = this.openModal.bind(this);
-//     this.afterOpenModal = this.afterOpenModal.bind(this);
-//     this.closeModal = this.closeModal.bind(this);
-//   }
-
-//   openModal() {
-//     this.setState({ modalIsOpen: true });
-//   }
-
-//   afterOpenModal() {
-//     // references are now sync'd and can be accessed.
-//     this.subtitle.style.color = "#f00";
-//   }
-
-//   closeModal() {
-//     this.setState({ modalIsOpen: false });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <button onClick={this.openModal}>Open Modal</button>
-//         <Modal
-//           isOpen={this.state.modalIsOpen}
-//           onAfterOpen={this.afterOpenModal}
-//           onRequestClose={this.closeModal}
-//           style={customStyles}
-//           contentLabel="Example Modal"
-//         >
-//           <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-//           <button onClick={this.closeModal}>close</button>
-//           <div>I am a modal</div>
-//           <form>
-//             <input />
-//             <button>tab navigation</button>
-//             <button>stays</button>
-//             <button>inside</button>
-//             <button>the modal</button>
-//           </form>
-//         </Modal>
-//       </div>
-//     );
-//   }
-// }
-
-// export default MovieModal;
