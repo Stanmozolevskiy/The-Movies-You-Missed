@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { getTvShows, getPopularTvShows } from "../../services/tvShowServise";
-import MovieContainer from "../common/movieContainer";
+import { totalPages } from "../common/pagination";
+import TvContainer from "../common/tvContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import Title from "../common/title";
-import { totalPages } from "../common/pagination";
 
 class TvShow extends Component {
   state = {
@@ -21,9 +21,9 @@ class TvShow extends Component {
   async componentDidMount() {
     const data = await getPopularTvShows(this.state.curentPage);
 
-    this.setState({ data: data.data.results });
-    this.setState({ curentPage: data.data.page });
     this.setState({
+      data: data.data.results,
+      curentPage: data.data.page,
       totalPages: totalPages(data)
     });
   }
@@ -32,12 +32,10 @@ class TvShow extends Component {
     if (e.key === "Enter" && this.state.search !== "") {
       const data = await getTvShows(this.state.search, 1);
 
-      this.setState({ data: data.data.results });
-      this.setState({ curentPage: data.data.page });
       this.setState({
-        totalPages: totalPages(data)
-      });
-      this.setState({
+        data: data.data.results,
+        curentPage: data.data.page,
+        totalPages: totalPages(data),
         title: `Search > ${this.state.search.charAt(0).toUpperCase() +
           this.state.search.slice(1)}`
       });
@@ -72,7 +70,7 @@ class TvShow extends Component {
           <div className="container ">
             <div className="row">
               {this.state.data.map(data => (
-                <MovieContainer key={data.id} data={data} />
+                <TvContainer key={data.id} data={data} />
               ))}
             </div>
           </div>
