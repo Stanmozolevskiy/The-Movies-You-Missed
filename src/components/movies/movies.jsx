@@ -34,7 +34,6 @@ class Movie extends Component {
       curentPage: data.data.page,
       genres: genres.data.genres,
       totalPages: totalPages(data),
-      genres: genres.data.genres
     });
     console.log(genres)
   }
