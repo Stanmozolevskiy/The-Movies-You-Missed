@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Movie from "./components/movies/movies";
 import TvShow from "./components/tvShows/tvShows";
 import People from "./components/people/people";
 import Footer from "./components/common/footer";
 import MovieDetais from "./components/movies/movieDetails";
 import TvDetails from "./components/tvShows/tvDetails";
-
 
 class App extends Component {
   render() {
