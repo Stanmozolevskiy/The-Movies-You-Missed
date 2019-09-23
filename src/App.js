@@ -7,6 +7,9 @@ import People from "./components/people/people";
 import Footer from "./components/common/footer";
 import MovieDetais from "./components/movies/movieDetails";
 import TvDetails from "./components/tvShows/tvDetails";
+import { createBrowserHistory } from "history";
+
+const customHistory = createBrowserHistory();
 
 class App extends Component {
   render() {
@@ -14,7 +17,7 @@ class App extends Component {
       <React.Fragment>
         {/* <ToastContainer /> */}
 
-        <Switch>
+        <Switch history={customHistory}>
           <Route path="/movie/:id" component={MovieDetais} /> */}
           <Route path="/tv/:id" component={TvDetails} /> */}
           <Route path="/movies" component={Movie} /> */}

@@ -8,6 +8,7 @@ import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import Title from "../common/title";
 import GroupList from "../common/groupList";
+import DropDown from '../common/dropDown'
 
 class Movie extends Component {
   constructor(prpos) {
@@ -16,8 +17,10 @@ class Movie extends Component {
     this.state = {
       search: "",
       genreSerch: "",
+      yearSearch: '',
       data: [],
       genres: [],
+      year: '',
       totalPages: [],
       curentPage: 1,
       forcePage: 0,
@@ -61,13 +64,14 @@ class Movie extends Component {
   };
 
   // genreChange
-  handleGenreChange = async e => {
+  handleGenreChange = async (e) => {
     this.setState({
       genreSerch: this.state.genres.filter(
         g => g.id === Number(e.target.value)
-      )[0].name
+      )[0]
+
     });
-    const data = await serchMovieByGenre(e.target.value, 1);
+    const data = await serchMovieByGenre(e.target.value, 1, this.state.yearSearch);
     this.setState({
       search: "",
       data: data.data.results,
@@ -76,12 +80,32 @@ class Movie extends Component {
       forcePage: null,
       totalPages: totalPages(data),
       // handeling the title change
-      title: `Search > ${this.state.genreSerch.charAt(0).toUpperCase() +
-        this.state.genreSerch.slice(1)}`
+      title: `Search > ${this.state.genreSerch.name + ' ' + this.state.yearSearch}`
     });
     //work around for page get back to 1
     this.setState({ forcePage: 0 });
   };
+
+  handleYearChange = async ({ value }) => {
+
+    this.setState({ year: value })
+    const data = await serchMovieByGenre(this.state.genreSerch.id || '', 1, value);
+
+    this.setState({
+      search: "",
+      data: data.data.results,
+      curentPage: data.data.page,
+      yearSearch: value,
+      //work around for page get back to 1
+      forcePage: null,
+      totalPages: totalPages(data),
+      // handeling the title change
+      title: `Search > ${(this.state.genreSerch.name) || ' ' + ' ' + value}`
+    });
+    // work around for page get back to 1
+    this.setState({ forcePage: 0 });
+
+  }
 
   // move this to paginate
   handlePageChange = async ({ selected }) => {
@@ -110,7 +134,7 @@ class Movie extends Component {
             data={this.state.genres}
             onGenreChange={this.handleGenreChange}
           />
-
+          <DropDown daya={this.state.year} onYearChange={this.handleYearChange} />
           <div className="container">
             <div className="row">
               <Title text={this.state.title} />

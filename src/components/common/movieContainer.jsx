@@ -9,7 +9,7 @@ const MovieContainer = ({ data }) => {
     <div
       className="container card mb-3 col-5 m-3 mx-auto "
       style={{ padding: 0 }}
-    > 
+    >
       <div className="row no-gutters">
         <div className="col-md-5">
 
