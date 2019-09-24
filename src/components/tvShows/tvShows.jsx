@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getTvShows, getPopularTvShows } from "../../services/tvShowServise";
 import { totalPages } from "../common/pagination";
 import { getTvgenres, serchTvByGenre } from "../../services/genreServise";
-import TvContainer from "../common/tvContainer";
+import TvContainer from "./tvContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";

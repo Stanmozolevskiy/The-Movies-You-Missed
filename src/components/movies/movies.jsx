@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { getMovies, getPopularMovies } from "../../services/movieServise";
-import { getMoviegenres, serchMovieByGenre } from "../../services/genreServise";
+import { getMoviegenres, discoverMovie } from "../../services/genreServise";
 import { totalPages } from "../common/pagination";
-import MovieContainer from "../common/movieContainer";
+import MovieContainer from "./movieContainer";
 import Paginateion from "../common/pagination";
 import Header from "../common/header";
 import SearchBox from "../common/searchBox";
@@ -16,15 +16,15 @@ class Movie extends Component {
 
     this.state = {
       search: "",
-      genreSerch: "",
+      genreSerch: {},
       yearSearch: '',
       data: [],
       genres: [],
-      year: '',
       totalPages: [],
       curentPage: 1,
       forcePage: 0,
-      title: "Popular Movies"
+      title: "Popular Movies",
+      render: ''
     };
   }
   // get populat movies
@@ -35,12 +35,13 @@ class Movie extends Component {
       data: data.data.results,
       curentPage: data.data.page,
       genres: genres.data.genres,
-      totalPages: totalPages(data)
+      totalPages: totalPages(data),
+      render: getPopularMovies
     });
   }
 
   // search
-  getData = async e => {
+  handleSearch = async e => {
     if (e.key === "Enter" && this.state.search !== "") {
       const data = await getMovies(this.state.search, 1);
       this.setState({
@@ -52,14 +53,15 @@ class Movie extends Component {
         totalPages: totalPages(data),
         // handeling the title change
         title: `Search > ${this.state.search.charAt(0).toUpperCase() +
-          this.state.search.slice(1)}`
+          this.state.search.slice(1)}`,
+        render: getMovies
       });
       //work around for page get back to 1
       this.setState({ forcePage: 0 });
     }
   };
 
-  handleSearch = e => {
+  onSearch = e => {
     this.setState({ search: e.target.value });
   };
 
@@ -71,7 +73,7 @@ class Movie extends Component {
       )[0]
 
     });
-    const data = await serchMovieByGenre(e.target.value, 1, this.state.yearSearch);
+    const data = await discoverMovie(e.target.value, 1, this.state.yearSearch);
     this.setState({
       search: "",
       data: data.data.results,
@@ -80,16 +82,16 @@ class Movie extends Component {
       forcePage: null,
       totalPages: totalPages(data),
       // handeling the title change
-      title: `Search > ${this.state.genreSerch.name + ' ' + this.state.yearSearch}`
+      title: `Search > ${this.state.genreSerch.name + ' ' + this.state.yearSearch}`,
+      render: discoverMovie
     });
     //work around for page get back to 1
     this.setState({ forcePage: 0 });
   };
 
   handleYearChange = async ({ value }) => {
-
-    this.setState({ year: value })
-    const data = await serchMovieByGenre(this.state.genreSerch.id || '', 1, value);
+    this.setState({ yearSearch: value })
+    const data = await discoverMovie(this.state.genreSerch.id || '', 1, value);
 
     this.setState({
       search: "",
@@ -100,7 +102,8 @@ class Movie extends Component {
       forcePage: null,
       totalPages: totalPages(data),
       // handeling the title change
-      title: `Search > ${(this.state.genreSerch.name) || ' ' + ' ' + value}`
+      title: `Search > ${(this.state.genreSerch.name) !== undefined ? this.state.genreSerch.name : ''}` + ' ' + value,
+      render: discoverMovie
     });
     // work around for page get back to 1
     this.setState({ forcePage: 0 });
@@ -111,32 +114,45 @@ class Movie extends Component {
   handlePageChange = async ({ selected }) => {
     const page = selected + 1;
 
-    if (this.state.search === "") {
+    if (this.state.render === getPopularMovies) {
       const data = await getPopularMovies(page);
       this.setState({
         curentPage: page,
         data: data.data.results
       });
     }
-    if (this.state.search !== "") {
+    if (this.state.render === getMovies) {
       const data = await getMovies(this.state.search, page);
-      this.setState({ data: data.data.results });
+      this.setState({
+        curentPage: page,
+        data: data.data.results
+      });
+    }
+    if (this.state.render === discoverMovie) {
+      const data = await discoverMovie(this.state.genreSerch.id || '', page, this.state.yearSearch || '');
+      this.setState({
+        curentPage: page,
+        data: data.data.results
+      });
     }
   };
 
   render() {
+
     return (
       <div>
         <Header />
-        <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} />
+        <SearchBox onSearch={this.onSearch} onSearchSubmit={this.handleSearch} />
         <div className="parent-container d-flex ">
           <GroupList
+            selected={this.state.genreSerch.id}
             data={this.state.genres}
             onGenreChange={this.handleGenreChange}
           />
-          <DropDown daya={this.state.year} onYearChange={this.handleYearChange} />
           <div className="container">
             <div className="row">
+              <DropDown handleChange={this.handleYearChange} placeholder="year" data={[2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2000]} />
+              <DropDown handleChange={this.handleYearChange} placeholder="sort by" data={['decending', 'asending']} />
               <Title text={this.state.title} />
             </div>
             <div className="row">

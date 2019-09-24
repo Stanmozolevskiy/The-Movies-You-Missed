@@ -18,7 +18,6 @@ class MovieDetais extends Component {
     const { data } = await getMovie(dataId);
 
     this.setState({ data });
-    console.log(data);
   }
   openModal = () => {
     this.setState({ modalIsOpen: true });

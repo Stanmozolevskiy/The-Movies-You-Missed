@@ -1,6 +1,6 @@
 import React from "react";
 
-const GroupList = ({ data, onGenreChange }) => {
+const GroupList = ({ data, onGenreChange, selected }) => {
   return (
     <ul
       className="list-group"
@@ -15,7 +15,7 @@ const GroupList = ({ data, onGenreChange }) => {
           onClick={onGenreChange}
           value={x.id}
           name={x.name}
-          className="list-group-item"
+          className={selected === x.id ? "list-group-item- active" : "list-group-item"}
           style={{
             padding: 0,
             border: 0,

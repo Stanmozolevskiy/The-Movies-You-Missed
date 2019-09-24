@@ -1,21 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RatingCircle from './ratingCircle'
+import RatingCircle from '../common/ratingCircle'
 import formatDate from '../../utilities/dataFormat'
 
-const TvContainer = ({ data }) => {
-
+const MovieContainer = ({ data }) => {
   return (
     <div
-      className=" container-size card mb-3 col-5 m-3 mx-auto"
+      className="container card mb-3 col-5 m-3 mx-auto "
       style={{ padding: 0 }}
     >
       <div className="row no-gutters">
         <div className="col-md-5">
 
-          <Link to={`/tv/${data.id}`}>
+          <Link to={`/movie/${data.id}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
               className="card-img image-fit"
               alt="..."
             />
@@ -48,10 +47,12 @@ const TvContainer = ({ data }) => {
             <p className="card-text d-inline-block  multiline-ellipsis">
               {data.overview}
             </p>
+            <hr />
             <div className="container">
               <div className="row">
                 <div className="col-12">
-                  <Link to={`/tv/${data.id}`}>more information</Link>
+
+                  <Link to={`/movie/${data.id}`}>Details</Link>
                 </div>
               </div>
             </div>
@@ -62,4 +63,4 @@ const TvContainer = ({ data }) => {
   );
 };
 
-export default TvContainer;
+export default MovieContainer;
