@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RatingCircle from '../common/ratingCircle'
-import formatDate from '../../utilities/dataFormat'
+import RatingCircle from "../common/ratingCircle";
+import formatDate from "../../utilities/dataFormat";
 
 const MovieContainer = ({ data }) => {
   return (
@@ -11,7 +11,6 @@ const MovieContainer = ({ data }) => {
     >
       <div className="row no-gutters">
         <div className="col-md-5">
-
           <Link to={`/movie/${data.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
@@ -25,7 +24,10 @@ const MovieContainer = ({ data }) => {
             <div className="container">
               <div className="row">
                 <div className="col-4" style={{ marginBottom: "5px" }}>
-                  <RatingCircle rating={data.vote_average} className='rating-movie-card' />
+                  <RatingCircle
+                    rating={data.vote_average}
+                    className="rating-movie-card"
+                  />
                 </div>
                 <div
                   className="col-8"
@@ -47,11 +49,10 @@ const MovieContainer = ({ data }) => {
             <p className="card-text d-inline-block  multiline-ellipsis">
               {data.overview}
             </p>
-            <hr />
             <div className="container">
               <div className="row">
-                <div className="col-12">
-
+                <div className="col-12" style={{ textAlign: "center" }}>
+                  <hr />
                   <Link to={`/movie/${data.id}`}>Details</Link>
                 </div>
               </div>
