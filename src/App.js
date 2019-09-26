@@ -5,24 +5,23 @@ import Movie from "./components/movies/movies";
 import TvShow from "./components/tvShows/tvShows";
 import People from "./components/people/people";
 import Footer from "./components/common/footer";
-import MovieDetais from "./components/movies/movieDetails";
-import TvDetails from "./components/tvShows/tvDetails";
-import { createBrowserHistory } from "history";
-
-const customHistory = createBrowserHistory();
+import MovieDetais from "./components/common/movieDetails";
+import SearchComponent from "./components/common/searchComponent";
+import Header from "./components/common/header";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* <ToastContainer /> */}
-
-        <Switch history={customHistory}>
-          <Route path="/movie/:id" component={MovieDetais} /> */}
-          <Route path="/tv/:id" component={TvDetails} /> */}
-          <Route path="/movies" component={Movie} /> */}
-          <Route path="/tv" component={TvShow} /> */}
-          <Route path="/people" component={People} /> */}
+        <Header></Header>
+        <Switch>
+          <Route path="/movies/:id" component={MovieDetais} />
+          <Route path="/tv/:id" component={MovieDetais} />
+          <Route path="/search/:path" component={SearchComponent} />
+          <Route path="/movies" component={Movie} />
+          <Route path="/tv" component={TvShow} />
+          <Route path="/people" component={People} />
           <Redirect to="/movies" />
           {/* <Route path="/register" component={RegisterForm} />
             

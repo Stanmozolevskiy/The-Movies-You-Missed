@@ -1,30 +1,38 @@
 import React, { Component } from "react";
+import { getMovie } from "../../services/movieServise";
 import { getTvShow } from "../../services/tvShowServise";
-import Header from "../common/header";
-import SearchBox from "../common/searchBox";
-import MovieModal from "../common/movieModal";
-import Image from '../common/imageMovieDetails'
-import TrailerButton from '../common/trailerButton'
-import TvDescription from '../tvShows/tvDescription'
+import { handleSearch } from "../../services/searchService";
+import SearchBox from "./searchBox";
+import MovieModal from "./movieModal";
+import MovieDescription from "./movieDescription";
+import Image from "./imageMovieDetails";
+import TrailerButton from "./trailerButton";
 
-class TvDetails extends Component {
-  state = {
-    data: [],
-    modalIsOpen: false
-  };
+class MovieDetais extends Component {
+  constructor(prpos) {
+    super(prpos);
+    this.state = {
+      data: [],
+      modalIsOpen: false
+    };
+  }
 
   async componentDidMount() {
-    const dataId = window.location.pathname.match(/\d/gi).join("");
-    const { data } = await getTvShow(dataId);
-
-    this.setState({ data });
-    console.log(data);
+    if (/tv/.test(this.props.location.pathname)) {
+      const dataId = window.location.pathname.match(/\d/gi).join("");
+      const { data } = await getTvShow(dataId);
+      this.setState({ data });
+    }
+    if (/movies/.test(this.props.location.pathname)) {
+      const dataId = window.location.pathname.match(/\d/gi).join("");
+      const { data } = await getMovie(dataId);
+      this.setState({ data });
+    }
   }
 
   openModal = () => {
     this.setState({ modalIsOpen: true });
   };
-
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
@@ -34,17 +42,17 @@ class TvDetails extends Component {
       return null;
     } else {
       return (
-        <div id='modal'>
-          <Header />
-          <SearchBox
-            onSearch={this.handleSearch}
-            onSearchSubmit={this.getData}
-          />
+        <div id="modal">
+          <SearchBox onSearchSubmit={handleSearch} />
           <MovieModal
             modalIsOpen={this.state.modalIsOpen}
             openModal={this.openModal}
             closeModal={this.closeModal}
-            videoId={this.state.data.videos.results[0].key}
+            videoId={
+              this.state.data.videos.results[0] === undefined
+                ? null
+                : this.state.data.videos.results[0].key
+            }
           />
           <div
             className="movie-background"
@@ -60,9 +68,12 @@ class TvDetails extends Component {
                     <Image imageId={this.state.data.poster_path} />
                     <TrailerButton handleTrailer={this.openModal} />
                   </div>
-                  <div className="col-8 movie-description-container" >
-                    <TvDescription data={this.state.data} />
 
+                  <div className="col-8 movie-description-container">
+                    <MovieDescription
+                      data={this.state.data}
+                      props={this.props}
+                    />
                   </div>
                 </div>
               </div>
@@ -78,4 +89,4 @@ class TvDetails extends Component {
   }
 }
 
-export default TvDetails;
+export default MovieDetais;

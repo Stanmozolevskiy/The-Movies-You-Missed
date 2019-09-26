@@ -1,21 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RatingCircle from '../common/ratingCircle'
-import formatDate from '../../utilities/dataFormat'
+import RatingCircle from "./ratingCircle";
+import formatDate from "../../utilities/dataFormat";
 
-const TvContainer = ({ data }) => {
-
+const MovieContainer = ({ data, props }) => {
   return (
     <div
-      className=" container-size card mb-3 col-5 m-3 mx-auto"
+      className="container card mb-3 col-5 m-3 mx-auto "
       style={{ padding: 0 }}
     >
       <div className="row no-gutters">
         <div className="col-md-5">
-
-          <Link to={`/tv/${data.id}`}>
+          {/* work around for container path*/}
+          <Link
+            to={
+              props === "movies"
+                ? "/movies/" + data.id
+                : `${props.history.location.pathname}/${data.id}`
+            }
+          >
             <img
-              src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
               className="card-img image-fit"
               alt="..."
             />
@@ -26,7 +31,10 @@ const TvContainer = ({ data }) => {
             <div className="container">
               <div className="row">
                 <div className="col-4" style={{ marginBottom: "5px" }}>
-                  <RatingCircle rating={data.vote_average} className='rating-movie-card' />
+                  <RatingCircle
+                    rating={data.vote_average}
+                    className="rating-movie-card"
+                  />
                 </div>
                 <div
                   className="col-8"
@@ -36,7 +44,7 @@ const TvContainer = ({ data }) => {
                   }}
                 >
                   <strong style={{ marginBottom: 0 }}>
-                    {data.title || data.name}
+                    {data.original_title || data.original_name}
                   </strong>
                   <p style={{ marginBottom: "10px", marginTop: "15px" }}>
                     {formatDate(data.release_date || data.first_air_date)}
@@ -50,8 +58,9 @@ const TvContainer = ({ data }) => {
             </p>
             <div className="container">
               <div className="row">
-                <div className="col-12">
-                  <Link to={`/tv/${data.id}`}>more information</Link>
+                <div className="col-12" style={{ textAlign: "center" }}>
+                  <hr />
+                  <Link to={`/movie/${data.id}`}>Details</Link>
                 </div>
               </div>
             </div>
@@ -62,4 +71,4 @@ const TvContainer = ({ data }) => {
   );
 };
 
-export default TvContainer;
+export default MovieContainer;
