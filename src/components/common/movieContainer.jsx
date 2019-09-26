@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RatingCircle from "../common/ratingCircle";
+import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 
 const MovieContainer = ({ data, props }) => {
@@ -11,8 +11,14 @@ const MovieContainer = ({ data, props }) => {
     >
       <div className="row no-gutters">
         <div className="col-md-5">
-          {/* work around */}
-          <Link to={props === 'movies' ? '/movies/' + data.id : `${props.history.location.pathname}/${data.id}`} >
+          {/* work around for container path*/}
+          <Link
+            to={
+              props === "movies"
+                ? "/movies/" + data.id
+                : `${props.history.location.pathname}/${data.id}`
+            }
+          >
             <img
               src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
               className="card-img image-fit"
@@ -38,7 +44,7 @@ const MovieContainer = ({ data, props }) => {
                   }}
                 >
                   <strong style={{ marginBottom: 0 }}>
-                    {data.title || data.name}
+                    {data.original_title || data.original_name}
                   </strong>
                   <p style={{ marginBottom: "10px", marginTop: "15px" }}>
                     {formatDate(data.release_date || data.first_air_date)}
@@ -63,7 +69,6 @@ const MovieContainer = ({ data, props }) => {
       </div>
     </div>
   );
-
 };
 
 export default MovieContainer;

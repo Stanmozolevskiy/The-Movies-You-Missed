@@ -7,9 +7,14 @@ export function getMoviegenres() {
     `${baseUrl}3/genre/movie/list?api_key=${apiKey}&language=en-US`
   );
 }
-export function discoverMovie(genreId, page, year) {
+export function discoverMovie(genreId, page, year, sortBy = "popularity.desc") {
   return http.get(
-    `${baseUrl}3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=en-US&primary_release_year=${year}&sort_by=popularity.desc&include_adult=false&include_video=true&page=${page}`
+    `${baseUrl}3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=en-US&primary_release_year=${year}&sort_by=${sortBy}&include_adult=false&include_video=true&page=${page}`
+  );
+}
+export function discoverTv(genreId, page, year, sortBy = "popularity.desc") {
+  return http.get(
+    `${baseUrl}3/discover/tv?api_key=${apiKey}&with_genres=${genreId}&language=en-US&first_air_date_year=${year}&sort_by=${sortBy}&include_adult=false&include_video=true&page=${page}`
   );
 }
 export function getTvgenres() {
