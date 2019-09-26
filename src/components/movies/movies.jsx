@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { getMovies, getPopularMovies } from "../../services/movieServise";
+import { getPopularMovies } from "../../services/movieServise";
 import { getMoviegenres, discoverMovie } from "../../services/genreServise";
 import { totalPages } from "../common/pagination";
+import { handleSearch } from '../../services/searchService'
 import MovieContainer from "./movieContainer";
 import Paginateion from "../common/pagination";
-import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import Title from "../common/title";
 import GroupList from "../common/groupList";
@@ -15,7 +15,6 @@ class Movie extends Component {
     super(prpos);
 
     this.state = {
-      search: "",
       genreSerch: {},
       yearSearch: '',
       data: [],
@@ -39,31 +38,6 @@ class Movie extends Component {
       render: getPopularMovies
     });
   }
-
-  // search
-  handleSearch = async e => {
-    if (e.key === "Enter" && this.state.search !== "") {
-      const data = await getMovies(this.state.search, 1);
-      this.setState({
-        genreSerch: "",
-        data: data.data.results,
-        curentPage: data.data.page,
-        //work around for page get back to 1
-        forcePage: null,
-        totalPages: totalPages(data),
-        // handeling the title change
-        title: `Search > ${this.state.search.charAt(0).toUpperCase() +
-          this.state.search.slice(1)}`,
-        render: getMovies
-      });
-      //work around for page get back to 1
-      this.setState({ forcePage: 0 });
-    }
-  };
-
-  onSearch = e => {
-    this.setState({ search: e.target.value });
-  };
 
   // genreChange
   handleGenreChange = async (e) => {
@@ -121,13 +95,6 @@ class Movie extends Component {
         data: data.data.results
       });
     }
-    if (this.state.render === getMovies) {
-      const data = await getMovies(this.state.search, page);
-      this.setState({
-        curentPage: page,
-        data: data.data.results
-      });
-    }
     if (this.state.render === discoverMovie) {
       const data = await discoverMovie(this.state.genreSerch.id || '', page, this.state.yearSearch || '');
       this.setState({
@@ -138,11 +105,10 @@ class Movie extends Component {
   };
 
   render() {
-
     return (
       <div>
-        <Header />
-        <SearchBox onSearch={this.onSearch} onSearchSubmit={this.handleSearch} />
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
+
         <div className="parent-container d-flex ">
           <GroupList
             selected={this.state.genreSerch.id}
@@ -157,7 +123,7 @@ class Movie extends Component {
             </div>
             <div className="row">
               {this.state.data.map(data => (
-                <MovieContainer key={data.id} data={data} />
+                <MovieContainer key={data.id} data={data} props={this.props} />
               ))}
             </div>
           </div>

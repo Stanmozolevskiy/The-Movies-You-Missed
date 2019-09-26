@@ -4,7 +4,6 @@ import formatDate from "../../utilities/dataFormat";
 import roundBudjet from "../../utilities/roundBudjet";
 
 const MovieDescription = ({ data }) => {
-    console.log(data)
   return (
     <div>
       <h1>{data.title}</h1>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getTvShow } from "../../services/tvShowServise";
-import Header from "../common/header";
+import { handleSearch } from '../../services/searchService'
 import SearchBox from "../common/searchBox";
 import MovieModal from "../common/movieModal";
 import Image from '../common/imageMovieDetails'
@@ -18,7 +18,6 @@ class TvDetails extends Component {
     const { data } = await getTvShow(dataId);
 
     this.setState({ data });
-    console.log(data);
   }
 
   openModal = () => {
@@ -35,11 +34,7 @@ class TvDetails extends Component {
     } else {
       return (
         <div id='modal'>
-          <Header />
-          <SearchBox
-            onSearch={this.handleSearch}
-            onSearchSubmit={this.getData}
-          />
+          <SearchBox onSearchSubmit={handleSearch} />
           <MovieModal
             modalIsOpen={this.state.modalIsOpen}
             openModal={this.openModal}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getMovie } from "../../services/movieServise";
-import Header from "../common/header";
+import { handleSearch } from '../../services/searchService'
 import SearchBox from "../common/searchBox";
 import MovieModal from "../common/movieModal";
 import MovieDescription from './movieDescription'
@@ -19,6 +19,7 @@ class MovieDetais extends Component {
 
     this.setState({ data });
   }
+
   openModal = () => {
     this.setState({ modalIsOpen: true });
   };
@@ -33,11 +34,7 @@ class MovieDetais extends Component {
 
       return (
         <div id='modal'>
-          <Header />
-          <SearchBox
-            onSearch={this.handleSearch}
-            onSearchSubmit={this.getData}
-          />
+          <SearchBox onSearchSubmit={handleSearch} />
           <MovieModal
             modalIsOpen={this.state.modalIsOpen}
             openModal={this.openModal}

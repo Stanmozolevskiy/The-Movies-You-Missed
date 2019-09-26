@@ -2,24 +2,28 @@ import React, { Component } from "react";
 import { getTvShows, getPopularTvShows } from "../../services/tvShowServise";
 import { totalPages } from "../common/pagination";
 import { getTvgenres, serchTvByGenre } from "../../services/genreServise";
-import TvContainer from "./tvContainer";
+import { handleSearch } from '../../services/searchService'
+import MovieContainer from '../movies/movieContainer'
 import Paginateion from "../common/pagination";
-import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import Title from "../common/title";
 import GroupList from "../common/groupList";
 
 class TvShow extends Component {
-  state = {
-    search: "",
-    genreSerch: "",
-    genres: [],
-    data: [],
-    totalPages: [],
-    curentPage: 1,
-    forcePage: 0,
-    title: "Popular TV Shows"
-  };
+  constructor(prpos) {
+    super(prpos);
+
+    this.state = {
+      search: "",
+      genreSerch: "",
+      genres: [],
+      data: [],
+      totalPages: [],
+      curentPage: 1,
+      forcePage: 0,
+      title: "Popular TV Shows"
+    };
+  }
 
   // get populat movies
   async componentDidMount() {
@@ -32,23 +36,6 @@ class TvShow extends Component {
       totalPages: totalPages(data)
     });
   }
-  // search
-  getData = async e => {
-    if (e.key === "Enter" && this.state.search !== "") {
-      const data = await getTvShows(this.state.search, 1);
-      this.setState({
-        data: data.data.results,
-        curentPage: data.data.page,
-        //work around for page get back to 1
-        forcePage: null,
-        totalPages: totalPages(data),
-        title: `Search > ${this.state.search.charAt(0).toUpperCase() +
-          this.state.search.slice(1)}`
-      });
-      //work around for page get back to 1
-      this.setState({ forcePage: 0 });
-    }
-  };
   // genreChange
   handleGenreChange = async e => {
     this.setState({
@@ -72,9 +59,6 @@ class TvShow extends Component {
     this.setState({ forcePage: 0 });
   };
 
-  handleSearch = e => {
-    this.setState({ search: e.target.value });
-  };
 
   handlePageChange = async ({ selected }) => {
     const page = selected + 1;
@@ -93,8 +77,8 @@ class TvShow extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} />
+        <SearchBox onSearchSubmit={handleSearch} />
+
         <div className="parent-container d-flex ">
           <GroupList
             data={this.state.genres}
@@ -107,7 +91,7 @@ class TvShow extends Component {
             </div>
             <div className="row">
               {this.state.data.map(data => (
-                <TvContainer key={data.id} data={data} />
+                <MovieContainer key={data.id} data={data} props={this.props} />
               ))}
             </div>
           </div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getPerson, getPopularPerson } from "../../services/peopleServise";
 import Paginateion from "../common/pagination";
-import Header from "../common/header";
 import SearchBox from "../common/searchBox";
 import Title from "../common/title";
 import PeopleCard from "./peopleCard";
@@ -64,7 +63,6 @@ class People extends Component {
   render() {
     return (
       <div>
-        <Header />
         <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} />
         <div className="container">
           <Title text={this.state.title} />
