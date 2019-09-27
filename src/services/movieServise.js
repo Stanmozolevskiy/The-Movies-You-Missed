@@ -8,7 +8,9 @@ export function getMovies(serch, page) {
   );
 }
 export function getMovie(id) {
-  return http.get(`${baseUrl}/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos`);
+  return http.get(
+    `${baseUrl}/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos,credits`
+  );
 }
 export function getPopularMovies(page) {
   return http.get(

@@ -7,6 +7,7 @@ import MovieModal from "./movieModal";
 import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
 import TrailerButton from "./trailerButton";
+import MovieDetailBody from "./movieDetailBody";
 
 class MovieDetais extends Component {
   constructor(prpos) {
@@ -18,14 +19,14 @@ class MovieDetais extends Component {
   }
 
   async componentDidMount() {
-    if (/tv/.test(this.props.location.pathname)) {
-      const dataId = window.location.pathname.match(/\d/gi).join("");
-      const { data } = await getTvShow(dataId);
-      this.setState({ data });
-    }
     if (/movies/.test(this.props.location.pathname)) {
       const dataId = window.location.pathname.match(/\d/gi).join("");
       const { data } = await getMovie(dataId);
+      this.setState({ data });
+    }
+    if (/tv/.test(this.props.location.pathname)) {
+      const dataId = window.location.pathname.match(/\d/gi).join("");
+      const { data } = await getTvShow(dataId);
       this.setState({ data });
     }
   }
@@ -80,7 +81,7 @@ class MovieDetais extends Component {
             </div>
             {/* image gackgroung container  end*/}
             <div style={{ backgroundColor: "white" }}>
-              <h6>area for acters, revues etc ...</h6>
+              <MovieDetailBody data={this.state.data} props={this.props} />
             </div>
           </div>
         </div>
