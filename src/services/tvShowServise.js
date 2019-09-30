@@ -10,7 +10,7 @@ export function getTvShows(serch, page) {
 }
 export function getTvShow(id) {
   return http.get(
-    `${baseUrl}/3/tv/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos,credits,external_ids,images,keywords,reviews`
+    `${baseUrl}/3/tv/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos,credits,external_ids,keywords,reviews,account_states,translations`
   );
 }
 export function getPopularTvShows(page) {

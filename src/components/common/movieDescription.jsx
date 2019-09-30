@@ -1,7 +1,7 @@
 import React from "react";
 import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
-import roundBudjet from "../../utilities/roundBudjet";
+import IconsForMoVieDescription from './buttons/iconsForMoVieDescription'
 
 const MovieDescription = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -23,14 +23,7 @@ const MovieDescription = ({ data, props }) => {
               className="col-10"
               style={{ padding: "0px", marginTop: "30px" }}
             >
-              <h6>Date : {formatDate(data.release_date)}</h6>
-              <h6>Budget : ${roundBudjet(data.budget)}</h6>
-              <h6>Genres : {data.genres.map(g => g.name).join(" ")}</h6>
-              <h6>Duration : {data.runtime + " m"}</h6>
-              <h6>
-                Country :{" "}
-                {data.production_countries.map(c => c.iso_3166_1).join(" / ")}
-              </h6>
+              <IconsForMoVieDescription />
             </div>
           </div>
         </div>

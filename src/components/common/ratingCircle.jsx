@@ -4,7 +4,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { easeQuadInOut } from "d3-ease";
 
 
-const RatingCircle = ({ rating , className}) => {
+const RatingCircle = ({ rating, className }) => {
     return (
         <AnimatedProgressProvider
 

@@ -9,6 +9,7 @@ import MovieDetais from "./components/common/movieDetails";
 import SearchComponent from "./components/common/searchComponent";
 import Header from "./components/common/header";
 
+
 class App extends Component {
   render() {
     return (

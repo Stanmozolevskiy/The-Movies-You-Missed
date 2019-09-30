@@ -4,7 +4,11 @@ import ProductionCompanieIcons from "./productionCompanieIcons";
 import MovieGeneralDetails from "./movieGeneralDetails";
 import HomePage from "./buttons/homePage";
 import SmallPeopleCardCast from "./smalPeopleCardCast";
-import InstagramIcon from "./buttons/instagramIcon";
+import IMDBIcon from "./buttons/imdb";
+import InstagramIcon from './buttons/instagram'
+import FacebookIcon from './buttons/facebookIcon'
+import Twitter from './buttons/twittwe'
+import TrailerContainer from './trailersContainer'
 
 const MovieDetailBody = ({ data, props }) => {
   console.log(data);
@@ -24,12 +28,24 @@ const MovieDetailBody = ({ data, props }) => {
               <hr />
             </div>
           </div>
-          <div className="row">
+          <div className="row" >
             <SmallPeopleCardCast
               props={props}
-              data={data.credits.cast.filter(x => x.order < 5)}
+              data={data.credits.cast.filter(x => x.order < 9)}
             />
           </div>
+          <br />
+          <br />
+          <br />
+          <div className="row" >
+            <TrailerContainer
+              props={props}
+              data={data.videos.results}
+            />
+          </div>
+          <br />
+          <br />
+          <br />
         </div>
         {/*  RIGHT SIDE */}
         <div className="col-3 movie-body-right">
@@ -40,11 +56,14 @@ const MovieDetailBody = ({ data, props }) => {
           <div className="row">
             <div className="col-2"></div>
 
-            <div className="col-6">
+            <div className="col-7">
               <HomePage data={data.homepage} />
-              <InstagramIcon data={data.imdb_id} />
+              <IMDBIcon data={data.imdb_id} />
+              <FacebookIcon data={data.external_ids.facebook_id} />
+              <InstagramIcon data={data.external_ids.instagram_id} />
+              <Twitter data={data.external_ids.twitter_id} />
             </div>
-            <div className="col-4"></div>
+            <div className="col-3"></div>
           </div>
           <div className="row">
             <div className="col-3"></div>

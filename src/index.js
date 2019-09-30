@@ -9,9 +9,9 @@ import "font-awesome/css/font-awesome.css";
 
 
 ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
-  registerServiceWorker();
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+registerServiceWorker();
