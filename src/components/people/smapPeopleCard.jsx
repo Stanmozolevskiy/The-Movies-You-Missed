@@ -9,7 +9,6 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
           maxWidth: "40%",
           maxHeight: "40%",
           margin: "5% 0 5% 22%",
-          // background: "#F9EEEE",
           padding: "2px"
         }}
       >
@@ -38,7 +37,6 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
           maxWidth: "40%",
           maxHeight: "40%",
           margin: "5% 0 5% 22%",
-          // background: "#F9EEEE",
           padding: "2px"
         }}
       >

@@ -7,7 +7,9 @@ const MovieDescription = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
     return (
       <div>
-        <h1>{data.title}</h1>
+        <h1>
+          {data.title} ({formatDate(data.release_date, "YYYY")})
+        </h1>
 
         <div className="container">
           <div className="row">
@@ -41,7 +43,9 @@ const MovieDescription = ({ data, props }) => {
     // Details for TV show (because of inconsistant API)
     return (
       <div>
-        <h1>{data.name}</h1>
+        <h1>
+          {data.name} ({formatDate(data.first_air_date, "YYYY")})
+        </h1>
         <div className="container">
           <div className="row">
             <div className="col-2" style={{ padding: "0px" }}>
