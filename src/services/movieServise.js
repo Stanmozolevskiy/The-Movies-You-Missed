@@ -17,3 +17,8 @@ export function getPopularMovies(page) {
     `${baseUrl}3/movie/popular?api_key=${apiKey}&language=en-US&&page=${page}`
   );
 }
+export function getMovieCollection(collection_id) {
+  return http.get(
+    `${baseUrl}3/collection/${collection_id}?api_key=${apiKey}&language=en-US`
+  );
+}

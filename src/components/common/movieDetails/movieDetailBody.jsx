@@ -9,10 +9,11 @@ import InstagramIcon from '../buttons/instagram'
 import FacebookIcon from '../buttons/facebookIcon'
 import Twitter from '../buttons/twittwe'
 import TrailerContainer from './trailersContainer'
+import Collection from '../../movies/collection'
 
 const MovieDetailBody = ({ data, props }) => {
-  console.log(data);
   if (/movies/.test(props.location.pathname)) {
+    console.log(data)
     return (
       // LEFT SIDE
       <div className="row">
@@ -54,6 +55,15 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
           <br />
+
+          <div className="row">
+            <div className="col-12" style={{ padding: '0px' }}>
+              <Collection data={data.belongs_to_collection} />
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
         </div>
         {/*  RIGHT SIDE */}
         <div className="col-3 movie-body-right">
@@ -83,6 +93,7 @@ const MovieDetailBody = ({ data, props }) => {
 
             </div>
             <div className="col-3"></div>
+
           </div>
         </div>
       </div>
