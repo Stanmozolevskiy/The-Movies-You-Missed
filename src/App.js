@@ -5,8 +5,8 @@ import Movie from "./components/movies/movies";
 import TvShow from "./components/tvShows/tvShows";
 import People from "./components/people/people";
 import Footer from "./components/common/footer";
-import MovieDetais from "./components/common/movieDetails";
-import SearchComponent from "./components/common/searchComponent";
+import MovieDetais from "./components/common/movieDetails/movieDetails";
+import SearchComponent from "./components/search/searchComponent";
 import Header from "./components/common/header";
 
 

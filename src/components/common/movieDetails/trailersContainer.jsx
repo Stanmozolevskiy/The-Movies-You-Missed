@@ -3,12 +3,11 @@ import YouTube from "react-youtube";
 
 
 const TrailerContainer = ({ data }) => {
-    console.log(data)
     return (
         <div
             className="text-center "
             style={{
-                backgroundColor: "#333",
+                // backgroundColor: "#333",
                 overflow: 'auto',
                 whiteSpace: 'nowrap',
             }}>
@@ -19,7 +18,7 @@ const TrailerContainer = ({ data }) => {
                     style={{
                         display: 'inline-block',
                         color: 'white',
-                        margin: '40px',
+                        margin: '10px',
                     }}
                 >
                     <YouTube
@@ -33,11 +32,8 @@ const TrailerContainer = ({ data }) => {
                             },
                         }}
                     />
-
                 </div>
-
             )}
-
         </div>
     );
 }

@@ -5,7 +5,7 @@ import { getTvgenres, discoverTv } from "../../services/genreServise";
 import { handleSearch } from "../../services/searchService";
 import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
-import SearchBox from "../common/searchBox";
+import SearchBox from "../search/searchBox";
 import Title from "../common/title";
 import GroupList from "../common/groupList";
 import DropDown from "../common/dropDown";

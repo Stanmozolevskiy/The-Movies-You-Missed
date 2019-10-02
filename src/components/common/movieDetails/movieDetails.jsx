@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { getMovie } from "../../services/movieServise";
-import { getTvShow } from "../../services/tvShowServise";
-import { handleSearch } from "../../services/searchService";
-import SearchBox from "./searchBox";
+import { getMovie } from "../../../services/movieServise";
+import { getTvShow } from "../../../services/tvShowServise";
+import { handleSearch } from "../../../services/searchService";
+import SearchBox from "../../search/searchBox";
 import MovieModal from "./movieModal";
 import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
@@ -62,7 +62,7 @@ class MovieDetais extends Component {
             }}
           >
             {/* image gackgroung container start*/}
-            <div style={{ backgroundColor: "rgba(85, 58, 58, .8)" }}>
+            <div style={{ backgroundColor: "rgba(85, 58, 58, .8)", height: '600px' }}>
               <div className="container ">
                 <div className="row">
                   <div className="col-4">

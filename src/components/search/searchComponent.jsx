@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { getMovies } from "../../services/movieServise";
 import SearchBox from "./searchBox";
-import Title from "./title";
-import MovieContainer from "./movieContainer";
+import Title from "../common/title";
+import MovieContainer from "../common/movieContainer";
 import { totalPages } from "../common/pagination";
-import Paginateion from "./pagination";
-import GroupListSearchOptions from "./groupListSearchOptions";
+import Paginateion from "../common/pagination";
+import GroupListSearchOptions from "../common/groupListSearchOptions";
 
 class SearchComponent extends Component {
   constructor(prpos) {

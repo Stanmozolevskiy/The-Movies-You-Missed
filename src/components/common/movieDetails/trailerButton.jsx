@@ -7,7 +7,7 @@ const TrailerButton = ({ handleTrailer }) => {
                 className="fa fa-play fa-1x"
                 aria-hidden="true"
                 style={{ margin: "10px", cursor: "pointer" }}
-            />    watch trailer
+            />   watch trailer
       </div>
     );
 }
