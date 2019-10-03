@@ -5,15 +5,16 @@ import MovieGeneralDetails from "../movieDetails/movieGeneralDetails";
 import HomePage from "../buttons/homePage";
 import SmallPeopleCardCast from "./smalPeopleCardCast";
 import IMDBIcon from "../buttons/imdb";
-import InstagramIcon from '../buttons/instagram'
-import FacebookIcon from '../buttons/facebookIcon'
-import Twitter from '../buttons/twittwe'
-import TrailerContainer from './trailersContainer'
-import Collection from '../../movies/collection'
+import InstagramIcon from "../buttons/instagram";
+import FacebookIcon from "../buttons/facebookIcon";
+import Twitter from "../buttons/twittwe";
+import TrailerContainer from "./trailersContainer";
+import Collection from "../../movies/collection";
+import PostersContainer from "./postersContainer";
 
 const MovieDetailBody = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
-    console.log(data)
+    console.log(data);
     return (
       // LEFT SIDE
       <div className="row">
@@ -29,9 +30,9 @@ const MovieDetailBody = ({ data, props }) => {
               <hr />
             </div>
           </div>
-          <div className="row" >
+          <div className="row">
             <div className="col-2"></div>
-            <div className="col-10" style={{ padding: '0px' }}>
+            <div className="col-10" style={{ padding: "0px" }}>
               <h3>Top cast:</h3>
               <SmallPeopleCardCast
                 props={props}
@@ -42,14 +43,21 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
           <br />
-          <div className="row" >
+          <div className="row">
             <div className="col-2"></div>
-            <div className="col-10" style={{ padding: '0px' }}>
+            <div className="col-10" style={{ padding: "0px" }}>
               <h3>Videos and Trailers</h3>
-              <TrailerContainer
-                props={props}
-                data={data.videos.results}
-              />
+              <TrailerContainer props={props} data={data.videos.results} />
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <div className="row">
+            <div className="col-2"></div>
+            <div className="col-10" style={{ padding: "0px" }}>
+              <h3>Videos and Trailers</h3>
+              <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
           <br />
@@ -57,7 +65,7 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
 
           <div className="row">
-            <div className="col-12" style={{ padding: '0px' }}>
+            <div className="col-12" style={{ padding: "0px" }}>
               <Collection data={data.belongs_to_collection} />
             </div>
           </div>
@@ -90,10 +98,8 @@ const MovieDetailBody = ({ data, props }) => {
             <div className="col-1"></div>
             <div className="col-8">
               <MovieGeneralDetails data={data} props={props} />
-
             </div>
             <div className="col-3"></div>
-
           </div>
         </div>
       </div>
@@ -111,9 +117,9 @@ const MovieDetailBody = ({ data, props }) => {
             <hr />
           </div>
 
-          <div className="row" >
+          <div className="row">
             <div className="col-2"></div>
-            <div className="col-10" style={{ padding: '0px' }}>
+            <div className="col-10" style={{ padding: "0px" }}>
               <h3>Top cast:</h3>
               <SmallPeopleCardCast
                 props={props}
@@ -124,14 +130,21 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
           <br />
-          <div className="row" >
+          <div className="row">
             <div className="col-2"></div>
-            <div className="col-10" style={{ padding: '0px' }}>
+            <div className="col-10" style={{ padding: "0px" }}>
               <h3>Videos and Trailers</h3>
-              <TrailerContainer
-                props={props}
-                data={data.videos.results}
-              />
+              <TrailerContainer props={props} data={data.videos.results} />
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <div className="row">
+            <div className="col-2"></div>
+            <div className="col-10" style={{ padding: "0px" }}>
+              <h3>Videos and Trailers</h3>
+              <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
           <br />
