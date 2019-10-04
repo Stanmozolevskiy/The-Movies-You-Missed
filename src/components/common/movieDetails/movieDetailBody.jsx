@@ -56,7 +56,7 @@ const MovieDetailBody = ({ data, props }) => {
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Videos and Trailers</h3>
+              <h3>Posters</h3>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
@@ -143,7 +143,7 @@ const MovieDetailBody = ({ data, props }) => {
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Videos and Trailers</h3>
+              <h3>Posters </h3>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>

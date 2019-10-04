@@ -109,13 +109,13 @@ body {
 }
 
 .logo-img {
-  margin-left: 130px;
-  margin-top: 10px;
-  width: 75px;
+  /* margin-left: 130px; */
+  margin-top: 0px;
+  width: 68px;
 }
 
 .header {
-  background: #201d1d;
+  background: #272525;
   display: block;
   height: 110px;
 }
@@ -162,7 +162,6 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
-
 }
 
 .movie-description-container {

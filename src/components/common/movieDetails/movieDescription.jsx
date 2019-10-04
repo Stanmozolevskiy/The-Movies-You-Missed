@@ -1,7 +1,8 @@
 import React from "react";
 import RatingCircle from "../ratingCircle";
 import formatDate from "../../../utilities/dataFormat";
-import IconsForMoVieDescription from '../buttons/iconsForMoVieDescription'
+import IconsForMoVieDescription from "../buttons/iconsForMoVieDescription";
+import PlayMovie from "../buttons/playMovie";
 
 const MovieDescription = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -26,7 +27,8 @@ const MovieDescription = ({ data, props }) => {
             </div>
           </div>
         </div>
-        <h6 style={{ lineHeight: 1.9, marginTop: '50px' }}>{data.overview}</h6>
+        <h6 style={{ lineHeight: 1.9, marginTop: "50px" }}>{data.overview}</h6>
+        <PlayMovie />
       </div>
     );
   } else {
@@ -52,7 +54,8 @@ const MovieDescription = ({ data, props }) => {
             </div>
           </div>
         </div>
-        <h6 style={{ lineHeight: 1.9, marginTop: '50px' }}>{data.overview}</h6>
+        <h6 style={{ lineHeight: 1.9, marginTop: "50px" }}>{data.overview}</h6>
+        <PlayMovie />
       </div>
     );
   }
