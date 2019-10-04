@@ -3,7 +3,6 @@ import { getMovie } from "../../../services/movieServise";
 import { getTvShow } from "../../../services/tvShowServise";
 import { handleSearch } from "../../../services/searchService";
 import SearchBox from "../../search/searchBox";
-import MovieModal from "./movieModal";
 import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
 import TrailerButton from "./trailerButton";
@@ -13,8 +12,7 @@ class MovieDetais extends Component {
   constructor(prpos) {
     super(prpos);
     this.state = {
-      data: [],
-      modalIsOpen: false
+      data: []
     };
   }
 
@@ -31,13 +29,6 @@ class MovieDetais extends Component {
     }
   }
 
-  openModal = () => {
-    this.setState({ modalIsOpen: true });
-  };
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
-  };
-
   render() {
     if (this.state.data.genres === undefined) {
       return null;
@@ -45,16 +36,6 @@ class MovieDetais extends Component {
       return (
         <div id="modal">
           <SearchBox onSearchSubmit={handleSearch} />
-          <MovieModal
-            modalIsOpen={this.state.modalIsOpen}
-            openModal={this.openModal}
-            closeModal={this.closeModal}
-            videoId={
-              this.state.data.videos.results[0] === undefined
-                ? null
-                : this.state.data.videos.results[0].key
-            }
-          />
           <div
             className="movie-background"
             style={{
@@ -67,7 +48,7 @@ class MovieDetais extends Component {
                 <div className="row">
                   <div className="col-4">
                     <Image imageId={this.state.data.poster_path} />
-                    <TrailerButton handleTrailer={this.openModal} />
+                    <TrailerButton data={this.state.data.videos.results[0]} />
                   </div>
 
                   <div className="col-8 movie-description-container">

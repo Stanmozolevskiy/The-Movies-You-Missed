@@ -144,6 +144,9 @@ body {
   text-anchor: middle;
   margin-top: 20px;
 }
+.hover-red :hover{
+color: red
+}
 
 .vatch-trailer-btn-cover {
   position: absolute;

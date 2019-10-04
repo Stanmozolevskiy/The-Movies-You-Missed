@@ -1,7 +1,6 @@
 import React from "react";
 
 const PostersContainer = ({ data }) => {
-  console.log(data);
   return (
     <div
       className="text-center "

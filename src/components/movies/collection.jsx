@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Collection = ({ data }) => {
-    console.log(data)
     if (data !== null) {
         return (
             <div>
@@ -23,7 +22,7 @@ const Collection = ({ data }) => {
                                         <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`} alt="" className="card-img" />
                                         <div className="card-body" style={{ padding: '0px' }}>
                                             <h5 className="card-text" style={{ color: 'black', textAlign: 'center', padding: '4px' }}>
-                                                {data.name.length >= 19 ? data.name.slice(0, 19)  : data.name}
+                                                {data.name.length >= 19 ? data.name.slice(0, 19) : data.name}
                                             </h5>
                                         </div>
                                     </div>

@@ -14,7 +14,6 @@ import PostersContainer from "./postersContainer";
 
 const MovieDetailBody = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
-    console.log(data);
     return (
       // LEFT SIDE
       <div className="row">
