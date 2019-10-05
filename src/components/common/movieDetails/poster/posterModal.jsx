@@ -1,18 +1,10 @@
 import React from "react";
 import Modal from "react-modal";
-import YouTube from "react-youtube";
 
-const opts = {
-  height: "585",
-  width: "960",
-  playerVars: {
-    autoplay: 1
-  }
-};
 // work around, important
 Modal.setAppElement("#root");
 
-const MovieModal = ({ modalIsOpen, afterOpenModal, closeModal, videoId }) => {
+const PosterModal = ({ modalIsOpen, afterOpenModal, closeModal, imgUrl }) => {
   return (
     <div>
       {/* Modal */}
@@ -24,11 +16,15 @@ const MovieModal = ({ modalIsOpen, afterOpenModal, closeModal, videoId }) => {
         overlayClassName="Modal-Overlay"
         contentLabel="Example Modal"
       >
-        {/* The youtube video */}
-        <YouTube videoId={videoId} opts={opts} />
+        {/* The Image sorce */}
+        <img
+          src={imgUrl}
+          alt=""
+          style={{ maxWidth: "1170px", maxHeight: "1920px" }}
+        />
       </Modal>
     </div>
   );
 };
 
-export default MovieModal;
+export default PosterModal;

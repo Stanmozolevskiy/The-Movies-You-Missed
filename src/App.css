@@ -9,6 +9,10 @@ body {
   display: block;
 }
 
+.poster-container:hover {
+  border: 1px solid darkred;
+}
+
 .multiline-ellipsis {
   display: block;
   display: -webkit-box;
@@ -144,8 +148,8 @@ body {
   text-anchor: middle;
   margin-top: 20px;
 }
-.hover-red :hover{
-color: red
+.hover-red :hover {
+  color: red;
 }
 
 .vatch-trailer-btn-cover {

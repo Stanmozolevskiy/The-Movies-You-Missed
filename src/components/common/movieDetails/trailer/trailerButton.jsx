@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieModal from './movieModal'
+import MovieModal from './trailerModal'
 
 // Button and the Modile together
 class TrailerButton extends Component {

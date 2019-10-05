@@ -3,14 +3,15 @@ import SmallPeopleCard from "../../people/smapPeopleCard";
 import ProductionCompanieIcons from "../productionCompanieIcons";
 import MovieGeneralDetails from "../movieDetails/movieGeneralDetails";
 import HomePage from "../buttons/homePage";
-import SmallPeopleCardCast from "./smalPeopleCardCast";
 import IMDBIcon from "../buttons/imdb";
 import InstagramIcon from "../buttons/instagram";
 import FacebookIcon from "../buttons/facebookIcon";
 import Twitter from "../buttons/twittwe";
-import TrailerContainer from "./trailersContainer";
+import TrailerContainer from "./trailer/trailersContainer";
 import Collection from "../../movies/collection";
-import PostersContainer from "./postersContainer";
+import PostersContainer from "./poster/postersContainer";
+import CommentsBody from "../comments/commentsBody";
+import CastContainer from "./cast/castContainer";
 
 const MovieDetailBody = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -33,7 +34,7 @@ const MovieDetailBody = ({ data, props }) => {
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
               <h3>Top cast:</h3>
-              <SmallPeopleCardCast
+              <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 9)}
               />
@@ -42,13 +43,23 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
           <br />
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Videos and Trailers</h3>
-              <TrailerContainer props={props} data={data.videos.results} />
+          {data.videos.results.length <= 1 ? (
+            ""
+          ) : (
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-10" style={{ padding: "0px" }}>
+                <h3>Videos and Trailers</h3>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
+              </div>
             </div>
-          </div>
+          )}
           <br />
           <br />
           <br />
@@ -60,9 +71,9 @@ const MovieDetailBody = ({ data, props }) => {
             </div>
           </div>
           <br />
+          <CommentsBody data={data.reviews.results} />
           <br />
           <br />
-
           <div className="row">
             <div className="col-12" style={{ padding: "0px" }}>
               <Collection data={data.belongs_to_collection} />
@@ -120,7 +131,7 @@ const MovieDetailBody = ({ data, props }) => {
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
               <h3>Top cast:</h3>
-              <SmallPeopleCardCast
+              <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 9)}
               />
@@ -129,13 +140,23 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
           <br />
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Videos and Trailers</h3>
-              <TrailerContainer props={props} data={data.videos.results} />
+          {data.videos.results.length <= 1 ? (
+            ""
+          ) : (
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-10" style={{ padding: "0px" }}>
+                <h3>Videos and Trailers</h3>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
+              </div>
             </div>
-          </div>
+          )}
           <br />
           <br />
           <br />

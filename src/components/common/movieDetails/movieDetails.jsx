@@ -5,7 +5,7 @@ import { handleSearch } from "../../../services/searchService";
 import SearchBox from "../../search/searchBox";
 import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
-import TrailerButton from "./trailerButton";
+import TrailerButton from "./trailer/trailerButton";
 import MovieDetailBody from "./movieDetailBody";
 
 class MovieDetais extends Component {

@@ -1,7 +1,7 @@
 import React from "react";
-import ModalForTrailer from './modalForTrailers';
+import ModalForPoster from "./modalForPoster";
 
-const TrailerContainer = ({ data, props }) => {
+const PostersContainer = ({ data }) => {
   return (
     <div
       className="text-center "
@@ -12,11 +12,10 @@ const TrailerContainer = ({ data, props }) => {
       }}
     >
       {data.map(x => (
-        <ModalForTrailer key={x.id} data={x} />
+        <ModalForPoster data={x} key={x.file_path} />
       ))}
     </div>
   );
 };
 
-export default TrailerContainer;
-
+export default PostersContainer;
