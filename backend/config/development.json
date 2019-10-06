@@ -1,0 +1,5 @@
+{
+    "name": "movieapes-backend",
+     "jwtPrivetKey": "movieapes_jwtPrivetKey",
+    "db": "mongodb://localhost:27017/movieapes"
+}

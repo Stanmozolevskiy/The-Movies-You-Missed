@@ -25,18 +25,19 @@ class ModalForCast extends Component {
         }}
       >
         <div
-          className="text-center hover-red"
+          className="text-center "
           onClick={this.openModal}
           style={{
             maxWidth: "200px",
             display: "inline-block",
             marginLeft: "20px",
-            marginRight: "20px"
+            marginRight: "20px",
+            cursor: "pointer"
           }}
         >
           <img
             className=" img-fluid"
-            style={{ maxWidth: "70%" }}
+            style={{ maxWidth: "80%" }}
             src={
               this.props.data.profile_path === null
                 ? window.location.origin + "/people-image-placeholder.jpg"
