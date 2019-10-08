@@ -6,7 +6,8 @@ const helmet = require("helmet");
 Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
 const port = process.env.PORT || 3001;
-const users = require('./routes/users')
+const users = require("./routes/users");
+const auth = require("./routes/auth");
 
 mongoose
   .connect(config.get("db"), {
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(helmet());
 
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 
 app.use(function(req, res, next) {
   console.log("Authenticating...");

@@ -22,16 +22,19 @@ const userSchema = new mongoose.Schema({
     require: true,
     minlength: 4,
     maxlength: 1024
+  },
+  isAdmin: {
+    type: String
   }
 });
 
 // this is where JWT get created
-// userSchema.methods.generateAuthToken = function() {
-//   return (token = jwt.sign(
-//     { _id: this._id, isAdmin: this.isAdmin },
-//     config.get("jwtPrivetKey")
-//   ));
-// };
+userSchema.methods.generateAuthToken = function() {
+  return (token = jwt.sign(
+    { _id: this._id, isAdmin: this.isAdmin },
+    config.get("jwtPrivetKey")
+  ));
+};
 const User = mongoose.model("Users", userSchema);
 
 function validateUser(user) {
