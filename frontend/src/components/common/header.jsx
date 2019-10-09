@@ -33,7 +33,7 @@ const Header = () => {
                   <a className="navbar-btn" href="/signin">
                     singup
                   </a>
-                  <a className="navbar-btn" href="/signup">
+                  <a className="navbar-btn" href="/register">
                     singin
                   </a>
                 </th>

@@ -7,21 +7,24 @@ import {
   MDBCardBody,
   MDBInput,
   MDBBtn,
-  MDBIcon,
-  MDBModalFooter
+  MDBIcon
 } from "mdbreact";
-import { singnIn } from "../../services/userService";
+import { regester } from "../../services/userService";
 
-class SingIn extends Component {
+class Register extends Component {
   state = {
+    name: "",
     email: "",
     password: ""
   };
-
   onSubmit = async () => {
-    const jwt = await singnIn(this.state);
+    const jwt = await regester(this.state);
     localStorage.setItem("token", jwt);
     this.props.history.push("/");
+  };
+
+  handleNameChange = e => {
+    this.setState({ name: e.target.value });
   };
   handleEmailChange = e => {
     this.setState({ email: e.target.value });
@@ -29,7 +32,6 @@ class SingIn extends Component {
   handlePasswordChange = e => {
     this.setState({ password: e.target.value });
   };
-
   render() {
     return (
       <div className="row">
@@ -47,15 +49,53 @@ class SingIn extends Component {
                   <MDBCardBody className="mx-4">
                     <div className="text-center">
                       <h3 className="dark-grey-text mb-5">
-                        <strong>Sign In</strong>
+                        <strong>Sign Up</strong>
                       </h3>
                       <p>
                         Already have an account?
-                        <a href="/register"> Please sign up now.</a>
+                        <a href="/signin"> Please sign in now.</a>
                       </p>
                     </div>
+                    <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+                      or Sign in with:
+                    </p>
+                    <div className="row my-3 d-flex justify-content-center">
+                      <MDBBtn
+                        type="button"
+                        color="white"
+                        rounded
+                        className="mr-md-3 z-depth-1a"
+                      >
+                        <MDBIcon
+                          fab
+                          icon="facebook-f"
+                          className="blue-text text-center"
+                        />
+                      </MDBBtn>
+                      <MDBBtn
+                        type="button"
+                        color="white"
+                        rounded
+                        className="z-depth-1a"
+                      >
+                        <MDBIcon
+                          fab
+                          icon="google-plus-g"
+                          className="blue-text"
+                        />
+                      </MDBBtn>
+                    </div>
                     <MDBInput
-                      label="Your Email"
+                      label="Your name"
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                      onChange={this.handleNameChange}
+                    />
+                    <MDBInput
+                      label="Your email"
                       group
                       type="email"
                       validate
@@ -97,4 +137,4 @@ class SingIn extends Component {
   }
 }
 
-export default SingIn;
+export default Register;
