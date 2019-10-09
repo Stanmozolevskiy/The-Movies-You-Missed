@@ -1,4 +1,3 @@
-// const auth = require("../middleware/auth");
 const express = require("express");
 const _ = require("lodash");
 const router = express.Router();
@@ -23,9 +22,8 @@ router.post("/", async (req, res) => {
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
 
-  //   const token = user.generateAuthToken();
-
-  res.send(_.pick(user, ["name", "email"]));
+  const token = user.generateAuthToken();
+  res.send(token);
 });
 
 module.exports = router;

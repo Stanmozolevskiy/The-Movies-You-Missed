@@ -30,6 +30,12 @@ const Header = () => {
                   <a className="navbar-btn" href="/people">
                     People
                   </a>
+                  <a className="navbar-btn" href="/signin">
+                    singup
+                  </a>
+                  <a className="navbar-btn" href="/signup">
+                    singin
+                  </a>
                 </th>
               </tr>
             </tbody>

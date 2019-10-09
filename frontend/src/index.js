@@ -6,6 +6,10 @@ import App from './App';
 import registerServiceWorker from "./registerServiceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+//for the cc for login
+// import "mdbreact/dist/css/mdb.css";
 
 
 ReactDOM.render(

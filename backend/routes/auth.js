@@ -33,10 +33,11 @@ router.post("/", async (req, res) => {
   if (!validPassword)
     return res.status(400).send("Problem with Email or Password");
 
+  const token = user.generateAuthToken();
+  res.send(token);
 
-//   res.send(true);
-    const token = user.generateAuthToken();
-    res.send(token);
+  $window.sessionStorage.accessToken = token
+
 });
 
 module.exports = router;

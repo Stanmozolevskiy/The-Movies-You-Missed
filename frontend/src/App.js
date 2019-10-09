@@ -8,6 +8,8 @@ import Footer from "./components/common/footer";
 import MovieDetais from "./components/common/movieDetails/movieDetails";
 import SearchComponent from "./components/search/searchComponent";
 import Header from "./components/common/header";
+import SingUp from "./components/login/signUp";
+import SingIn from "./components/login/signIn";
 
 
 class App extends Component {
@@ -23,6 +25,8 @@ class App extends Component {
           <Route path="/movies" component={Movie} />
           <Route path="/tv" component={TvShow} />
           <Route path="/people" component={People} />
+          <Route path="/signin" component={SingUp} />
+          <Route path="/signup" component={SingIn} />
           <Redirect to="/movies" />
           {/* <Route path="/register" component={RegisterForm} />
             
