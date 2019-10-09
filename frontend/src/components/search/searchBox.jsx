@@ -2,16 +2,16 @@ import React from "react";
 
 const SearchBox = ({ onSearch, onSearchSubmit }) => {
   return (
-    <div className="search-box" style={{ height: "40px" }}>
+    <div className="search-box-custom " style={{ height: "40px" }}>
       <div className="container md-form mb-3 mt-0 ">
         <input
           onKeyDown={onSearchSubmit}
-          className="search-box"
+          className="search-box-custom "
           type="text"
           placeholder=" Search for a movie, tv show or a person..."
           onChange={onSearch}
           aria-label="Search"
-          style={{"marginLeft": "100px"}}
+          style={{ marginLeft: "100px" }}
         />
       </div>
     </div>

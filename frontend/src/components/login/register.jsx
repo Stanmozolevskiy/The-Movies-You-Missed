@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import {
   MDBContainer,
   MDBRow,
@@ -6,10 +7,12 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBBtn,
-  MDBIcon
+  MDBBtn
 } from "mdbreact";
 import { regester } from "../../services/userService";
+import { GoogleLogin } from "react-google-login";
+import FacebookLogin from "react-facebook-login";
+import style from "mdbreact/dist/css/mdb.css";
 
 class Register extends Component {
   state = {
@@ -32,14 +35,19 @@ class Register extends Component {
   handlePasswordChange = e => {
     this.setState({ password: e.target.value });
   };
+  responseGoogle = response => {
+    console.log(response);
+  };
+  responseFacebook = response => {
+    console.log(response);
+  };
+
   render() {
     return (
       <div className="row">
         <div className="col-4"></div>
 
         <div className="col-7">
-          <br />
-          <br />
           <br />
           <br />
           <MDBContainer>
@@ -60,30 +68,46 @@ class Register extends Component {
                       or Sign in with:
                     </p>
                     <div className="row my-3 d-flex justify-content-center">
-                      <MDBBtn
-                        type="button"
-                        color="white"
-                        rounded
-                        className="mr-md-3 z-depth-1a"
-                      >
-                        <MDBIcon
-                          fab
-                          icon="facebook-f"
-                          className="blue-text text-center"
-                        />
-                      </MDBBtn>
-                      <MDBBtn
-                        type="button"
-                        color="white"
-                        rounded
-                        className="z-depth-1a"
-                      >
-                        <MDBIcon
-                          fab
-                          icon="google-plus-g"
-                          className="blue-text"
-                        />
-                      </MDBBtn>
+                      <div className="container">
+                        <div className="row">
+                          <div
+                            className="col-6"
+                            style={{ textAlign: "center" }}
+                          >
+                            <FacebookLogin
+                              appId="2402789373313793"
+                              autoLoad={false}
+                              fields="name,email,picture"
+                              textButton="Login"
+                              cssClass="my-facebook-button-class"
+                              icon={
+                                <i
+                                  className="fa fa-facebook-official fa-2x"
+                                  aria-hidden="true"
+                                  style={{
+                                    marginRight: "15px",
+                                    padding: "0px"
+                                  }}
+                                />
+                              }
+                              // onClick={componentClicked}
+                              callback={this.responseFacebook}
+                            />
+                          </div>
+                          <div
+                            className="col-6"
+                            style={{ textAlign: "center" }}
+                          >
+                            <GoogleLogin
+                              clientId="886849711953-oo34cvtbgrbqshtaod17257cuila6i4i.apps.googleusercontent.com"
+                              buttonText="Login"
+                              onSuccess={this.responseGoogle}
+                              onFailure={this.responseGoogle}
+                              cookiePolicy={"single_host_origin"}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <MDBInput
                       label="Your name"

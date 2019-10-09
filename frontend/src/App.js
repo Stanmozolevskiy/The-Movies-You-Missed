@@ -10,13 +10,14 @@ import SearchComponent from "./components/search/searchComponent";
 import Header from "./components/common/header";
 import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";
+import NavBar from "./components/common/navbar/navBar";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         {/* <ToastContainer /> */}
-        <Header></Header>
+        <NavBar />
         <Switch>
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
@@ -26,7 +27,7 @@ class App extends Component {
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
-          <Redirect to="/movies" />
+          {/* <Redirect to="/movies" /> */}
           {/* <Route path="/register" component={RegisterForm} />
             
             <Route path="/not-found" component={NotFound} /> */}
