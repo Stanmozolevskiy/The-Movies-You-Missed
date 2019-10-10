@@ -9,7 +9,7 @@ import "font-awesome/css/font-awesome.css";
 
 
 //for the cc for login
-
+import "mdbreact/dist/css/mdb.css";
 
 ReactDOM.render(
   <BrowserRouter>

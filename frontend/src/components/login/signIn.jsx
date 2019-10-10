@@ -7,8 +7,6 @@ import {
   MDBCardBody,
   MDBInput,
   MDBBtn,
-  MDBIcon,
-  MDBModalFooter
 } from "mdbreact";
 import { singnIn } from "../../services/userService";
 

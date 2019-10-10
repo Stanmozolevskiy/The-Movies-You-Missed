@@ -9,6 +9,9 @@ body {
   display: block;
 }
 
+.poster-container {
+  border: 1px solid white;
+}
 .poster-container:hover {
   border: 1px solid darkred;
 }

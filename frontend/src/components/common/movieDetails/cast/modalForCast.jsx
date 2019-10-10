@@ -36,7 +36,7 @@ class ModalForCast extends Component {
           }}
         >
           <img
-            className=" img-fluid"
+            className=" img-fluid poster-container"
             style={{ maxWidth: "80%" }}
             src={
               this.props.data.profile_path === null

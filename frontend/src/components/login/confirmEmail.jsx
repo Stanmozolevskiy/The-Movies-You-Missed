@@ -5,8 +5,6 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBInput,
-  MDBBtn
 } from "mdbreact";
 import { regester } from "../../services/userService";
 import { GoogleLogin } from "react-google-login";
@@ -73,7 +71,13 @@ class ConfirmEmail extends Component {
                     <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"></p>
                     <div className="row my-3 d-flex justify-content-center">
                       <h5>Please confirm your email</h5>
+                      <br />
+                      <br />
                       <div className="container">
+                        <h6 style={{ textAlign: "center" }}>
+                          or sind in with :
+                        </h6>
+                        <br />
                         <div className="row">
                           <div
                             className="col-6"
@@ -104,12 +108,14 @@ class ConfirmEmail extends Component {
                             style={{ textAlign: "center" }}
                           >
                             <GoogleLogin
-                            clientId="886849711953-oo34cvtbgrbqshtaod17257cuila6i4i.apps.googleusercontent.com"
-                            buttonText="Login"
-                            onSuccess={this.responseGoogle}
-                            onFailure={this.responseGoogle}
-                            cookiePolicy={"single_host_origin"}
-                          />
+                              clientId="886849711953-oo34cvtbgrbqshtaod17257cuila6i4i.apps.googleusercontent.com"
+                              buttonText="Login"
+                              onSuccess={this.responseGoogle}
+                              onFailure={this.responseGoogle}
+                              cookiePolicy={"single_host_origin"}
+                            />
+                            <br />
+                            <br />
                           </div>
                         </div>
                       </div>
