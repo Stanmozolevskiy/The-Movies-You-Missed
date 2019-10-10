@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav
-      class="navbar  navbar-expand-md custom-navbar navbar-dark"
+      className="navbar  navbar-expand-md custom-navbar navbar-dark"
       style={{ background: "#201d1d" }}
     >
       <Link to="/movies">
@@ -17,20 +17,20 @@ const NavBar = () => {
         />
       </Link>
 
-      <div class="collapse navbar-collapse " id="collapsibleNavbar">
-        <ul class="navbar-nav ml-5" style={{ marginTop: "55px" }}>
-          <li class="nav-item">
-            <a class="nav-link" href="/movies">
+      <div className="collapse navbar-collapse " id="collapsibleNavbar">
+        <ul className="navbar-nav ml-5" style={{ marginTop: "55px" }}>
+          <li className="nav-item">
+            <a className="nav-link" href="/movies">
               <b>Movie</b>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/tv">
+          <li className="nav-item">
+            <a className="nav-link" href="/tv">
               <b>Tv Show</b>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/people">
+          <li className="nav-item">
+            <a className="nav-link" href="/people">
               <b>People</b>
             </a>
           </li>
@@ -38,22 +38,22 @@ const NavBar = () => {
       </div>
 
       <button
-        class="navbar-toggler navbar-toggler-right custom-toggler"
+        className="navbar-toggler navbar-toggler-right custom-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#collapsibleNavbar"
       >
-        <span class="navbar-toggler-icon "></span>
+        <span className="navbar-toggler-icon "></span>
       </button>
-      <div class="collapse navbar-collapse " id="collapsibleNavbar">
-        <ul class="navbar-nav ml-auto ">
-          <li class="nav-item">
-            <a class="nav-link" href="/signin">
+      <div className="collapse navbar-collapse " id="collapsibleNavbar">
+        <ul className="navbar-nav ml-auto ">
+          <li className="nav-item">
+            <a className="nav-link" href="/signin">
               <b>Loging</b>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">
+          <li className="nav-item">
+            <a className="nav-link" href="/register">
               <b>Regester</b>
             </a>
           </li>

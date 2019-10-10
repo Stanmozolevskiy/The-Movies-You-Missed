@@ -12,7 +12,7 @@ import { regester } from "../../services/userService";
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 
-class Register extends Component {
+class ConfirmEmail extends Component {
   state = {
     name: "",
     email: "",
@@ -69,15 +69,10 @@ class Register extends Component {
                       <h3 className="dark-grey-text mb-5">
                         <strong>Sign Up</strong>
                       </h3>
-                      <p>
-                        Already have an account?
-                        <a href="/signin"> Please sign in now.</a>
-                      </p>
                     </div>
-                    <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-                      or Sign in with:
-                    </p>
+                    <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"></p>
                     <div className="row my-3 d-flex justify-content-center">
+                      <h5>Please confirm your email</h5>
                       <div className="container">
                         <div className="row">
                           <div
@@ -109,52 +104,52 @@ class Register extends Component {
                             style={{ textAlign: "center" }}
                           >
                             <GoogleLogin
-                              clientId="886849711953-oo34cvtbgrbqshtaod17257cuila6i4i.apps.googleusercontent.com"
-                              buttonText="Login"
-                              onSuccess={this.responseGoogle}
-                              onFailure={this.responseGoogle}
-                              cookiePolicy={"single_host_origin"}
-                            />
+                            clientId="886849711953-oo34cvtbgrbqshtaod17257cuila6i4i.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={this.responseGoogle}
+                            onFailure={this.responseGoogle}
+                            cookiePolicy={"single_host_origin"}
+                          />
                           </div>
                         </div>
                       </div>
                     </div>
-                    <MDBInput
-                      label="Your name"
-                      group
-                      type="text"
-                      validate
-                      error="wrong"
-                      success="right"
-                      onChange={this.handleNameChange}
-                    />
-                    <MDBInput
-                      label="Your email"
-                      group
-                      type="email"
-                      validate
-                      error="wrong"
-                      success="right"
-                      onChange={this.handleEmailChange}
-                    />
-                    <MDBInput
-                      label="Your password"
-                      group
-                      type="password"
-                      validate
-                      containerClass="mb-0"
-                      onChange={this.handlePasswordChange}
-                    />
+                    {/* <MDBInput
+                    label="Your name"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={this.handleNameChange}
+                  />
+                  <MDBInput
+                    label="Your email"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={this.handleEmailChange}
+                  />
+                  <MDBInput
+                    label="Your password"
+                    group
+                    type="password"
+                    validate
+                    containerClass="mb-0"
+                    onChange={this.handlePasswordChange}
+                  /> */}
                     <div className="text-center mb-3">
-                      <MDBBtn
-                        type="button"
-                        gradient="blue"
-                        rounded
-                        className="btn-block z-depth-1a"
-                        onClick={this.onSubmit}
-                      >
-                        Sign in
-                      </MDBBtn>
+                      {/* <MDBBtn
+                      type="button"
+                      gradient="blue"
+                      rounded
+                      className="btn-block z-depth-1a"
+                      onClick={this.onSubmit}
+                    >
+                      Sign in
+                    </MDBBtn> */}
                     </div>
                   </MDBCardBody>
                 </MDBCard>
@@ -171,4 +166,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default ConfirmEmail;

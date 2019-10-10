@@ -11,6 +11,7 @@ import Header from "./components/common/header";
 import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";
 import NavBar from "./components/common/navbar/navBar";
+import ConfrimEmail from "./components/login/confirmEmail";
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
+          <Route path="/confirmemail" component={ConfrimEmail} />
           {/* <Redirect to="/movies" /> */}
           {/* <Route path="/register" component={RegisterForm} />
             
