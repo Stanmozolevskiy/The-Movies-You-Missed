@@ -1,4 +1,5 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const Joi = require("joi");
 const config = require("config");
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3900;
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const cors = require("cors");
+const { User } = require('./models/users')
 
 mongoose
   .connect(config.get("db"), {
@@ -26,7 +28,18 @@ app.use(cors());
 app.use("/api/users", users);
 app.use("/api/auth", auth);
 
-app.use(function(req, res, next) {
+// email confirmation
+app.get('/confirmation/:token', async (req, res) => {
+  try {
+    const user = jwt.verify(req.params.token, config.get('jwtPrivetKey'))
+    await User.findByIdAndUpdate(user._id, { confirmed: true })
+  } catch (err) {
+    console.log(err)
+  }
+  return res.redirect('http://localhost:3000/signin');
+})
+
+app.use(function (req, res, next) {
   console.log("Authenticating...");
   next();
 });

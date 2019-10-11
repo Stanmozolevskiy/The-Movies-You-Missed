@@ -1,5 +1,7 @@
 {
     "name": "movieapes-backend",
-     "jwtPrivetKey": "movieapes_jwtPrivetKey",
-    "db": "mongodb://localhost:27017/movieapes"
+    "jwtPrivetKey": "movieapes_jwtPrivetKey",
+    "db": "mongodb://localhost:27017/movieapes",
+    "email-password": "7051089611aA",
+    "email": "stanmozolevskiy@gmail.com"
 }
