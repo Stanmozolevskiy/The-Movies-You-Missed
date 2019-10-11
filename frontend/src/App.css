@@ -29,6 +29,8 @@ body {
   padding: 10px;
   font-family: Roboto, sans-serif;
   max-height: 44px;
+  /* padding: 10px 10px 10px 0px; */
+  font-weight: 500;
 }
 
 .multiline-ellipsis {

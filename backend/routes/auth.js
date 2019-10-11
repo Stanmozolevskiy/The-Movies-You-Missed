@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
   if (!user) return res.status(400).send("Invalid Email or Password");
 
   if (!user.confirmed) {
-    throw new Error('Please confirm your email')
+    res.status(400).send("Please verify your email");
   }
 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
@@ -38,10 +38,8 @@ router.post("/", async (req, res) => {
     return res.status(400).send("Problem with Email or Password");
   } else {
     const token = user.generateAuthToken();
-    res.send(token);
-    console.log(token)
+    res.status(200).send(token);
   }
-
 });
 
 module.exports = router;
