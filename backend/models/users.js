@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const config = require('config')
+const config = require("config");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -33,11 +33,8 @@ const userSchema = new mongoose.Schema({
 });
 
 // this is where JWT get created
-userSchema.methods.generateAuthToken = function () {
-  return (token = jwt.sign(
-    { _id: this._id },
-    config.get('jwtPrivetKey')
-  ));
+userSchema.methods.generateAuthToken = function() {
+  return (token = jwt.sign({ _id: this._id }, config.get("jwtPrivetKey")));
 };
 
 const User = mongoose.model("Users", userSchema);
@@ -59,7 +56,8 @@ function validateUser(user) {
       .required()
       .min(4)
       .max(1024)
-      .error(err => console.log(err))
+      .error(err => console.log(err)),
+    confirmed: Joi.boolean()
   };
   return Joi.validate(user, schema);
 }

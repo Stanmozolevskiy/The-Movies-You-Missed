@@ -7,7 +7,6 @@ import People from "./components/people/people";
 import Footer from "./components/common/footer";
 import MovieDetais from "./components/common/movieDetails/movieDetails";
 import SearchComponent from "./components/search/searchComponent";
-import Header from "./components/common/header";
 import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";
 import NavBar from "./components/common/navbar/navBar";

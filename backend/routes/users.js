@@ -3,31 +3,28 @@ const _ = require("lodash");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { User, validate } = require("../models/users");
-const nodemailer = require('nodemailer');
-const config = require('config')
-
+const nodemailer = require("nodemailer");
+const config = require("config");
 
 //// Email Handler Start
 async function sendEmail(address, url) {
-
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: "Gmail",
     auth: {
-      user: config.get('email'), // generated ethereal user
-      pass: config.get('email-password') // generated ethereal password
+      user: config.get("email"), // generated ethereal user
+      pass: config.get("email-password") // generated ethereal password
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: `"Movie Apes " <${config.get('email')}>`, // sender address
+    from: `"Movie Apes " <${config.get("email")}>`, // sender address
     to: address, // list of receivers
-    subject: 'Do not reply to this email', // Subject line
-    text: 'Email confirmation', // plain text body
+    subject: "Do not reply to this email", // Subject line
+    text: "Email confirmation", // plain text body
     html: `<b>Please follow the ${url} to confirm your email.</b>` // html body
   });
-
 }
 //// Email Handler End
 
@@ -49,11 +46,14 @@ router.post("/", async (req, res) => {
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
 
-
   const token = user.generateAuthToken();
   // sent an email with the token as a url to follow and authenticate user
-  sendEmail(req.body.email, `http://localhost:3900/confirmation/${token}`).catch(console.error);
+  sendEmail(
+    req.body.email,
+    `http://localhost:3900/confirmation/${token}`
+  ).catch(console.error);
 
+  res.status(200).send(token);
 });
 
 module.exports = router;
