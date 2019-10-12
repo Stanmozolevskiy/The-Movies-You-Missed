@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
   // sent an email with the token as a url to follow and authenticate user
   sendEmail(
     req.body.email,
-    `http://localhost:3900/confirmation/${token}`
+    `http://www.movieapes.com/confirmation/${token}`
   ).catch(console.error);
 
   res.status(200).send(token);
