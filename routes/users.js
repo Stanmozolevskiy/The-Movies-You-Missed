@@ -4,22 +4,24 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const { User, validate } = require("../models/users");
 const nodemailer = require("nodemailer");
-const config = require("config");
+require("dotenv/config");
 
+console.log(`"${process.env.EMAIL}"`);
+console.log(`"${process.env.EMAIL_PASSWORD}"`);
 //// Email Handler Start
 async function sendEmail(address, url) {
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: config.get("email"), // generated ethereal user
-      pass: config.get("email-password") // generated ethereal password
+      user: `"${process.env.EMAIL}"`, // generated ethereal user
+      pass: `"${process.env.EMAIL_PASSWORD}"` // generated ethereal password
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: `"Movie Apes " <${config.get("email")}>`, // sender address
+    from: `"Movie Apes " <${`"${process.env.EMAIL}"`}>`, // sender address
     to: address, // list of receivers
     subject: "Do not reply to this email", // Subject line
     text: "Email confirmation", // plain text body

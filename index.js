@@ -2,7 +2,6 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const config = require("config");
 const helmet = require("helmet");
 Joi.objectId = require("joi-objectid")(Joi);
 const app = express();
@@ -13,9 +12,10 @@ const auth = require("./routes/auth");
 const cors = require("cors");
 const path = require("path");
 const { User } = require("./models/users");
+require("dotenv/config");
 
 mongoose
-  .connect(config.get("db"), {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -35,7 +35,7 @@ app.use("/api/auth", auth);
 // email confirmation
 app.get("/confirmation/:token", async (req, res) => {
   try {
-    const user = jwt.verify(req.params.token, config.get("jwtPrivetKey"));
+    const user = jwt.verify(req.params.token, process.env.JWTPRIVETKEY);
     await User.findByIdAndUpdate(user._id, { confirmed: true });
   } catch (err) {
     console.log(err);
