@@ -11,6 +11,7 @@ const users = require("./routes/users");
 const usersWithAccount = require("./routes/userWithAccount");
 const auth = require("./routes/auth");
 const cors = require("cors");
+const path = require("path");
 const { User } = require("./models/users");
 
 mongoose
@@ -26,6 +27,7 @@ app.use(helmet());
 // To Fix the CORS Error
 app.use(cors());
 
+// Routes
 app.use("/api/users", users);
 app.use("/api/userswithaccount", usersWithAccount);
 app.use("/api/auth", auth);
@@ -41,6 +43,14 @@ app.get("/confirmation/:token", async (req, res) => {
   return res.redirect("http://localhost:3000/signin");
 });
 
+//Server statica assests if in Production
+if (process.env.NODE_ENV === "production") {
+  //Set a Static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 app.use(function(req, res, next) {
   console.log("Authenticating...");
   next();
