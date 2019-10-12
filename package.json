@@ -29,5 +29,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanmozolevskiy/The-Movies-You-Missed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Stanmozolevskiy/The-Movies-You-Missed/issues"
+  },
+  "homepage": "https://github.com/Stanmozolevskiy/The-Movies-You-Missed#readme",
   "description": ""
 }
