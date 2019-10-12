@@ -40,7 +40,7 @@ app.get("/confirmation/:token", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  return res.redirect("http://localhost:3000/signin");
+  return res.redirect("http://www.movieapes.com/signin");
 });
 
 //Server statica assests if in Production
