@@ -123,7 +123,6 @@ class SingIn extends Component {
                                   }}
                                 />
                               }
-                              // onClick={componentClicked}
                               callback={this.responseFacebook}
                             />
                           </div>

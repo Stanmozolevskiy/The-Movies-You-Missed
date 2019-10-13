@@ -28,7 +28,7 @@ class ModalForCast extends Component {
           className="text-center "
           onClick={this.openModal}
           style={{
-            maxWidth: "200px",
+            width: "200px",
             display: "inline-block",
             marginLeft: "20px",
             marginRight: "20px",

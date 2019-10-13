@@ -13,14 +13,14 @@ async function sendEmail(address, url) {
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: config.get("email"), // generated ethereal user
-      pass: config.get("email-password") // generated ethereal password
+      user: "movieapes@gmail.com", // generated ethereal user
+      pass: "7051089611aA" // generated ethereal password
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: `"Movie Apes " <${config.get("email")}>`, // sender address
+    from: `"Movie Apes " <movieapes@gmail.com>`, // sender address
     to: address, // list of receivers
     subject: "Do not reply to this email", // Subject line
     text: "Email confirmation", // plain text body

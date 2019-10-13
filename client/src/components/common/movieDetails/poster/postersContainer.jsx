@@ -1,5 +1,6 @@
 import React from "react";
 import ModalForPoster from "./modalForPoster";
+import Scroll from "./horizontalScroll";
 
 const PostersContainer = ({ data }) => {
   return (
@@ -11,9 +12,14 @@ const PostersContainer = ({ data }) => {
         whiteSpace: "nowrap"
       }}
     >
-      {data.map(x => (
+      <Scroll
+        data={data.map(x => (
+          <ModalForPoster data={x} key={x.file_path} />
+        ))}
+      />
+      {/* {data.map(x => (
         <ModalForPoster data={x} key={x.file_path} />
-      ))}
+      ))} */}
     </div>
   );
 };

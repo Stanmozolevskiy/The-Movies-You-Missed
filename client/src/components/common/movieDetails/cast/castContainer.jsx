@@ -1,19 +1,24 @@
 import React from "react";
 import ModalForCast from "./modalForCast";
+import Scroll from "./horizontalScroll";
 
 const CastContainer = ({ data }) => {
   return (
     <div
       className="text-center "
       style={{
-        // backgroundColor: "#333",
         overflow: "auto",
         whiteSpace: "nowrap"
       }}
     >
-      {data.map(x => (
+      <Scroll
+        data={data.map(x => (
+          <ModalForCast data={x} key={x.name} />
+        ))}
+      ></Scroll>
+      {/* {data.map(x => (
         <ModalForCast data={x} key={x.name} />
-      ))}
+      ))} */}
     </div>
   );
 };

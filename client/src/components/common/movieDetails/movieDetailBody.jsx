@@ -36,7 +36,7 @@ const MovieDetailBody = ({ data, props }) => {
               <h3>Top cast:</h3>
               <CastContainer
                 props={props}
-                data={data.credits.cast.filter(x => x.order < 9)}
+                data={data.credits.cast.filter(x => x.order < 15)}
               />
             </div>
           </div>

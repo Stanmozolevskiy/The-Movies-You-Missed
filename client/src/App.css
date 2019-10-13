@@ -127,8 +127,8 @@ body {
   border-radius: 0;
   outline: none;
 }
-.md-form{
-  border-bottom: 0
+.md-form {
+  border-bottom: 0;
 }
 
 .logo {
@@ -352,3 +352,25 @@ body {
   font-size: 0.75em;
 }
 /* footer end */
+
+/* scroll bar start */
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+/* .menu-item-wrapper.active {
+  border: 1px blue solid;
+} */
+/* .menu-item.active {
+  border: 1px green solid;
+} */
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+  font-size: 200%;
+}
+/* scroll bar wnd */

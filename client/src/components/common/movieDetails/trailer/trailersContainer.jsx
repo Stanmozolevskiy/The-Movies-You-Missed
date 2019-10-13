@@ -1,5 +1,6 @@
 import React from "react";
 import ModalForTrailer from "./modalForTrailers";
+import Scroll from "./horizontalScroll";
 
 const TrailerContainer = ({ data }) => {
   return (
@@ -11,9 +12,14 @@ const TrailerContainer = ({ data }) => {
         whiteSpace: "nowrap"
       }}
     >
-      {data.map(x => (
+      <Scroll
+        data={data.map(x => (
+          <ModalForTrailer key={x.id} data={x} />
+        ))}
+      />
+      {/* {data.map(x => (
         <ModalForTrailer key={x.id} data={x} />
-      ))}
+      ))} */}
     </div>
   );
 };

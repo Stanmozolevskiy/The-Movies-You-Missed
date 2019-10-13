@@ -7,7 +7,6 @@ if (process.env.NODE_ENV === "development") {
 } else {
   baseURL = window.location.origin;
 }
-console.log(baseURL);
 export function regester(user) {
   return http.post(`${baseURL}/api/users`, {
     name: user.name,

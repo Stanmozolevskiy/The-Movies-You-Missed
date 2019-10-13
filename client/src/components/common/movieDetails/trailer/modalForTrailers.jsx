@@ -39,7 +39,7 @@ class ModalForTrailer extends Component {
           <img
             src={`https://img.youtube.com/vi/${this.props.data.key}/mqdefault.jpg`}
             alt=""
-            style={{ height: "240px", width: "auto" }}
+            style={{ maxeight: "300px", width: "400px" }}
           />
         </div>
         <TrailerModal

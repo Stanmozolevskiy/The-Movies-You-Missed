@@ -22,14 +22,19 @@ class ModalForPoster extends Component {
         style={{
           display: "inline-block",
           margin: "10px",
-          color: "white"
+          color: "white",
+          minWidth: "40px !important"
         }}
       >
         <div onClick={this.openModal}>
           <img
             src={`https://image.tmdb.org/t/p/original/${this.props.data.file_path}`}
             alt=""
-            style={{ maxWidth: "400px", maxHeight: "300px", cursor: "pointer" }}
+            style={{
+              width: "400px",
+              maxHeight: "300px",
+              cursor: "pointer"
+            }}
             className="poster-container"
           />
         </div>
