@@ -197,7 +197,7 @@ body {
 
 .movie-description-container {
   margin-top: 35px;
-  max-width: 350px;
+  /* max-width: 350px; */
   max-height: 520px;
   margin-bottom: 30px;
   margin-left: auto;
