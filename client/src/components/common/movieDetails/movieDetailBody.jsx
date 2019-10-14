@@ -17,7 +17,13 @@ const MovieDetailBody = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
     return (
       // LEFT SIDE
-      <div className="row">
+      <div
+        className="row"
+        style={{
+          marginLeft: "0px",
+          marginRight: "0px"
+        }}
+      >
         <div className="col-9">
           <div className="row">
             <div className="col-12 ">
@@ -83,6 +89,7 @@ const MovieDetailBody = ({ data, props }) => {
           <br />
           <br />
         </div>
+
         {/*  RIGHT SIDE */}
         <div className="col-3 movie-body-right">
           <SmallPeopleCard
@@ -117,7 +124,13 @@ const MovieDetailBody = ({ data, props }) => {
   } else {
     return (
       //  LEFT SIDE
-      <div className="row">
+      <div
+        className="row"
+        style={{
+          marginLeft: "0px",
+          marginRight: "0px"
+        }}
+      >
         <div className="col-9">
           <div className="col-12">
             <ProductionCompanieIcons

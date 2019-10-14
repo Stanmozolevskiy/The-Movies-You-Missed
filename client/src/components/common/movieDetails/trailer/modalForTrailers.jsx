@@ -21,7 +21,7 @@ class ModalForTrailer extends Component {
         className="text-center hover-red"
         style={{
           display: "inline-block",
-          margin: "10px",
+          margin: "15px",
           color: "white"
         }}
       >

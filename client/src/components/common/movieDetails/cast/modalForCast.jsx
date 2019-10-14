@@ -30,8 +30,7 @@ class ModalForCast extends Component {
           style={{
             width: "200px",
             display: "inline-block",
-            marginLeft: "20px",
-            marginRight: "20px",
+            marginLeft: "10px",
             cursor: "pointer"
           }}
         >
