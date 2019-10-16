@@ -136,7 +136,6 @@ class Movie extends Component {
     }
   };
   render() {
-    console.log(this.props.location.pathname);
     return (
       <div>
         <SearchBox onSearchSubmit={handleSearch} props={this.props} />

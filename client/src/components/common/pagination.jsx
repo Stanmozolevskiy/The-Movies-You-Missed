@@ -5,10 +5,7 @@ export const totalPages = data => {
   return [...Array(data.data.total_pages).keys()].filter(x => x !== 0);
 };
 
-
 const Paginateion = ({ totalPages, handlePageChange, forcePage }) => {
-
-  
   return (
     <div>
       {totalPages.length > 1 ? (

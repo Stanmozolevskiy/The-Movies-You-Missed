@@ -22,7 +22,7 @@ class App extends Component {
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
           <Route path="/search/:path" component={SearchComponent} />
-          <Route path="/movies/:page?" component={Movie} />
+          <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
