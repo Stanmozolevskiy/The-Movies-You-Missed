@@ -10,7 +10,7 @@ import Twitter from "../buttons/twittwe";
 import TrailerContainer from "./trailer/trailersContainer";
 import Collection from "../../movies/collection";
 import PostersContainer from "./poster/postersContainer";
-import CommentsBody from "../comments/commentsBody";
+import CommentsBody from "../../comments/commentsBody";
 import CastContainer from "./cast/castContainer";
 
 const MovieDetailBody = ({ data, props }) => {

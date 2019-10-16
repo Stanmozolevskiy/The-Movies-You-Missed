@@ -43,7 +43,12 @@ class MovieDetais extends Component {
             }}
           >
             {/* image gackgroung container start*/}
-            <div style={{ backgroundColor: "rgba(85, 58, 58, .8)", height: '600px' }}>
+            <div
+              style={{
+                backgroundColor: "rgba(85, 58, 58, .8)",
+                height: "600px"
+              }}
+            >
               <div className="container ">
                 <div className="row">
                   <div className="col-4">
