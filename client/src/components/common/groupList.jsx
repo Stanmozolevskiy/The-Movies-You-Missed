@@ -5,7 +5,7 @@ const GroupList = ({ data, onGenreChange, selected }) => {
     <ul
       className="list-group"
       style={{
-        paddingLeft: "100px",
+        // paddingLeft: "100px",
         paddingTop: "90px"
       }}
     >

@@ -3,12 +3,14 @@ import { getPopularMovies } from "../../services/movieServise";
 import { getMoviegenres, discoverMovie } from "../../services/genreServise";
 import { totalPages } from "../common/pagination";
 import { handleSearch } from "../../services/searchService";
+import { Link } from "react-router-dom";
 import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
 import SearchBox from "../search/searchBox";
 import Title from "../common/title";
-import GroupList from "../common/groupList";
-import DropDown from "../common/dropDown";
+import GenreFilter from "../filter/genreFilter";
+import YearFilter from "../filter/yesrFilter";
+import SortByFilter from "../filter/sortByFilter";
 
 class Movie extends Component {
   constructor(prpos) {
@@ -24,7 +26,7 @@ class Movie extends Component {
       forcePage: 0,
       title: "Popular Movies",
       render: "",
-      sortBy: ''
+      sortBy: ""
     };
   }
   // get populat movies
@@ -43,13 +45,10 @@ class Movie extends Component {
   // genreChange
   handleGenreChange = async e => {
     this.setState({
-      genreSerch: this.state.genres.filter(
-        g => g.id === Number(e.target.value)
-      )[0]
+      genreSerch: e
     });
-    const data = await discoverMovie(e.target.value, 1, this.state.yearSearch);
+    const data = await discoverMovie(e.id, 1, this.state.yearSearch);
     this.setState({
-      search: "",
       data: data.data.results,
       curentPage: data.data.page,
       //work around for page get back to 1
@@ -80,9 +79,9 @@ class Movie extends Component {
       // handeling the title change
       title:
         `Search > ${
-        this.state.genreSerch.name !== undefined
-          ? this.state.genreSerch.name
-          : ""
+          this.state.genreSerch.name !== undefined
+            ? this.state.genreSerch.name
+            : ""
         }` +
         " " +
         value,
@@ -96,7 +95,7 @@ class Movie extends Component {
     const data = await discoverMovie(
       this.state.genreSerch.id || "",
       1,
-      this.state.search || "",
+      this.state.yearSearch || "",
       value
     );
     this.setState({
@@ -136,43 +135,46 @@ class Movie extends Component {
       });
     }
   };
-
   render() {
+    console.log(this.props.location.pathname);
     return (
       <div>
         <SearchBox onSearchSubmit={handleSearch} props={this.props} />
-
-        <div className="parent-container d-flex ">
-          <GroupList
-            selected={this.state.genreSerch.id}
-            data={this.state.genres}
-            onGenreChange={this.handleGenreChange}
-          />
-          <div className="container">
+        <div className="row" style={{ margin: "0px" }}>
+          <div className="col-3">
             <div className="row">
-              <DropDown
-                handleChange={this.handleYearChange}
-                placeholder="year"
-                data={[2019, 2018, 2017, 2016, 2015, 2000]}
-              />
-              <DropDown
-                handleChange={this.handleSortByChange}
-                placeholder="sort by"
-                data={[
-                  "popularity.desc",
-                  "popularity.asc",
-                  "original_title.asc",
-                  "original_title.desc"
-                ]}
-              />
-              <Title text={this.state.title} />
+              <div className="col-2"></div>
+              <div className="col-8">
+                <br />
+                <br />
+                <br />
+                <hr />
+                <GenreFilter
+                  data={this.state.genres}
+                  onChange={this.handleGenreChange}
+                />
+              </div>
+              <div className="col-2"></div>
             </div>
             <div className="row">
-              {this.state.data.map(data => (
-                <MovieContainer key={data.id} data={data} props={this.props} />
-              ))}
+              <div className="col-2"></div>
+              <div className="col-4">
+                <YearFilter onChange={this.handleYearChange} />
+              </div>
+              <div className="col-4">
+                <SortByFilter onChange={this.handleSortByChange} />
+              </div>
+              <div className="col-2"></div>
             </div>
           </div>
+          <div className="col-8">
+            <Title text={this.state.title} />
+
+            {this.state.data.map(data => (
+              <MovieContainer key={data.id} data={data} props={this.props} />
+            ))}
+          </div>
+          <div className="col-1"></div>
         </div>
 
         <Paginateion

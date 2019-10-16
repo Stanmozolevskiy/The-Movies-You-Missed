@@ -5,7 +5,6 @@ import Title from "../common/title";
 import MovieContainer from "../common/movieContainer";
 import { totalPages } from "../common/pagination";
 import Paginateion from "../common/pagination";
-import GroupListSearchOptions from "../common/groupListSearchOptions";
 
 class SearchComponent extends Component {
   constructor(prpos) {
@@ -17,8 +16,7 @@ class SearchComponent extends Component {
       forcePage: 0,
       totalPages: [],
       title: "",
-      search: "",
-      options: ["people", "movies", "tv show"]
+      search: ""
     };
   }
   async componentDidMount() {
@@ -66,11 +64,6 @@ class SearchComponent extends Component {
         />
 
         <div className="parent-container d-flex ">
-          <GroupListSearchOptions
-            selected={this.state}
-            data={this.state.options}
-            onGenreChange={this.handleGenreChange}
-          />
           <div className="container">
             <Title text={this.state.title} />
             <div className="row">

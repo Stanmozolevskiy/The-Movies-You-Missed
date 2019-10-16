@@ -6,8 +6,8 @@ import formatDate from "../../utilities/dataFormat";
 const MovieContainer = ({ data, props }) => {
   return (
     <div
-      className="container card mb-3 col-5 m-3 mx-auto "
-      style={{ padding: 0 }}
+      className="container card mb-3 col-5 m-3"
+      style={{ padding: 0, display: "inline-flex" }}
     >
       <div className="row no-gutters">
         <div className="col-md-5">
@@ -20,7 +20,11 @@ const MovieContainer = ({ data, props }) => {
             }
           >
             <img
-              src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
+              src={
+                data.poster_path === null
+                  ? window.location.origin + "/no-image-movie.png"
+                  : `https://image.tmdb.org/t/p/w300${data.poster_path}`
+              }
               className="card-img image-fit"
               alt="..."
             />

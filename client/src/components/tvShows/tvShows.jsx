@@ -145,33 +145,49 @@ class TvShow extends Component {
       <div>
         <SearchBox onSearchSubmit={handleSearch} />
 
-        <div className="parent-container d-flex ">
-          <GroupList
-            selected={this.state.genreSerch.id}
-            data={this.state.genres}
-            onGenreChange={this.handleGenreChange}
-          />
-          <div className="container">
-            <div className="row">
-              <DropDown
-                handleChange={this.handleYearChange}
-                placeholder="year"
-                data={[2019, 2018, 2017, 2016, 2015, 2000]}
-              />
-              <DropDown
+        <div className="row">
+          {/* <DropDown
                 handleChange={this.handleSortByChange}
                 placeholder="sort by"
                 data={["popularity.desc", "popularity.asc"]}
-              />
-              <Title text={this.state.title} />
-            </div>
+              /> */}
+        </div>
+        <div className="row" style={{ margin: "0px" }}>
+          {/* filter */}
+          <div className="col-3">
             <div className="row">
-              {this.state.data.map(data => (
-                <MovieContainer key={data.id} data={data} props={this.props} />
-              ))}
+              <div className="col-1"></div>
+              <div className="col-10">
+                <div className="row">
+                  <div className="col-6">
+                    <GroupList
+                      selected={this.state.genreSerch.id}
+                      data={this.state.genres}
+                      onGenreChange={this.handleGenreChange}
+                    />
+                  </div>
+                  <div className="col-6">
+                    <DropDown
+                      handleChange={this.handleYearChange}
+                      placeholder="year"
+                      data={[2019, 2018, 2017, 2016, 2015, 2000]}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-1"></div>
             </div>
           </div>
+          {/* result */}
+          <div className="col-8">
+            <Title text={this.state.title} />
+            {this.state.data.map(data => (
+              <MovieContainer key={data.id} data={data} props={this.props} />
+            ))}
+          </div>
+          <div className="col-1"></div>
         </div>
+
         <Paginateion
           totalPages={this.state.totalPages}
           search={this.state.search}

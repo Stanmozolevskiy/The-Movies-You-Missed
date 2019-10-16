@@ -374,3 +374,6 @@ body {
   font-size: 200%;
 }
 /* scroll bar wnd */
+.filter-dropbox {
+  height: 100px;
+}
