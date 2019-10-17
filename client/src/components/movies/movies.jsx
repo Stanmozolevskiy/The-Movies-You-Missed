@@ -3,7 +3,6 @@ import { getPopularMovies } from "../../services/movieServise";
 import { getMoviegenres, discoverMovie } from "../../services/genreServise";
 import { totalPages } from "../common/pagination";
 import { handleSearch } from "../../services/searchService";
-import { Link } from "react-router-dom";
 import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
 import SearchBox from "../search/searchBox";
@@ -11,6 +10,8 @@ import Title from "../common/title";
 import GenreFilter from "../filter/genreFilter";
 import YearFilter from "../filter/yesrFilter";
 import SortByFilter from "../filter/sortByFilter";
+import AdultCheckBox from "../filter/adultCheckBox";
+import VideoCheckBox from "../filter/videoCheckBox";
 
 class Movie extends Component {
   constructor(prpos) {
@@ -26,7 +27,8 @@ class Movie extends Component {
       forcePage: 0,
       title: "Popular Movies",
       render: "",
-      sortBy: ""
+      sortBy: "popularity.desc",
+      adults: false
     };
   }
   // get populat movies
@@ -47,7 +49,13 @@ class Movie extends Component {
     this.setState({
       genreSerch: e
     });
-    const data = await discoverMovie(e.id, 1, this.state.yearSearch);
+    const data = await discoverMovie(
+      e.id,
+      1,
+      this.state.yearSearch,
+      this.state.sortBy,
+      this.state.adults
+    );
     this.setState({
       data: data.data.results,
       curentPage: data.data.page,
@@ -58,7 +66,8 @@ class Movie extends Component {
       title: `Search > ${this.state.genreSerch.name +
         " " +
         this.state.yearSearch}`,
-      render: discoverMovie
+      render: discoverMovie,
+      adults: this.state.adults
     });
     //work around for page get back to 1
     this.setState({ forcePage: 0 });
@@ -66,7 +75,13 @@ class Movie extends Component {
 
   handleYearChange = async ({ value }) => {
     this.setState({ yearSearch: value });
-    const data = await discoverMovie(this.state.genreSerch.id || "", 1, value);
+    const data = await discoverMovie(
+      this.state.genreSerch.id || "",
+      1,
+      value,
+      this.state.sortBy,
+      this.state.adults
+    );
 
     this.setState({
       search: "",
@@ -76,6 +91,7 @@ class Movie extends Component {
       //work around for page get back to 1
       forcePage: null,
       totalPages: totalPages(data),
+      adults: this.state.adults,
       // handeling the title change
       title:
         `Search > ${
@@ -96,7 +112,8 @@ class Movie extends Component {
       this.state.genreSerch.id || "",
       1,
       this.state.yearSearch || "",
-      value
+      value,
+      this.state.adults
     );
     this.setState({
       data: data.data.results,
@@ -112,12 +129,36 @@ class Movie extends Component {
     this.setState({ forcePage: 0 });
   };
 
+  // include Adults
+  handleIncludeAdults = async e => {
+    this.setState({ adults: e.target.checked });
+    const data = await discoverMovie(
+      this.state.genreSerch.id || "",
+      1,
+      this.state.yearSearch || "",
+      this.state.sortBy,
+      e.target.checked
+    );
+    this.setState({
+      data: data.data.results,
+      curentPage: data.data.page,
+      sortBy: this.state.sortBy,
+      //work around for page get back to 1
+      forcePage: null,
+      totalPages: totalPages(data),
+      // handeling the title change
+      render: discoverMovie
+    });
+    // work around for page get back to 1
+    this.setState({ forcePage: 0 });
+  };
+
   // move this to paginate
   handlePageChange = async ({ selected }) => {
     const page = selected + 1;
 
     if (this.state.render === getPopularMovies) {
-      const data = await getPopularMovies(page);
+      const data = await getPopularMovies(page, this.state.adults);
       this.setState({
         curentPage: page,
         data: data.data.results
@@ -127,7 +168,8 @@ class Movie extends Component {
       const data = await discoverMovie(
         this.state.genreSerch.id || "",
         page,
-        this.state.yearSearch || ""
+        this.state.yearSearch || "",
+        this.state.adults
       );
       this.setState({
         curentPage: page,
@@ -136,6 +178,7 @@ class Movie extends Component {
     }
   };
   render() {
+    console.log(this.state.data);
     return (
       <div>
         <SearchBox onSearchSubmit={handleSearch} props={this.props} />
@@ -165,13 +208,36 @@ class Movie extends Component {
               </div>
               <div className="col-2"></div>
             </div>
+            <br />
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-4">
+                <AdultCheckBox onChange={this.handleIncludeAdults} />
+              </div>
+              <div className="col-4">
+                <VideoCheckBox />
+              </div>
+              <div className="col-2"></div>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-8">
+                <hr />
+                Sort by acter
+                <br />
+                Sort by Produser
+              </div>
+              <div className="col-2"></div>
+            </div>
           </div>
           <div className="col-8">
             <Title text={this.state.title} />
-
-            {this.state.data.map(data => (
-              <MovieContainer key={data.id} data={data} props={this.props} />
-            ))}
+            {this.state.data
+              .filter(x => x !== null)
+              .map(data => (
+                <MovieContainer key={data.id} data={data} props={this.props} />
+              ))}
           </div>
           <div className="col-1"></div>
         </div>

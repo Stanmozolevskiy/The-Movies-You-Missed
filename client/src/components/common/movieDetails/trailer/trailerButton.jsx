@@ -25,7 +25,7 @@ class TrailerButton extends Component {
         <div>
           <div
             onClick={this.openModal}
-            className="vatch-trailer-btn-cover hover-red"
+            className="watch-trailer-btn-cover hover-red"
           >
             <i
               className="fa fa-play fa-1x"

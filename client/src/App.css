@@ -176,14 +176,14 @@ body {
   color: red;
 }
 
-.vatch-trailer-btn-cover {
+.watch-trailer-btn-cover {
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   width: 360px;
-  height: 30px;
+  height: 35px;
   background-color: rgba(0, 0, 0, 0.85);
   text-align: center;
   cursor: pointer;

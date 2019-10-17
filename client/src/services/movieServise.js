@@ -12,9 +12,9 @@ export function getMovie(id) {
     `${baseUrl}/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos,credits,external_ids,keywords,reviews,account_states,translations,images&include_image_language=en,null`
   );
 }
-export function getPopularMovies(page) {
+export function getPopularMovies(page, adult = "false") {
   return http.get(
-    `${baseUrl}3/movie/popular?api_key=${apiKey}&language=en-US&&page=${page}`
+    `${baseUrl}3/movie/popular?api_key=${apiKey}&language=en-US&&page=${page}&include_adult=${adult}`
   );
 }
 export function getMovieCollection(collection_id) {
