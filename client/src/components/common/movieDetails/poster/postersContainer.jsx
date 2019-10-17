@@ -17,9 +17,6 @@ const PostersContainer = ({ data }) => {
           <ModalForPoster data={x} key={x.file_path} />
         ))}
       />
-      {/* {data.map(x => (
-        <ModalForPoster data={x} key={x.file_path} />
-      ))} */}
     </div>
   );
 };

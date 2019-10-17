@@ -95,9 +95,9 @@ class Movie extends Component {
       // handeling the title change
       title:
         `Search > ${
-          this.state.genreSerch.name !== undefined
-            ? this.state.genreSerch.name
-            : ""
+        this.state.genreSerch.name !== undefined
+          ? this.state.genreSerch.name
+          : ""
         }` +
         " " +
         value,
@@ -178,7 +178,6 @@ class Movie extends Component {
     }
   };
   render() {
-    console.log(this.state.data);
     return (
       <div>
         <SearchBox onSearchSubmit={handleSearch} props={this.props} />

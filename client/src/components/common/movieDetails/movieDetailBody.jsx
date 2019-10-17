@@ -12,6 +12,7 @@ import Collection from "../../movies/collection";
 import PostersContainer from "./poster/postersContainer";
 import CommentsBody from "../../comments/commentsBody";
 import CastContainer from "./cast/castContainer";
+import TrendingContainer from "./trending/trendingContainer";
 
 const MovieDetailBody = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -39,7 +40,7 @@ const MovieDetailBody = ({ data, props }) => {
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Top cast:</h3>
+              <h4><strong> Top cast:</strong></h4>
               <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 15)}
@@ -52,27 +53,27 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-            <div className="row">
-              <div className="col-2"></div>
-              <div className="col-10" style={{ padding: "0px" }}>
-                <h3>Videos and Trailers</h3>
-                <TrailerContainer
-                  props={props}
-                  data={data.videos.results.splice(
-                    1,
-                    data.videos.results.length
-                  )}
-                />
+              <div className="row">
+                <div className="col-2"></div>
+                <div className="col-10" style={{ padding: "0px" }}>
+                  <h4><strong>Videos and Trailers </strong></h4>
+                  <TrailerContainer
+                    props={props}
+                    data={data.videos.results.splice(
+                      1,
+                      data.videos.results.length
+                    )}
+                  />
+                </div>
               </div>
-            </div>
-          )}
+            )}
           <br />
           <br />
           <br />
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Posters</h3>
+              <h4><strong>Posters </strong></h4>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
@@ -118,8 +119,17 @@ const MovieDetailBody = ({ data, props }) => {
             </div>
             <div className="col-3"></div>
           </div>
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              <TrendingContainer id={data.id} props={props} />
+
+            </div>
+            <div className="col-1"></div>
+          </div>
+
         </div>
-      </div>
+      </div >
     );
   } else {
     return (
@@ -156,20 +166,20 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-            <div className="row">
-              <div className="col-2"></div>
-              <div className="col-10" style={{ padding: "0px" }}>
-                <h3>Videos and Trailers</h3>
-                <TrailerContainer
-                  props={props}
-                  data={data.videos.results.splice(
-                    1,
-                    data.videos.results.length
-                  )}
-                />
+              <div className="row">
+                <div className="col-2"></div>
+                <div className="col-10" style={{ padding: "0px" }}>
+                  <h3>Videos and Trailers</h3>
+                  <TrailerContainer
+                    props={props}
+                    data={data.videos.results.splice(
+                      1,
+                      data.videos.results.length
+                    )}
+                  />
+                </div>
               </div>
-            </div>
-          )}
+            )}
           <br />
           <br />
           <br />

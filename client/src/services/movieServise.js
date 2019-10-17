@@ -4,7 +4,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 export function getMovies(serch, page) {
   return http.get(
-    `${baseUrl}3/search/movie?api_key=${apiKey}&query=${serch}&language=en-US&&page=${page}&include_adult=false`
+    `${baseUrl}3/search/movie?api_key=${apiKey}&query=${serch}&language=en-US&page=${page}&include_adult=false`
   );
 }
 export function getMovie(id) {
@@ -14,11 +14,16 @@ export function getMovie(id) {
 }
 export function getPopularMovies(page, adult = "false") {
   return http.get(
-    `${baseUrl}3/movie/popular?api_key=${apiKey}&language=en-US&&page=${page}&include_adult=${adult}`
+    `${baseUrl}3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&region=US`
   );
 }
 export function getMovieCollection(collection_id) {
   return http.get(
     `${baseUrl}3/collection/${collection_id}?api_key=${apiKey}&language=en-US`
+  );
+}
+export function getMovieRecomended(id) {
+  return http.get(
+    `${baseUrl}3/movie/${id}/recommendations?api_key=${apiKey}&language=en-US&page=1`
   );
 }

@@ -23,6 +23,20 @@ const TrailerModal = ({ modalIsOpen, afterOpenModal, closeModal, videoId }) => {
         overlayClassName="Modal-Overlay"
         contentLabel="Example Modal"
       >
+        <button
+          type="button"
+          class="close btn-lg"
+          aria-label="Close"
+          style={{
+            color: 'white',
+            height: '50px',
+            width: '-10px',
+            outline: 'none'
+
+          }}
+          onClick={closeModal}>
+          <span aria-hidden="true">&times;</span>
+        </button>
         {/* The youtube video */}
         <YouTube videoId={videoId} opts={opts} />
       </Modal>

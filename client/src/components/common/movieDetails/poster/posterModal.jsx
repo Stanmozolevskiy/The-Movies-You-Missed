@@ -17,11 +17,28 @@ const PosterModal = ({ modalIsOpen, afterOpenModal, closeModal, imgUrl }) => {
         contentLabel="Example Modal"
       >
         {/* The Image sorce */}
+        <button
+          type="button"
+          class="close btn-lg"
+          aria-label="Close"
+          style={{
+            color: 'white',
+            height: '0px',
+            width: '80px',
+            outline: 'none'
+
+          }}
+          onClick={closeModal}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+
         <img
           src={imgUrl}
           alt=""
           style={{ maxWidth: "1170px", maxHeight: "1920px" }}
         />
+
+
       </Modal>
     </div>
   );

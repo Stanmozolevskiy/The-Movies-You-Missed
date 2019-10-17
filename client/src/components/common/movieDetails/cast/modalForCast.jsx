@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import CastModal from "./castModal";
+import { getPersonDetails } from '../../../../services/peopleServise'
 
 class ModalForCast extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      modalData: []
     };
   }
 
-  openModal = () => {
+  openModal = async (e) => {
     this.setState({ modalIsOpen: true });
+    const data = await getPersonDetails(e.target.id)
+    this.setState({ modalData: data })
   };
   closeModal = () => {
     this.setState({ modalIsOpen: false });
@@ -37,6 +41,7 @@ class ModalForCast extends Component {
           <img
             className=" img-fluid poster-container"
             style={{ maxWidth: "80%" }}
+            id={this.props.data.id}
             src={
               this.props.data.profile_path === null
                 ? window.location.origin + "/people-image-placeholder.jpg"
@@ -49,14 +54,14 @@ class ModalForCast extends Component {
           </h5>
           <h6 style={{ whiteSpace: "normal" }}>
             {this.props.data.character.length >= 30
-              ? this.props.data.character.slice(0, 30) + "..."
+              ? this.props.data.character.slice(0, 25) + "..."
               : this.props.data.character}
           </h6>
         </div>
         <CastModal
           modalIsOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
-          data={this.props.data}
+          modalData={this.state.modalData}
         />
       </div>
     );

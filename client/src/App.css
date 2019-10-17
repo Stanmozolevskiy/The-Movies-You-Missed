@@ -46,6 +46,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.multiline-ellipsis-people-modal {
+  display: block;
+  display: -webkit-box;
+  height: 300px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .movie-body-right {
   border-left: 1px solid #e7b6b6;
   background: #f4e3e3;
@@ -209,14 +221,12 @@ body {
 .Modal {
   position: absolute;
   top: 50%;
+  bottom: auto;
   left: 50%;
   right: auto;
-  bottom: auto;
-  height: 400;
-  width: 650;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  background: black;
+
 }
 
 .Modal-Overlay {
@@ -225,7 +235,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0, 0.8);
 }
 
 @media only screen and (max-width: 770px) {
