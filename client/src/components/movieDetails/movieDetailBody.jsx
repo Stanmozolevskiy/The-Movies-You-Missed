@@ -1,16 +1,16 @@
 import React from "react";
-import SmallPeopleCard from "../../people/smapPeopleCard";
-import ProductionCompanieIcons from "../productionCompanieIcons";
+import SmallPeopleCard from "../people/smapPeopleCard";
+import ProductionCompanieIcons from "../common/productionCompanieIcons";
 import MovieGeneralDetails from "../movieDetails/movieGeneralDetails";
-import HomePage from "../buttons/homePage";
-import IMDBIcon from "../buttons/imdb";
-import InstagramIcon from "../buttons/instagram";
-import FacebookIcon from "../buttons/facebookIcon";
-import Twitter from "../buttons/twittwe";
+import HomePage from "../common/buttons/homePage";
+import IMDBIcon from "../common/buttons/imdb";
+import InstagramIcon from "../common/buttons/instagram";
+import FacebookIcon from "../common/buttons/facebookIcon";
+import Twitter from "../common/buttons/twittwe";
 import TrailerContainer from "./trailer/trailersContainer";
-import Collection from "../../movies/collection";
+import Collection from "../movies/collection";
 import PostersContainer from "./poster/postersContainer";
-import CommentsBody from "../../comments/commentsBody";
+import CommentsBody from "../comments/commentsBody";
 import CastContainer from "./cast/castContainer";
 import TrendingContainer from "./trending/trendingContainer";
 
@@ -40,7 +40,9 @@ const MovieDetailBody = ({ data, props }) => {
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h4><strong> Top cast:</strong></h4>
+              <h4>
+                <strong> Top cast:</strong>
+              </h4>
               <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 15)}
@@ -53,27 +55,31 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-              <div className="row">
-                <div className="col-2"></div>
-                <div className="col-10" style={{ padding: "0px" }}>
-                  <h4><strong>Videos and Trailers </strong></h4>
-                  <TrailerContainer
-                    props={props}
-                    data={data.videos.results.splice(
-                      1,
-                      data.videos.results.length
-                    )}
-                  />
-                </div>
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-10" style={{ padding: "0px" }}>
+                <h4>
+                  <strong>Videos and Trailers </strong>
+                </h4>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
               </div>
-            )}
+            </div>
+          )}
           <br />
           <br />
           <br />
           <div className="row">
             <div className="col-2"></div>
             <div className="col-10" style={{ padding: "0px" }}>
-              <h4><strong>Posters </strong></h4>
+              <h4>
+                <strong>Posters </strong>
+              </h4>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
@@ -98,38 +104,28 @@ const MovieDetailBody = ({ data, props }) => {
             props={props}
           />
           <div className="row">
-            <div className="col-2"></div>
-
-            <div className="col-6">
+            <div className="col-3"></div>
+            <div className="col-8">
               <HomePage data={data.homepage} />
               <IMDBIcon data={data.imdb_id} />
               <FacebookIcon data={data.external_ids.facebook_id} />
               <InstagramIcon data={data.external_ids.instagram_id} />
               <Twitter data={data.external_ids.twitter_id} />
             </div>
-            <div className="col-4"></div>
-          </div>
-          <div className="row">
-            <div className="col-3"></div>
-          </div>
-          <div className="row">
             <div className="col-1"></div>
+          </div>
+          <div className="row">
+            <div className="col-2"></div>
             <div className="col-8">
               <MovieGeneralDetails data={data} props={props} />
             </div>
-            <div className="col-3"></div>
+            <div className="col-2"></div>
           </div>
           <div className="row">
-            <div className="col-1"></div>
-            <div className="col-10">
-              <TrendingContainer id={data.id} props={props} />
-
-            </div>
-            <div className="col-1"></div>
+            <TrendingContainer id={data.id} props={props} />
           </div>
-
         </div>
-      </div >
+      </div>
     );
   } else {
     return (
@@ -166,20 +162,20 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-              <div className="row">
-                <div className="col-2"></div>
-                <div className="col-10" style={{ padding: "0px" }}>
-                  <h3>Videos and Trailers</h3>
-                  <TrailerContainer
-                    props={props}
-                    data={data.videos.results.splice(
-                      1,
-                      data.videos.results.length
-                    )}
-                  />
-                </div>
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-10" style={{ padding: "0px" }}>
+                <h3>Videos and Trailers</h3>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
               </div>
-            )}
+            </div>
+          )}
           <br />
           <br />
           <br />

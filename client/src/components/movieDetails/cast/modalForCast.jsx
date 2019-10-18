@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CastModal from "./castModal";
-import { getPersonDetails } from '../../../../services/peopleServise'
+import { getPersonDetails } from "../../../services/peopleServise";
 
 class ModalForCast extends Component {
   constructor(props) {
@@ -11,10 +11,10 @@ class ModalForCast extends Component {
     };
   }
 
-  openModal = async (e) => {
+  openModal = async e => {
     this.setState({ modalIsOpen: true });
-    const data = await getPersonDetails(e.target.id)
-    this.setState({ modalData: data })
+    const data = await getPersonDetails(e.target.id);
+    this.setState({ modalData: data });
   };
   closeModal = () => {
     this.setState({ modalIsOpen: false });
