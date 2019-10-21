@@ -1,6 +1,6 @@
 import React from "react";
-import formatDate from "../../../utilities/dataFormat";
-import { numberWithCommas } from "../../../utilities/roundBudjet";
+import formatDate from "../../utilities/dataFormat";
+import { numberWithCommas } from "../../utilities/roundBudjet";
 
 const MovieGeneralDetails = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {

@@ -5,7 +5,7 @@ import Movie from "./components/movies/movies";
 import TvShow from "./components/tvShows/tvShows";
 import People from "./components/people/people";
 import Footer from "./components/common/footer/footer";
-import MovieDetais from "./components/common/movieDetails/movieDetails";
+import MovieDetais from "./components/movieDetails/movieDetails";
 import SearchComponent from "./components/search/searchComponent";
 import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";

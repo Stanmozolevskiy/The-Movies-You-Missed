@@ -6,12 +6,26 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
       <div
         className="card-body text-center"
         style={{
-          maxWidth: "40%",
+          maxWidth: "50%",
           maxHeight: "40%",
           margin: "5% 0 5% 22%",
           padding: "2px"
         }}
       >
+        <h5>
+          <strong
+            style={{
+              background: "#FFF9F7",
+              padding: "8px",
+              textAlign: "center",
+              boxShadow:
+                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
+            }}
+          >
+            Director
+          </strong>
+        </h5>
+        <br />
         <p style={{ padding: "0px", margin: 0 }}>
           <img
             className=" img-fluid"
@@ -25,7 +39,7 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
           />
         </p>
         <h6 className="card-title" style={{ padding: "15px" }}>
-          {data.name} -{data.job}
+          {data.name}
         </h6>
       </div>
     );
