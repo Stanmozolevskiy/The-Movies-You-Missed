@@ -182,7 +182,7 @@ class Movie extends Component {
       <div>
         <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <div className="row" style={{ margin: "0px" }}>
-          <div className="col-3">
+          <div className="col-3 filters">
             <div className="row">
               <div className="col-2"></div>
               <div className="col-8">
@@ -230,7 +230,7 @@ class Movie extends Component {
               <div className="col-2"></div>
             </div>
           </div>
-          <div className="col-8">
+          <div className=" col-12 col-sm-8">
             <Title text={this.state.title} />
             {this.state.data
               .filter(x => x !== null)
@@ -238,7 +238,7 @@ class Movie extends Component {
                 <MovieContainer key={data.id} data={data} props={this.props} />
               ))}
           </div>
-          <div className="col-1"></div>
+          <div className="col-1 filters"></div>
         </div>
 
         <Paginateion
@@ -252,3 +252,4 @@ class Movie extends Component {
 }
 
 export default Movie;
+

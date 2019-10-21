@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 
+const title = (data) => {
+  if (data !== undefined) {
+    return data.length >= 28
+      ? data.slice(0, 28) + "..."
+      : data
+  }
+  return
+}
+
 const MovieContainer = ({ data, props }) => {
   return (
     <div
-      className="container card mb-3 col-5 m-3"
+      className="container card mb-3 col-5 card-mobile"
       style={{ padding: 0, display: "inline-flex" }}
     >
       <div className="row no-gutters">
@@ -34,35 +43,35 @@ const MovieContainer = ({ data, props }) => {
           <div className="card-body" style={{ padding: "10px" }}>
             <div className="container">
               <div className="row">
-                <div className="col-4" style={{ marginBottom: "5px" }}>
+                <div className="col-4 circle" style={{ marginBottom: "5px" }}>
                   <RatingCircle
                     rating={data.vote_average}
                     className="rating-movie-card"
                   />
                 </div>
                 <div
-                  className="col-8"
+                  className="col-12 col-sm-8"
                   style={{
                     padding: 0,
                     verticalAlign: "top"
                   }}
                 >
                   <strong style={{ marginBottom: 0 }}>
-                    {data.original_title || data.original_name}
-                  </strong>
-                  <p style={{ marginBottom: "10px", marginTop: "15px" }}>
-                    {formatDate(data.release_date || data.first_air_date)}
+                    {title(data.original_title) || title(data.original_name)}
+                  </strong> ({formatDate(data.release_date || data.first_air_date, 'YYYY')})
+                  <p style={{ marginBottom: "10px", }}>
+
                   </p>
                 </div>
               </div>
             </div>
 
-            <p className="card-text d-inline-block  multiline-ellipsis">
+            <p className="card-text multiline-ellipsis filters">
               {data.overview}
             </p>
             <div className="container">
               <div className="row">
-                <div className="col-12" style={{ textAlign: "center" }}>
+                <div className="col-12 detail" style={{ textAlign: "center" }}>
                   <hr />
                   <Link to={`/movie/${data.id}`}>Details</Link>
                 </div>
@@ -76,3 +85,10 @@ const MovieContainer = ({ data, props }) => {
 };
 
 export default MovieContainer;
+
+
+// {data.original_title.length >= 30
+//   ? data.original_title.slice(0, 25) + "..."
+//   : data.original_title || data.original_name.length >= 30
+//     ? data.original_name.slice(0, 25) + "..."
+//     : data.original_name}
