@@ -42,7 +42,7 @@ const MovieContainer = ({ data, props }) => {
                   />
                 </div>
                 <div
-                  className="col-12 col-sm-12 text-center"
+                  className="col-12 text-center"
                   style={{
                     padding: 0,
                     marginBottom: '5px',
