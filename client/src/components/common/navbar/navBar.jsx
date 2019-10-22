@@ -74,7 +74,7 @@ class NavBar extends Component {
         <div className={`${isOpen} navbar-collapse`} id="navbarSupportedContent1">
 
           {/* Links */}
-          <ul className="navbar-nav ">
+          <ul className={`${isOpen} navbar-nav`}>
             <li className="nav-item">
               <a className="nav-link" href="/movies">
                 <b>Movie</b>
@@ -120,7 +120,7 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse " id="collapsibleNavbar">
           {this.state.token === undefined ? (
-            <ul className="navbar-nav ml-auto ">
+            <ul  className={`${isOpen} navbar-nav `}>
               <li className="nav-item">
                 <a className="nav-link" href="/signin">
                   <b>Loging</b>
@@ -133,7 +133,7 @@ class NavBar extends Component {
               </li>
             </ul>
           ) : (
-              <ul className="navbar-nav ml-auto ">
+              <ul className={`${isOpen} navbar-nav `}>
                 <li className="nav-item">
                   <a className="nav-link" onClick={this.removeToken}>
                     <b>Logout</b>
