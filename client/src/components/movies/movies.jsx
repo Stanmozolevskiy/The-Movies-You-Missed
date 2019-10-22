@@ -240,12 +240,19 @@ class Movie extends Component {
           </div>
           <div className="col-1 filters"></div>
         </div>
+        <div className="row">
+          <div className="col-4"></div>
+          <div className="col-6" style={{ textAlign: 'center' }}>
+            <Paginateion
+              totalPages={this.state.totalPages}
+              handlePageChange={this.handlePageChange}
+              forcePage={this.state.forcePage}
+            />
 
-        <Paginateion
-          totalPages={this.state.totalPages}
-          handlePageChange={this.handlePageChange}
-          forcePage={this.state.forcePage}
-        />
+
+          </div>
+          <div className="col-2"></div>
+        </div>
       </div>
     );
   }

@@ -120,7 +120,7 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse " id="collapsibleNavbar">
           {this.state.token === undefined ? (
-            <ul  className={`${isOpen} navbar-nav `}>
+            <ul className={`${isOpen} navbar-nav `}>
               <li className="nav-item">
                 <a className="nav-link" href="/signin">
                   <b>Loging</b>

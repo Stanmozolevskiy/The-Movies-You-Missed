@@ -7,7 +7,7 @@ export const totalPages = data => {
 
 const Paginateion = ({ totalPages, handlePageChange, forcePage }) => {
   return (
-    <div>
+    <div >
       {totalPages.length > 1 ? (
         <ReactPaginate
           previousLabel={"<-"}

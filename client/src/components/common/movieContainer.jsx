@@ -7,7 +7,7 @@ import formatDate from "../../utilities/dataFormat";
 const MovieContainer = ({ data, props }) => {
   return (
     <div
-      className="container card mb-3 col-5 card-mobile"
+      className="card col-5 card-mobile"
       style={{ padding: 0, display: "inline-flex" }}
     >
       <div className="row no-gutters">
@@ -42,11 +42,10 @@ const MovieContainer = ({ data, props }) => {
                   />
                 </div>
                 <div
-                  className="col-12 text-center"
+                  className="col-md-12 text-center"
                   style={{
                     padding: 0,
                     marginBottom: '5px',
-                    // verticalAlign: "top"
                   }}
                 >
                   <strong style={{ marginBottom: 0, fontSize: '13px' }}>
