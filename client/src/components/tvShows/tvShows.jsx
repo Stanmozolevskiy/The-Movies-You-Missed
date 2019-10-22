@@ -7,24 +7,29 @@ import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
 import SearchBox from "../search/searchBox";
 import Title from "../common/title";
-import GroupList from "../common/groupList";
-import DropDown from "../common/dropDown";
+import GenreFilter from "../filter/genreFilter";
+import YearFilter from "../filter/yesrFilter";
+import SortByFilter from "../filter/sortByFilter";
+import AdultCheckBox from "../filter/adultCheckBox";
+import VideoCheckBox from "../filter/videoCheckBox";
 
 class TvShow extends Component {
   constructor(prpos) {
     super(prpos);
 
     this.state = {
-      search: "",
       genreSerch: {},
-      genres: [],
-      data: [],
-      totalPages: [],
       yearSearch: "",
-      sortBy: "",
+      data: [],
+      genres: [],
+      totalPages: [],
       curentPage: 1,
       forcePage: 0,
-      title: "Popular TV Shows"
+      title: "Popular TV Shows",
+      render: "",
+      sortBy: "popularity.desc",
+      curentPage: 1,
+      adults: false
     };
   }
 
@@ -40,16 +45,20 @@ class TvShow extends Component {
       render: getPopularTvShows
     });
   }
+
   // genreChange
   handleGenreChange = async e => {
     this.setState({
-      genreSerch: this.state.genres.filter(
-        g => g.id === Number(e.target.value)
-      )[0]
+      genreSerch: e
     });
-    const data = await discoverTv(e.target.value, 1, this.state.yearSearch);
+    const data = await discoverTv(
+      e.id,
+      1,
+      this.state.yearSearch,
+      this.state.sortBy,
+      this.state.adults
+    );
     this.setState({
-      search: "",
       data: data.data.results,
       curentPage: data.data.page,
       //work around for page get back to 1
@@ -59,7 +68,8 @@ class TvShow extends Component {
       title: `Search > ${this.state.genreSerch.name +
         " " +
         this.state.yearSearch}`,
-      render: discoverTv
+      render: discoverTv,
+      adults: this.state.adults
     });
     //work around for page get back to 1
     this.setState({ forcePage: 0 });
@@ -71,7 +81,8 @@ class TvShow extends Component {
       this.state.genreSerch.id || "",
       1,
       value,
-      this.state.sortBy
+      this.state.sortBy,
+      this.state.adults
     );
 
     this.setState({
@@ -82,12 +93,13 @@ class TvShow extends Component {
       //work around for page get back to 1
       forcePage: null,
       totalPages: totalPages(data),
+      adults: this.state.adults,
       // handeling the title change
       title:
         `Search > ${
-          this.state.genreSerch.name !== undefined
-            ? this.state.genreSerch.name
-            : ""
+        this.state.genreSerch.name !== undefined
+          ? this.state.genreSerch.name
+          : ""
         }` +
         " " +
         value,
@@ -96,12 +108,14 @@ class TvShow extends Component {
     // work around for page get back to 1
     this.setState({ forcePage: 0 });
   };
+
   handleSortByChange = async ({ value }) => {
     const data = await discoverTv(
       this.state.genreSerch.id || "",
       1,
-      this.state.search || "",
-      value
+      this.state.yearSearch || "",
+      value,
+      this.state.adults
     );
     this.setState({
       data: data.data.results,
@@ -117,11 +131,37 @@ class TvShow extends Component {
     this.setState({ forcePage: 0 });
   };
 
+
+  // include Adults
+  handleIncludeAdults = async e => {
+    this.setState({ adults: e.target.checked });
+    const data = await discoverTv(
+      this.state.genreSerch.id || "",
+      1,
+      this.state.yearSearch || "",
+      this.state.sortBy,
+      e.target.checked
+    );
+    this.setState({
+      data: data.data.results,
+      curentPage: data.data.page,
+      sortBy: this.state.sortBy,
+      //work around for page get back to 1
+      forcePage: null,
+      totalPages: totalPages(data),
+      // handeling the title change
+      render: discoverTv
+    });
+    // work around for page get back to 1
+    this.setState({ forcePage: 0 });
+  };
+
+  // move this to paginate
   handlePageChange = async ({ selected }) => {
     const page = selected + 1;
 
     if (this.state.render === getPopularTvShows) {
-      const data = await getPopularTvShows(page);
+      const data = await getPopularTvShows(page, this.state.adults);
       this.setState({
         curentPage: page,
         data: data.data.results
@@ -131,7 +171,8 @@ class TvShow extends Component {
       const data = await discoverTv(
         this.state.genreSerch.id || "",
         page,
-        this.state.yearSearch || ""
+        this.state.yearSearch || "",
+        this.state.adults
       );
       this.setState({
         curentPage: page,
@@ -143,54 +184,69 @@ class TvShow extends Component {
   render() {
     return (
       <div>
-        <SearchBox onSearchSubmit={handleSearch} />
-
-        <div className="row">
-          {/* <DropDown
-                handleChange={this.handleSortByChange}
-                placeholder="sort by"
-                data={["popularity.desc", "popularity.asc"]}
-              /> */}
-        </div>
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <div className="row" style={{ margin: "0px" }}>
-          {/* filter */}
-          <div className="col-3">
+          <div className="col-3 filters">
             <div className="row">
-              <div className="col-1"></div>
-              <div className="col-10">
-                <div className="row">
-                  <div className="col-6">
-                    <GroupList
-                      selected={this.state.genreSerch.id}
-                      data={this.state.genres}
-                      onGenreChange={this.handleGenreChange}
-                    />
-                  </div>
-                  <div className="col-6">
-                    <DropDown
-                      handleChange={this.handleYearChange}
-                      placeholder="year"
-                      data={[2019, 2018, 2017, 2016, 2015, 2000]}
-                    />
-                  </div>
-                </div>
+              <div className="col-2"></div>
+              <div className="col-8">
+                <br />
+                <br />
+                <br />
+                <hr />
+                <GenreFilter
+                  data={this.state.genres}
+                  onChange={this.handleGenreChange}
+                />
               </div>
-              <div className="col-1"></div>
+              <div className="col-2"></div>
+            </div>
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-4">
+                <YearFilter onChange={this.handleYearChange} />
+              </div>
+              <div className="col-4">
+                <SortByFilter onChange={this.handleSortByChange} />
+              </div>
+              <div className="col-2"></div>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-4">
+                <AdultCheckBox onChange={this.handleIncludeAdults} />
+              </div>
+              <div className="col-4">
+                <VideoCheckBox />
+              </div>
+              <div className="col-2"></div>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col-2"></div>
+              <div className="col-8">
+                <hr />
+                Sort by acter
+        <br />
+                Sort by Produser
+      </div>
+              <div className="col-2"></div>
             </div>
           </div>
-          {/* result */}
-          <div className="col-8">
+          <div className=" col-12 col-sm-8">
             <Title text={this.state.title} />
-            {this.state.data.map(data => (
-              <MovieContainer key={data.id} data={data} props={this.props} />
-            ))}
+            {this.state.data
+              .filter(x => x !== null)
+              .map(data => (
+                <MovieContainer key={data.id} data={data} props={this.props} />
+              ))}
           </div>
-          <div className="col-1"></div>
+          <div className="col-1 filters"></div>
         </div>
 
         <Paginateion
           totalPages={this.state.totalPages}
-          search={this.state.search}
           handlePageChange={this.handlePageChange}
           forcePage={this.state.forcePage}
         />

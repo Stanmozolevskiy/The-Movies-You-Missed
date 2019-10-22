@@ -3,14 +3,6 @@ import { Link } from "react-router-dom";
 import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 
-const title = (data) => {
-  if (data !== undefined) {
-    return data.length >= 28
-      ? data.slice(0, 28) + "..."
-      : data
-  }
-  return
-}
 
 const MovieContainer = ({ data, props }) => {
   return (
@@ -50,18 +42,16 @@ const MovieContainer = ({ data, props }) => {
                   />
                 </div>
                 <div
-                  className="col-12 col-sm-8"
+                  className="col-12 col-sm-8 text-center"
                   style={{
                     padding: 0,
                     verticalAlign: "top"
                   }}
                 >
-                  <strong style={{ marginBottom: 0 }}>
-                    {title(data.original_title) || title(data.original_name)}
+                  <strong style={{ marginBottom: 0, fontSize: '13px' }}>
+                    {data.original_title || data.original_name}
                   </strong> ({formatDate(data.release_date || data.first_air_date, 'YYYY')})
-                  <p style={{ marginBottom: "10px", }}>
 
-                  </p>
                 </div>
               </div>
             </div>
@@ -85,10 +75,3 @@ const MovieContainer = ({ data, props }) => {
 };
 
 export default MovieContainer;
-
-
-// {data.original_title.length >= 30
-//   ? data.original_title.slice(0, 25) + "..."
-//   : data.original_title || data.original_name.length >= 30
-//     ? data.original_name.slice(0, 25) + "..."
-//     : data.original_name}

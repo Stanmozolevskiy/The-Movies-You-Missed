@@ -10,15 +10,15 @@ const Paginateion = ({ totalPages, handlePageChange, forcePage }) => {
     <div>
       {totalPages.length > 1 ? (
         <ReactPaginate
-          previousLabel={"<-- prev"}
+          previousLabel={"<-"}
           previousLinkClassName={"previous-pagination-butto"}
           nextLinkClassName={"next-pagination-butto"}
-          nextLabel={"next -->"}
+          nextLabel={"->"}
           breakLabel={"..."}
           breakClassName={"break-me"}
           pageCount={totalPages.length - 1}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={4}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={2}
           onPageChange={handlePageChange}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
