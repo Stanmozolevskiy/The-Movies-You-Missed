@@ -6,7 +6,7 @@ const SearchBox = ({ onSearch, onSearchSubmit }) => {
       <div className="container md-form mb-3 mt-0 ">
         <input
           onKeyDown={onSearchSubmit}
-          className="search-box-custom"
+          className="search-box-custom outline-none"
           type="text"
           placeholder=" Search for a movie, tv show or a person..."
           onChange={onSearch}

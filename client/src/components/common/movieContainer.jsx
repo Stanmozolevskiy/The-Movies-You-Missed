@@ -35,17 +35,18 @@ const MovieContainer = ({ data, props }) => {
           <div className="card-body" style={{ padding: "10px" }}>
             <div className="container">
               <div className="row">
-                <div className="col-4 circle" style={{ marginBottom: "5px" }}>
+                <div className="col-12 circle" style={{ marginBottom: "5px" }}>
                   <RatingCircle
                     rating={data.vote_average}
                     className="rating-movie-card"
                   />
                 </div>
                 <div
-                  className="col-12 col-sm-8 text-center"
+                  className="col-12 col-sm-12 text-center"
                   style={{
                     padding: 0,
-                    verticalAlign: "top"
+                    marginBottom: '5px',
+                    // verticalAlign: "top"
                   }}
                 >
                   <strong style={{ marginBottom: 0, fontSize: '13px' }}>

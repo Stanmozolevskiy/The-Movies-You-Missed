@@ -403,12 +403,6 @@ body {
     margin: 0 !important;
     border-bottom: none !important
   }
-  input :focus {
-    margin-left: 0;
-    margin: 0 !important;
-    border-bottom: none !important;
-    outline:  none !important;
-  }
   .logo-img{
     display: none;
   }
