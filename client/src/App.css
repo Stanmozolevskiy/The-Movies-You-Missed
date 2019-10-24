@@ -400,6 +400,19 @@ body {
 .filter-dropbox {
   height: 100px;
 }
+.image-background{
+  background-color: rgba(85, 58, 58, .8);
+  height: 600px
+}
+.movie-details-buttons{
+  margin-top: 0;
+  padding: 0px; 
+  margin-top: 30px
+}
+.overview{
+  line-height: 1.9;
+  margin-top: 50px
+}
 
 @media only screen and (max-width: 768px) {
  
@@ -453,8 +466,6 @@ body {
     line-height: 0;
     margin: 100px;
     text-align: center;
-    /* width: 35%; */
-    /* margin: auto; */
     margin-top: 50px;
     margin-bottom: 50px;
   }
@@ -468,6 +479,35 @@ body {
     color: white;
     text-align: center;
   }
+  /* movie details */
+  .mobile-image{
+    margin-top: 40px;
+    max-height: 300px;
+    display: block;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .watch-trailer-btn-cover{
+    display: none;
+  }
+  .movie-title{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+  }
+  .movie-details-buttons{
+   text-align: center;
+   margin-top: 0;
+   color: black
+  }
+  .overview{
+    margin-top: 10px;
+    margin: 10px 5px 5px 5px;
+    line-height: 1.8;
+    font-size: 12px;
+  }
+
   /* safari mobile */
 
   .col-1, .col-2, .col-3, .col-4,.col-5,.col-6, 

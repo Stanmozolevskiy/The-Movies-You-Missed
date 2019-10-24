@@ -4,7 +4,7 @@ const Image = ({ imageId }) => {
     return (
         <img
             src={`https://image.tmdb.org/t/p/original/${imageId}`}
-            className="movie-description-container"
+            className="movie-description-container mobile-image"
             alt="..."
         />
     );

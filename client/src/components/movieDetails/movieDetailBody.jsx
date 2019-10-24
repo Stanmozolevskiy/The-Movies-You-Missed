@@ -84,7 +84,7 @@ const MovieDetailBody = ({ data, props }) => {
             </div>
           </div>
           <br />
-          <CommentsBody data={data.reviews.results} />
+          {/* <CommentsBody data={data.reviews.results} /> */}
           <br />
           <br />
           <div className="row">

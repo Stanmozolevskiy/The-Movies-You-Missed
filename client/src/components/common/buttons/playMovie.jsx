@@ -7,7 +7,7 @@ const PlayMovie = ({ data }) => {
 
   return (
     <div>
-      <h3 style={{ textAlign: "center", cursor: "pointer" }}>
+      <h3 className='filters' style={{ textAlign: "center", cursor: "pointer" }}>
         Rent the movei
         <i
           className="fa fa-video-camera fa-2x"

@@ -43,20 +43,15 @@ class MovieDetais extends Component {
             }}
           >
             {/* image gackgroung container start*/}
-            <div
-              style={{
-                backgroundColor: "rgba(85, 58, 58, .8)",
-                height: "600px"
-              }}
-            >
+            <div className='image-background' >
               <div className="container ">
                 <div className="row">
-                  <div className="col-4">
+                  <div className="col-12 col-sm-4">
                     <Image imageId={this.state.data.poster_path} />
                     <TrailerButton data={this.state.data.videos.results[0]} />
                   </div>
 
-                  <div className="col-8 movie-description-container">
+                  <div className="col-12 col-sm-8 movie-description-container">
                     <MovieDescription
                       data={this.state.data}
                       props={this.props}

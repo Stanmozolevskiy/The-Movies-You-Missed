@@ -25,7 +25,7 @@ class TrailerButton extends Component {
         <div>
           <div
             onClick={this.openModal}
-            className="watch-trailer-btn-cover hover-red"
+            className="watch-trailer-btn-cover hover-red "
           >
             <i
               className="fa fa-play fa-1x"
@@ -37,12 +37,12 @@ class TrailerButton extends Component {
           {this.props.data.key === undefined ? (
             " "
           ) : (
-            <MovieModal
-              modalIsOpen={this.state.modalIsOpen}
-              closeModal={this.closeModal}
-              videoId={this.props.data.key}
-            />
-          )}
+              <MovieModal
+                modalIsOpen={this.state.modalIsOpen}
+                closeModal={this.closeModal}
+                videoId={this.props.data.key}
+              />
+            )}
         </div>
       );
     }
