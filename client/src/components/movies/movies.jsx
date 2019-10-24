@@ -230,7 +230,7 @@ class Movie extends Component {
               <div className="col-2"></div>
             </div>
           </div>
-          <div className=" col-12 col-sm-8">
+          <div className=" col-12 col-md-8 col-sm-12 ">
             <Title text={this.state.title} />
             {this.state.data
               .filter(x => x !== null)
@@ -241,8 +241,8 @@ class Movie extends Component {
           <div className="col-1 filters"></div>
         </div>
         <div className="row" style={{ margin: "0px" }}>
-          <div className="col-4 col-sm-0"></div>
-          <div className="col-6 col-sm-12" style={{ textAlign: 'center' }}>
+          <div className="col-0 col-sm-4"></div>
+          <div className="col-12 col-sm-6" style={{ textAlign: 'center' }}>
             <Paginateion
               totalPages={this.state.totalPages}
               handlePageChange={this.handlePageChange}
@@ -251,7 +251,7 @@ class Movie extends Component {
 
 
           </div>
-          <div className="col-2 col-sm-0"></div>
+          <div className="col-0 col-sm-2"></div>
         </div>
       </div>
     );

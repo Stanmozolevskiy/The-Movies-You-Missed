@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBox = ({ onSearch, onSearchSubmit }) => {
   return (
-    <div className="search-box-custom" style={{ height: "40px" }}>
+    <div className="search-box-custom " style={{ height: "40px" }}>
       <div className="container md-form mb-3 mt-0 ">
         <input
           onKeyDown={onSearchSubmit}

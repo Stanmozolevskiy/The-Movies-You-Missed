@@ -382,6 +382,14 @@ body {
 .card-mobile{
   margin: 3% !important;
 }
+.card-body{
+  padding: 10px !important
+}
+.card-title{
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 0
+}
 
 .scroll-menu-arrow {
   padding: 20px;
@@ -414,6 +422,7 @@ body {
   }
   .card-body{
     max-height: 260px;
+    padding: 0 !important
   }
   .detail{
     display: none !important;
@@ -448,6 +457,16 @@ body {
     /* margin: auto; */
     margin-top: 50px;
     margin-bottom: 50px;
+  }
+  .card-title{
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 0;
+    padding: 3px;
+  }
+  .header-text{
+    color: white;
+    text-align: center;
   }
   /* safari mobile */
 

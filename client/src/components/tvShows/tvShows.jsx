@@ -234,7 +234,7 @@ class TvShow extends Component {
               <div className="col-2"></div>
             </div>
           </div>
-          <div className=" col-12 col-sm-8">
+          <div className=" col-12 col-md-8 col-sm-12 ">
             <Title text={this.state.title} />
             {this.state.data
               .filter(x => x !== null)

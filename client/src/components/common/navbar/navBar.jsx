@@ -33,6 +33,7 @@ class NavBar extends Component {
         className="navbar  navbar-expand-md custom-navbar navbar-dark "
         style={{ background: "#201d1d" }}
       >
+        {/* <h6 className='header-text'>Movie Apes</h6> */}
         <Link to="/movies">
           <img
             // src="https://www.themoviedb.org/assets/2/v4/logos/293x302-powered-by-square-green-3ee4814bb59d8260d51efdd7c124383540fc04ca27d23eaea3a8c87bfa0f388d.png"
