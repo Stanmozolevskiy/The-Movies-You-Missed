@@ -27,17 +27,6 @@ const MovieDetailBody = ({ data, props }) => {
       >
         <div className="col-12 col-sm-9">
           <div className="row movie-body-unit">
-            <div className="col-12 ">
-              <ProductionCompanieIcons
-                data={data.production_companies.filter(
-                  x => x.logo_path !== null
-                )}
-                style={{ display: "flex" }}
-              />
-              <hr />
-            </div>
-          </div>
-          <div className="row movie-body-unit">
             <div className="col-0 col-sm-2"></div>
             <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
               <CastContainer
@@ -101,7 +90,18 @@ const MovieDetailBody = ({ data, props }) => {
             </div>
             <div className="col-2"></div>
           </div>
-          <div className="row">
+          <div className="row movie-body-unit">
+            <div className="col-12 ">
+              <ProductionCompanieIcons
+                data={data.production_companies.filter(
+                  x => x.logo_path !== null
+                )}
+                style={{ display: "flex" }}
+              />
+              <hr />
+            </div>
+          </div>
+          <div className="row movie-body-unit">
             <TrendingContainer id={data.id} props={props} />
           </div>
         </div>
