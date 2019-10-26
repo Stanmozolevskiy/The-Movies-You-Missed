@@ -7,8 +7,8 @@ const ProductionCompanieIcons = ({ data }) => {
         <img
           key={x.id}
           style={{
-            maxWidth: "80px",
-            height: "auto",
+            maxWidth: "40px",
+            // height: "auto",
             margin: "auto",
             padding: "2px"
           }}

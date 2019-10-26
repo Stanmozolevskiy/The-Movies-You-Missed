@@ -1,11 +1,9 @@
-body {
-  zoom: 85%;
-}
-
 html,
 body {
   overflow-x: hidden;
-  flex-direction: column
+  flex-direction: column;
+  zoom: 85%;
+  margin: 0;
 }
 .image-in-container {
   max-width: 100%;
