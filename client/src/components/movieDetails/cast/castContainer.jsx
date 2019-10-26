@@ -4,21 +4,23 @@ import Scroll from "./horizontalScroll";
 
 const CastContainer = ({ data }) => {
   return (
-    <div
-      className="text-center "
-      style={{
-        overflow: "auto",
-        whiteSpace: "nowrap"
-      }}
-    >
-      <Scroll
-        data={data.map(x => (
-          <ModalForCast data={x} key={x.name} />
-        ))}
-      ></Scroll>
-      {/* {data.map(x => (
-        <ModalForCast data={x} key={x.name} />
-      ))} */}
+    <div>
+      <h4 style={{ marginLeft: "20px" }}>
+        <strong> Top cast:</strong>
+      </h4>
+      <div
+        className="text-center"
+        style={{
+          overflow: "auto",
+          whiteSpace: "nowrap"
+        }}
+      >
+        <Scroll
+          data={data.map(x => (
+            <ModalForCast data={x} key={x.name} />
+          ))}
+        ></Scroll>
+      </div>
     </div>
   );
 };

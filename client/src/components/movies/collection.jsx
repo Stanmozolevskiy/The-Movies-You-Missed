@@ -5,22 +5,17 @@ const Collection = ({ data }) => {
     return (
       <div>
         <div
-          className="movie-background"
+          className="movie-background collection"
           style={{
-            overflow: "auto",
-            whiteSpace: "nowrap",
-            maxHeight: "420px",
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${data.backdrop_path})`
           }}
         >
           <div style={{ height: "400px" }}>
             <div className="container">
               <div className="row">
-                <div className="col-3" style={{ color: "white" }}>
-                  {" "}
-                </div>
+                <div className="col-3" ></div>
                 <div className="col-6" style={{ color: "white" }}>
-                  <h1>{data.name}</h1>
+                  <h1 >{data.name}</h1>
                   <div className="card" style={{ width: "10rem" }}>
                     <img
                       src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}

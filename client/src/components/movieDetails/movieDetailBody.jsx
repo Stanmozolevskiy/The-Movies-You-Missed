@@ -25,7 +25,7 @@ const MovieDetailBody = ({ data, props }) => {
           marginRight: "0px"
         }}
       >
-        <div className="col-9">
+        <div className="col-12 col-sm-9">
           <div className="row">
             <div className="col-12 ">
               <ProductionCompanieIcons
@@ -37,30 +37,21 @@ const MovieDetailBody = ({ data, props }) => {
               <hr />
             </div>
           </div>
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h4>
-                <strong> Top cast:</strong>
-              </h4>
+          <div className="row movie-body-unit">
+            <div className="col-0 col-sm-2"></div>
+            <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
               <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 15)}
               />
             </div>
           </div>
-          <br />
-          <br />
-          <br />
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-            <div className="row">
-              <div className="col-2"></div>
-              <div className="col-10" style={{ padding: "0px" }}>
-                <h4>
-                  <strong>Videos and Trailers </strong>
-                </h4>
+            <div className="row movie-body-unit">
+              <div className="col-0 col-sm-2"></div>
+              <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
                 <TrailerContainer
                   props={props}
                   data={data.videos.results.splice(
@@ -71,34 +62,23 @@ const MovieDetailBody = ({ data, props }) => {
               </div>
             </div>
           )}
-          <br />
-          <br />
-          <br />
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h4>
-                <strong>Posters </strong>
-              </h4>
+          <div className="row movie-body-unit ">
+            <div className="col-0 col-sm-2"></div>
+            <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
-          <br />
+
           {/* <CommentsBody data={data.reviews.results} /> */}
-          <br />
-          <br />
-          <div className="row">
+          <div className="row ">
             <div className="col-12" style={{ padding: "0px" }}>
               <Collection data={data.belongs_to_collection} />
             </div>
           </div>
-          <br />
-          <br />
-          <br />
         </div>
 
         {/*  RIGHT SIDE */}
-        <div className="col-3 movie-body-right">
+        <div className="col-12 col-sm-3 movie-body-right">
           <SmallPeopleCard
             data={data.credits.crew.filter(x => x.job === "Director")[0]}
             props={props}

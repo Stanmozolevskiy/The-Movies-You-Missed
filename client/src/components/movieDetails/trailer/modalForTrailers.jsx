@@ -18,7 +18,7 @@ class ModalForTrailer extends Component {
   render() {
     return (
       <div
-        className="text-center hover-red"
+        className="text-center hover-red "
         style={{
           display: "inline-block",
           margin: "15px",
@@ -38,7 +38,6 @@ class ModalForTrailer extends Component {
           />
           <img
             src={`https://img.youtube.com/vi/${this.props.data.key}/mqdefault.jpg`}
-            alt=""
             style={{ maxeight: "300px", width: "400px" }}
           />
         </div>
