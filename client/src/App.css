@@ -5,6 +5,7 @@ body {
 html,
 body {
   overflow-x: hidden;
+  flex-direction: column
 }
 .image-in-container {
   max-width: 100%;
