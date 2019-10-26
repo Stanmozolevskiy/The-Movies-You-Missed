@@ -26,7 +26,7 @@ const MovieDetailBody = ({ data, props }) => {
         }}
       >
         <div className="col-12 col-sm-9">
-          <div className="row">
+          <div className="row movie-body-unit">
             <div className="col-12 ">
               <ProductionCompanieIcons
                 data={data.production_companies.filter(
