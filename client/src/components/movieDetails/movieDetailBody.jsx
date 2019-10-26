@@ -96,7 +96,7 @@ const MovieDetailBody = ({ data, props }) => {
                 data={data.production_companies.filter(
                   x => x.logo_path !== null
                 )}
-                style={{ display: "flex" }}
+                // style={{ display: "flex" }}
               />
               <hr />
             </div>
