@@ -2,13 +2,13 @@ import React from "react";
 
 const ProductionCompanieIcons = ({ data }) => {
   return (
-    <div style={{ display: "flex", textAlign: "center", marginTop: "10px" }}>
+    <div style={{  textAlign: "center"}}>
       {data.map(x => (
         <img
           key={x.id}
           style={{
             maxWidth: "40px",
-            // height: "auto",
+            height: "auto",
             margin: "auto",
             padding: "2px"
           }}
