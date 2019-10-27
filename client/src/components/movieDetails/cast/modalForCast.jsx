@@ -49,7 +49,7 @@ class ModalForCast extends Component {
             }
             alt=""
           />
-          <h5 style={{ padding: "0px", margin: "0px" }}>
+          <h5 style={{ padding: "0px", margin: "0px", fontSize: '18px' }}>
             {this.props.data.name}
           </h5>
           <h6 style={{ whiteSpace: "normal" }}>
