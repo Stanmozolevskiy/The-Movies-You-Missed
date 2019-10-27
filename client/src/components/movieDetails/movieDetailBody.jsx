@@ -74,7 +74,7 @@ const MovieDetailBody = ({ data, props }) => {
           />
           <div className="row">
             <div className="col-3"></div>
-            <div className="col-8">
+            <div className="col-8" style={{ marginLeft: '20px'}}>
               <HomePage data={data.homepage} />
               <IMDBIcon data={data.imdb_id} />
               <FacebookIcon data={data.external_ids.facebook_id} />

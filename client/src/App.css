@@ -99,6 +99,10 @@ body {
     transform: rotate(360deg);
   }
 }
+.App{
+  overflow-x: hidden;
+  flex-direction: column;
+}
 
 .pagination {
   font-size: 20px;
