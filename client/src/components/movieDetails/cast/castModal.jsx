@@ -48,9 +48,7 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
             <div className="col-6">
               <hr />
               <h3>
-                {" "}
                 <strong>
-                  {" "}
                   Hi, I'am {data.name} ({formatDate(data.birthday, "YYYY")})
                 </strong>
               </h3>
@@ -58,7 +56,6 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                 {data.biography || <p>No Information avalable </p>}
               </p>
               <h5>
-                {" "}
                 <strong> Also known as: </strong>
               </h5>
               <ul>

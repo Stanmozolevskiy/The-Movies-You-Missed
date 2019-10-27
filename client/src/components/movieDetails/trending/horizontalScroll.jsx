@@ -26,6 +26,7 @@ class Scroll extends Component {
                     dragging={true}
                     selected={false}
                     transition={1.5}
+                    inertiaScrolling={1}
                     hideArrows={true}
                     hideSingleArrow={true}
                     arrowLeft={ArrowLeft}
