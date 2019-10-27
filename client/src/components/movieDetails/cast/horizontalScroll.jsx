@@ -15,7 +15,7 @@ class Scroll extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <ScrollMenu
           alignCenter={false}
           alignOnResize={false}
@@ -24,7 +24,8 @@ class Scroll extends Component {
           data={this.props.data}
           dragging={true}
           selected={false}
-          transition={1}
+          transition={1.2}
+          inertiaScrollingSlowdown={3}
           hideArrows={true}
           arrowLeft={ArrowLeft}
           arrowRight={ArrowRight}

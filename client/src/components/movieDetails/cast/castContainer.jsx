@@ -11,8 +11,7 @@ const CastContainer = ({ data }) => {
       <div
         className="text-center"
         style={{
-          // overflow: "auto",
-          overflowX: 'hidden',
+          overflow: "auto",
           whiteSpace: "nowrap"
         }}
       >
