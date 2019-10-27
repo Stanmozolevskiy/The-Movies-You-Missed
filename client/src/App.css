@@ -101,6 +101,7 @@ body {
 }
 .App{
   overflow-x: hidden;
+  overflow-y: hidden;
   flex-direction: column;
 }
 

@@ -20,7 +20,7 @@ class Scroll extends Component {
           alignCenter={false}
           alignOnResize={false}
           wheel={false}
-          clickWhenDrag={true}
+          clickWhenDrag={false}
           data={this.props.data}
           dragging={true}
           selected={false}
