@@ -23,9 +23,10 @@ class ModalForCast extends Component {
     return (
       <div
         style={{
-          overflow: "auto",
-          whiteSpace: "nowrap",
-          display: "inline-block"
+         
+          // whiteSpace: "nowrap",
+          display: "inline-grid",
+          // position: 'fixed'
         }}
       >
         <div
@@ -49,7 +50,7 @@ class ModalForCast extends Component {
             }
             alt=""
           />
-          <h5 style={{ padding: "0px", margin: "0px", fontSize: '18px' }}>
+          <h5 style={{ padding: "0px", margin: "0px", fontSize: "18px" }}>
             {this.props.data.name}
           </h5>
           <h6 style={{ whiteSpace: "normal" }}>
