@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModalForCast from "./modalForCast";
 import Scroll from "./horizontalScroll";
-import ScrollLock, { TouchScrollable } from 'react-scrolllock';
+import { TouchScrollable } from 'react-scrolllock';
 
 class CastContainer extends Component {
   constructor(props) {
@@ -30,7 +30,6 @@ class CastContainer extends Component {
             ></Scroll>
           </TouchScrollable>
         </div>
-        <ScrollLock isActive={this.state.lockScroll} />
       </div>
     );
   }

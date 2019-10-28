@@ -23,10 +23,7 @@ class ModalForCast extends Component {
     return (
       <div
         style={{
-         
-          // whiteSpace: "nowrap",
           display: "inline-grid",
-          // position: 'fixed'
         }}
       >
         <div

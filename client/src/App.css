@@ -431,6 +431,11 @@ html{
   background: white;
   color: black
 }
+.case-image-modal{
+    object-fit: contain;
+    height: 702px
+  
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-btn {
@@ -445,7 +450,7 @@ html{
     display: none;
   }
   .filters {
-    display: none;
+    display: none !important;
   }
   .image-fit {
     max-height: 290px;
@@ -545,9 +550,29 @@ html{
     font-size: 28px;
   }
   .mobile-size{
-
+    height: 636px;
+    width: 450px;
+    background: white;
+    color: black
+  }
+  .case-image-modal{
+    display: contain;
+    object-fit: contain;
+    height: 355px;
+    margin-left: 48%;
   }
 
+  .multiline-ellipsis-people-modal {
+    display: block;
+    height: 200px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 20px  
+  }
+  .more{
+    position: absolute;
+    margin-top: 310px !important;
+  }
 
   /* safari mobile */
   .col-1,

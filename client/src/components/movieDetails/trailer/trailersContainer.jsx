@@ -1,6 +1,7 @@
 import React from "react";
 import ModalForTrailer from "./modalForTrailers";
 import Scroll from "./horizontalScroll";
+import { TouchScrollable } from 'react-scrolllock';
 
 const TrailerContainer = ({ data }) => {
   return (
@@ -14,12 +15,13 @@ const TrailerContainer = ({ data }) => {
           overflow: "auto",
           whiteSpace: "nowrap"
         }}
-      >
-        <Scroll
-          data={data.map(x => (
-            <ModalForTrailer key={x.id} data={x} />
-          ))}
-        />
+      ><TouchScrollable>
+          <Scroll
+            data={data.map(x => (
+              <ModalForTrailer key={x.id} data={x} />
+            ))}
+          />
+        </TouchScrollable>
       </div>
     </div>
   );

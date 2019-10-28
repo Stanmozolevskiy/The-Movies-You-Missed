@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import YouTube from "react-youtube";
+import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 
 const opts = {
   height: "702px",

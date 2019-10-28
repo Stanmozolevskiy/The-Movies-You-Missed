@@ -38,20 +38,20 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           </button>
           <div
             className="row mobile-size">
-            <div className="col-6">
+            <div className="col-12 col-sm-6">
               <hr />
-              <h3>
-                <strong>
+              <h3 style={{marginLeft: '15px'}}>
+                <strong >
                   Hi, I'am {data.name} ({formatDate(data.birthday, "YYYY")})
                 </strong>
               </h3>
               <p className="multiline-ellipsis-people-modal">
                 {data.biography || <p>No Information avalable </p>}
               </p>
-              <h5>
+              <h5 className="filters" >
                 <strong> Also known as: </strong>
               </h5>
-              <ul>
+              <ul className="filters">
                 {data.also_known_as.slice(0, 9).map(x => (
                   <li key={x}> {x} </li>
                 ))}
@@ -61,15 +61,12 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                     ""
                   )}
               </ul>
-              <button className="btn btn-primary btn-sm">More</button>
+              <button className="more btn btn-primary btn-sm ">More</button>
             </div>
-            <div className="col-1"></div>
-            <div className="col-5">
+            <div className=" col-0 col-sm-1"></div>
+            <div className="col-12 col-sm-5">
               <img
-                style={{
-                  objectFit: "contain",
-                  height: "702px"
-                }}
+                className='case-image-modal'
                 src={`https://image.tmdb.org/t/p/original/${data.profile_path}`}
                 alt=""
               />

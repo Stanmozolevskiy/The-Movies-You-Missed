@@ -1,6 +1,7 @@
 import React from "react";
 import ModalForPoster from "./modalForPoster";
 import Scroll from "./horizontalScroll";
+import { TouchScrollable } from 'react-scrolllock';
 
 const PostersContainer = ({ data }) => {
   return (
@@ -15,11 +16,13 @@ const PostersContainer = ({ data }) => {
           whiteSpace: "nowrap"
         }}
       >
-        <Scroll
-          data={data.map(x => (
-            <ModalForPoster data={x} key={x.file_path} />
-          ))}
-        />
+        <TouchScrollable>
+          <Scroll
+            data={data.map(x => (
+              <ModalForPoster data={x} key={x.file_path} />
+            ))}
+          />
+        </TouchScrollable>
       </div>
     </div>
   );

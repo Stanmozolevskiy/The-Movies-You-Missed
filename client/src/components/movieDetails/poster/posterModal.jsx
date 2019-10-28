@@ -19,7 +19,7 @@ const PosterModal = ({ modalIsOpen, afterOpenModal, closeModal, imgUrl }) => {
         {/* The Image sorce */}
         <button
           type="button"
-          class="close btn-lg"
+          class="close btn-lg mobile-size"
           aria-label="Close"
           style={{
             color: 'white',
