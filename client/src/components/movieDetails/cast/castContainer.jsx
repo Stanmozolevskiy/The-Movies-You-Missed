@@ -4,7 +4,9 @@ import Scroll from "./horizontalScroll";
 
 const CastContainer = ({ data }) => {
   return (
-    <div>
+    <div style={{
+      overflowX: 'scroll'
+    }}>
       <h4 style={{ marginLeft: "20px" }}>
         <strong> Top cast:</strong>
       </h4>
