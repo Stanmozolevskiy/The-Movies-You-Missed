@@ -46,11 +46,11 @@ class TrendingContainer extends Component {
           </h5>
           <br />
           <TouchScrollable>
-          <Scroll
-            data={this.state.results.map(x => (
-              <ModalForTrending data={x} key={x.id} props={this.props.props} />
-            ))}
-          />
+            <Scroll
+              data={this.state.results.map(x => (
+                <ModalForTrending data={x} key={x.id} props={this.props.props} />
+              ))}
+            />
           </TouchScrollable>
         </div>
       );

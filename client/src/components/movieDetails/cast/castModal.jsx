@@ -39,8 +39,8 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           <div
             className="row mobile-size">
             <div className="col-12 col-sm-6">
-              <hr />
-              <h3 style={{marginLeft: '15px'}}>
+              <hr  className='filters'/>
+              <h3 style={{marginLeft: '10px'}}>
                 <strong >
                   Hi, I'am {data.name} ({formatDate(data.birthday, "YYYY")})
                 </strong>

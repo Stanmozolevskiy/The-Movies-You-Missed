@@ -551,7 +551,7 @@ html{
   }
   .mobile-size{
     height: 636px;
-    width: 450px;
+    width: 100%;
     background: white;
     color: black
   }
@@ -559,13 +559,13 @@ html{
     display: contain;
     object-fit: contain;
     height: 355px;
-    margin-left: 48%;
+    margin-left: 47%;
   }
 
   .multiline-ellipsis-people-modal {
     display: block;
     height: 200px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.6;
     padding: 20px  
   }
