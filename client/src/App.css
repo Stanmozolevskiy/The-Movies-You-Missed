@@ -553,6 +553,8 @@ body {
   }
   body {
     overflow-x: hidden;
+    /* overflow-y: hidden; */
+
   }
   .scrolable{
     overflow-x: scroll;
