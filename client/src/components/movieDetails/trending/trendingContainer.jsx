@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ModalForTrending from "./modalForTrending";
 import Scroll from "./horizontalScroll";
 import { getMovieRecomended } from "../../../services/movieServise";
+import { TouchScrollable } from 'react-scrolllock';
 
 class TrendingContainer extends Component {
   constructor(prpos) {
@@ -44,11 +45,13 @@ class TrendingContainer extends Component {
             </strong>
           </h5>
           <br />
+          <TouchScrollable>
           <Scroll
             data={this.state.results.map(x => (
               <ModalForTrending data={x} key={x.id} props={this.props.props} />
             ))}
           />
+          </TouchScrollable>
         </div>
       );
     }
