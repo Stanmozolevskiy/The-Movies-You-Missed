@@ -1,5 +1,14 @@
+
 body {
-  zoom: 85%;
+  overflow-x: hidden;	
+  flex-direction: column;	
+  zoom: 85%;	
+  margin: 0;
+}
+html{
+  overflow-x: hidden;	
+  flex-direction: column;	
+  background: black;
 }
 .image-in-container {
   max-width: 100%;
@@ -553,10 +562,5 @@ body {
   }
   body {
     overflow-x: hidden;
-    /* overflow-y: hidden; */
-
-  }
-  .scrolable{
-    overflow-x: scroll;
   }
 }
