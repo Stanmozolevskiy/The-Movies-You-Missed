@@ -18,7 +18,7 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           onRequestClose={closeModal}
           className="Modal"
           overlayClassName="Modal-Overlay"
-          contentLabel="Example Modal"
+          contentLasbel="Example Modal"
         >
           {/* The cast's card */}
 
@@ -37,14 +37,7 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
             <span aria-hidden="true">&times;</span>
           </button>
           <div
-            className="row"
-            style={{
-              height: "702px",
-              width: "1152px",
-              background: "white",
-              color: "black"
-            }}
-          >
+            className="row mobile-size">
             <div className="col-6">
               <hr />
               <h3>
@@ -65,8 +58,8 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                 {data.also_known_as.length === 0 ? (
                   <p> No Information avalable </p>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </ul>
               <button className="btn btn-primary btn-sm">More</button>
             </div>

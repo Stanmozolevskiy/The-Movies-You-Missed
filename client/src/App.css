@@ -425,6 +425,12 @@ html{
   line-height: 1.9;
   margin-top: 50px;
 }
+.mobile-size{
+  height: 702px;
+  width: 1152px;
+  background: white;
+  color: black
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-btn {
@@ -537,6 +543,9 @@ html{
   }
   .collection h1 {
     font-size: 28px;
+  }
+  .mobile-size{
+
   }
 
 
