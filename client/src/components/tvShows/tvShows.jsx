@@ -97,9 +97,9 @@ class TvShow extends Component {
       // handeling the title change
       title:
         `Search > ${
-        this.state.genreSerch.name !== undefined
-          ? this.state.genreSerch.name
-          : ""
+          this.state.genreSerch.name !== undefined
+            ? this.state.genreSerch.name
+            : ""
         }` +
         " " +
         value,
@@ -130,7 +130,6 @@ class TvShow extends Component {
     // work around for page get back to 1
     this.setState({ forcePage: 0 });
   };
-
 
   // include Adults
   handleIncludeAdults = async e => {
@@ -228,9 +227,9 @@ class TvShow extends Component {
               <div className="col-8">
                 <hr />
                 Sort by acter
-        <br />
+                <br />
                 Sort by Produser
-      </div>
+              </div>
               <div className="col-2"></div>
             </div>
           </div>

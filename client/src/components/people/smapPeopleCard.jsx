@@ -50,16 +50,32 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
       <div
         className="card-body text-center"
         style={{
-          maxWidth: "40%",
+          maxWidth: "50%",
           maxHeight: "40%",
-          margin: "5% 0 5% 22%",
+          margin: "5% 0 5% 25%",
           padding: "2px"
         }}
       >
+        <h5>
+          <strong
+            style={{
+              background: "#FFF9F7",
+              padding: "8px",
+              textAlign: "center",
+              position: "absolute",
+              top: " -10px",
+              left: " 40%",
+              boxShadow:
+                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
+            }}
+          >
+            Director
+          </strong>
+        </h5>
+        <br />
         <p style={{ padding: "0px", margin: 0 }}>
           <img
-            className=" img-fluid"
-            style={{ maxWidth: "40%" }}
+            style={{ maxWidth: "50%" }}
             src={
               dataTv.profile_path === null
                 ? window.location.origin + "/people-image-placeholder.jpg"

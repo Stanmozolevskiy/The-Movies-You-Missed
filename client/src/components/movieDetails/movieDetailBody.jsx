@@ -74,7 +74,7 @@ const MovieDetailBody = ({ data, props }) => {
           />
           <div className="row">
             <div className="col-3"></div>
-            <div className="col-8" style={{ marginLeft: '20px'}}>
+            <div className="col-8" style={{ marginLeft: "20px" }}>
               <HomePage data={data.homepage} />
               <IMDBIcon data={data.imdb_id} />
               <FacebookIcon data={data.external_ids.facebook_id} />
@@ -117,35 +117,22 @@ const MovieDetailBody = ({ data, props }) => {
           marginRight: "0px"
         }}
       >
-        <div className="col-9">
-          <div className="col-12">
-            <ProductionCompanieIcons
-              data={data.production_companies.filter(x => x.logo_path !== null)}
-              style={{ display: "flex" }}
-            />
-            <hr />
-          </div>
-
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Top cast:</h3>
+        <div className="col-12 col-sm-9">
+          <div className="row movie-body-unit">
+            <div className="col-0 col-sm-2"></div>
+            <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
               <CastContainer
                 props={props}
                 data={data.credits.cast.filter(x => x.order < 9)}
               />
             </div>
           </div>
-          <br />
-          <br />
-          <br />
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-            <div className="row">
-              <div className="col-2"></div>
-              <div className="col-10" style={{ padding: "0px" }}>
-                <h3>Videos and Trailers</h3>
+            <div className="row movie-body-unit">
+              <div className="col-0 col-sm-2"></div>
+              <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
                 <TrailerContainer
                   props={props}
                   data={data.videos.results.splice(
@@ -156,44 +143,48 @@ const MovieDetailBody = ({ data, props }) => {
               </div>
             </div>
           )}
-          <br />
-          <br />
-          <br />
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10" style={{ padding: "0px" }}>
-              <h3>Posters </h3>
+          <div className="row movie-body-unit ">
+            <div className="col-0 col-sm-2"></div>
+            <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
-          <br />
-          <br />
-          <br />
         </div>
+
         {/* RIGHT SIDE */}
-        <div className="col-3 movie-body-right">
-          <div className="row">
-            <div className="col-3"></div>
-          </div>
+        <div className="col-12 col-sm-3 movie-body-right">
           <SmallPeopleCard props={props} dataTv={data.created_by[0]} />
           <div className="row">
-            <div className="col-2"></div>
-
-            <div className="col-6">
+            <div className="col-3"></div>
+            <div className="col-8" style={{ marginLeft: "20px" }}>
               <HomePage data={data.homepage} />
               <IMDBIcon data={data.imdb_id} />
               <FacebookIcon data={data.external_ids.facebook_id} />
               <InstagramIcon data={data.external_ids.instagram_id} />
               <Twitter data={data.external_ids.twitter_id} />
             </div>
-            <div className="col-4"></div>
+            <div className="col-1"></div>
           </div>
           <div className="row">
-            <div className="col-1"></div>
+            <div className="col-2"></div>
             <div className="col-8">
               <MovieGeneralDetails data={data} props={props} />
             </div>
-            <div className="col-3"></div>
+            <div className="col-2"></div>
+          </div>
+          <div className="row movie-body-unit">
+            <div className="col-12 ">
+              <ProductionCompanieIcons
+                data={data.production_companies.filter(
+                  x => x.logo_path !== null
+                )}
+                style={{ display: "flex" }}
+              />
+              <hr />
+            </div>
+          </div>
+          <div className="row movie-body-unit">
+            <TrendingContainer id={data.id} props={props} />
           </div>
         </div>
       </div>
