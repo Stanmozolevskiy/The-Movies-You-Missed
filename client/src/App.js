@@ -11,6 +11,7 @@ import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";
 import NavBar from "./components/common/navbar/navBar";
 import ConfrimEmail from "./components/login/confirmEmail";
+import PeopleDetails from './components/people/peopleDetails/peopleDetails'
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
+          <Route path="/people/:id" component={PeopleDetails} />
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
