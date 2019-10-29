@@ -2,14 +2,7 @@ import React from "react";
 
 const PeopleCard = ({ data }) => {
   return (
-    <div
-      className="card col-5 col-sm-3 people-card"
-      style={{
-        margin: "15px 16px 15px 16px",
-        paddingLeft: "0px",
-        paddingRight: "0px"
-      }}
-    >
+    <div className="card col-5 col-sm-3 people-card">
       <img
         className="image-fit"
         src={`https://image.tmdb.org/t/p/w400${data.profile_path}`}

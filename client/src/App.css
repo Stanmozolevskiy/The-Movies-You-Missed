@@ -436,8 +436,8 @@ html {
 }
 .people-card {
   margin: 15px 30px 15px 30px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -578,8 +578,8 @@ html {
   }
   .people-card {
     margin: 15px 16px 15px 16px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   /* safari mobile */
