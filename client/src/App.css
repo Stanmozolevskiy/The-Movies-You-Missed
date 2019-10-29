@@ -99,7 +99,7 @@ body {
     transform: rotate(360deg);
   }
 }
-.App{
+.App {
   overflow-x: hidden;
   overflow-y: hidden;
   flex-direction: column;
@@ -532,6 +532,11 @@ body {
   }
   .collection h1 {
     font-size: 28px;
+  }
+  .movie-background {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
   }
 
   /* safari mobile */
