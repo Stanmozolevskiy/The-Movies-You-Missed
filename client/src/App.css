@@ -1,13 +1,12 @@
-
 body {
-  overflow-x: hidden;	
-  flex-direction: column;	
-  zoom: 85%;	
+  overflow-x: hidden;
+  flex-direction: column;
+  zoom: 85%;
   margin: 0;
 }
-html{
-  overflow-x: hidden;	
-  flex-direction: column;	
+html {
+  overflow-x: hidden;
+  flex-direction: column;
   background: black;
 }
 .image-in-container {
@@ -104,7 +103,7 @@ html{
     transform: rotate(360deg);
   }
 }
-.App{
+.App {
   overflow-x: hidden;
   overflow-y: hidden;
   flex-direction: column;
@@ -425,16 +424,20 @@ html{
   line-height: 1.9;
   margin-top: 50px;
 }
-.mobile-size{
+.mobile-size {
   height: 702px;
   width: 1152px;
   background: white;
-  color: black
+  color: black;
 }
-.case-image-modal{
-    object-fit: contain;
-    height: 702px
-  
+.case-image-modal {
+  object-fit: contain;
+  height: 702px;
+}
+.people-card {
+  margin: 15px 30px 15px 30px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -549,13 +552,13 @@ html{
   .collection h1 {
     font-size: 28px;
   }
-  .mobile-size{
+  .mobile-size {
     height: 636px;
     width: 100%;
     background: white;
-    color: black
+    color: black;
   }
-  .case-image-modal{
+  .case-image-modal {
     display: contain;
     object-fit: contain;
     height: 355px;
@@ -567,11 +570,16 @@ html{
     height: 200px;
     font-size: 14px;
     line-height: 1.6;
-    padding: 20px  
+    padding: 20px;
   }
-  .more{
+  .more {
     position: absolute;
     margin-top: 310px !important;
+  }
+  .people-card {
+    margin: 15px 16px 15px 16px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   /* safari mobile */

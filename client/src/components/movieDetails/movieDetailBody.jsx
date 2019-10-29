@@ -57,7 +57,6 @@ const MovieDetailBody = ({ data, props }) => {
               <PostersContainer data={data.images.backdrops.splice(0, 12)} />
             </div>
           </div>
-
           {/* <CommentsBody data={data.reviews.results} /> */}
           <div className="row ">
             <div className="col-12" style={{ padding: "0px" }}>
@@ -65,7 +64,6 @@ const MovieDetailBody = ({ data, props }) => {
             </div>
           </div>
         </div>
-
         {/*  RIGHT SIDE */}
         <div className="col-12 col-sm-3 movie-body-right">
           <SmallPeopleCard

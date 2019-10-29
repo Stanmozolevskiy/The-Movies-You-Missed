@@ -16,7 +16,7 @@ class People extends Component {
     title: "Popular People"
   };
 
-  // get populat movies
+  // get populat people
   async componentDidMount() {
     const data = await getPopularPerson(this.state.curentPage);
     this.setState({ data: data.data.results });
