@@ -24,8 +24,8 @@ class Scroll extends Component {
           data={this.props.data}
           dragging={true}
           selected={false}
-          transition={0.4}
-          inertiaScrolling={0.4}
+          transition={0.6}
+          inertiaScrolling={0.8}
           hideArrows={true}
           arrowLeft={ArrowLeft}
           arrowRight={ArrowRight}
