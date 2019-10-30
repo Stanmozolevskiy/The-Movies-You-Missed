@@ -23,7 +23,7 @@ class ModalForCast extends Component {
     return (
       <div
         style={{
-          display: "inline-grid",
+          display: "inline-grid"
         }}
       >
         <div

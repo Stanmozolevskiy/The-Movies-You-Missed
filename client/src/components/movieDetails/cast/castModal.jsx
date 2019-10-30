@@ -24,7 +24,7 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
 
           <button
             type="button"
-            class="close btn-lg"
+            className="close btn-lg"
             aria-label="Close"
             style={{
               color: "white",
@@ -36,19 +36,18 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <div
-            className="row mobile-size">
+          <div className="row people-modal">
             <div className="col-12 col-sm-6">
-              <hr  className='filters'/>
-              <h3 style={{marginLeft: '10px'}}>
-                <strong >
+              <hr className="filters" />
+              <h3 style={{ marginLeft: "10px" }}>
+                <strong>
                   Hi, I'am {data.name} ({formatDate(data.birthday, "YYYY")})
                 </strong>
               </h3>
               <p className="multiline-ellipsis-people-modal">
                 {data.biography || <p>No Information avalable </p>}
               </p>
-              <h5 className="filters" >
+              <h5 className="filters">
                 <strong> Also known as: </strong>
               </h5>
               <ul className="filters">
@@ -58,15 +57,15 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                 {data.also_known_as.length === 0 ? (
                   <p> No Information avalable </p>
                 ) : (
-                    ""
-                  )}
+                  ""
+                )}
               </ul>
               <button className="more btn btn-primary btn-sm ">More</button>
             </div>
             <div className=" col-0 col-sm-1"></div>
             <div className="col-12 col-sm-5">
               <img
-                className='case-image-modal'
+                className="people-image-modal"
                 src={`https://image.tmdb.org/t/p/original/${data.profile_path}`}
                 alt=""
               />

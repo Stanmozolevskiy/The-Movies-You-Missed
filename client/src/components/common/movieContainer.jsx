@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 
-
-const MovieContainer = ({ data, props }) => {
+const MovieContainer = ({ data, props, size = "col-md-5" }) => {
   return (
     <div
-      className="card col-5 col-sm-3 col-md-5 card-mobile"
+      className={`card col-5 col-sm-3 ${size} card-mobile`}
       style={{ padding: 0, display: "inline-flex" }}
     >
       <div className="row no-gutters">
@@ -32,7 +31,7 @@ const MovieContainer = ({ data, props }) => {
           </Link>
         </div>
         <div className="col-md-7">
-          <div className="card-body" >
+          <div className="card-body">
             {/* <div className="container"> */}
             {/* <div className="row" style={{ padding: "0px" }}> */}
             <div className="col-12 circle" style={{ marginBottom: "5px" }}>
@@ -45,14 +44,14 @@ const MovieContainer = ({ data, props }) => {
               className="col-md-12 text-center"
               style={{
                 padding: 0,
-                marginBottom: '5px',
+                marginBottom: "5px"
               }}
             >
-              <strong className='card-title'>
+              <strong className="card-title">
                 {data.original_title || data.original_name}
-              </strong> ({formatDate(data.release_date || data.first_air_date, 'YYYY')})
-
-                </div>
+              </strong>{" "}
+              ({formatDate(data.release_date || data.first_air_date, "YYYY")})
+            </div>
             {/* </div> */}
             {/* </div> */}
 

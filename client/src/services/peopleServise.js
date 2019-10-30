@@ -18,3 +18,13 @@ export function getPopularPerson(page) {
     `${baseUrl}3/person/popular?api_key=${apiKey}&language=en-US&&page=${page}`
   );
 }
+export function getMovieCredit(id) {
+  return http.get(
+    `${baseUrl}3/person/${id}/movie_credits?api_key=${apiKey}&language=en-US`
+  );
+}
+export function getTvCredit(id) {
+  return http.get(
+    `${baseUrl}3/person/${id}/tv_credits?api_key=${apiKey}&language=en-US`
+  );
+}

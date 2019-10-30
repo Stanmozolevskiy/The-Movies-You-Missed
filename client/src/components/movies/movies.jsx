@@ -95,9 +95,9 @@ class Movie extends Component {
       // handeling the title change
       title:
         `Search > ${
-        this.state.genreSerch.name !== undefined
-          ? this.state.genreSerch.name
-          : ""
+          this.state.genreSerch.name !== undefined
+            ? this.state.genreSerch.name
+            : ""
         }` +
         " " +
         value,
@@ -242,14 +242,12 @@ class Movie extends Component {
         </div>
         <div className="row" style={{ margin: "0px" }}>
           <div className="col-0 col-sm-4"></div>
-          <div className="col-12 col-sm-6" style={{ textAlign: 'center' }}>
+          <div className="col-12 col-sm-6" style={{ textAlign: "center" }}>
             <Paginateion
               totalPages={this.state.totalPages}
               handlePageChange={this.handlePageChange}
               forcePage={this.state.forcePage}
             />
-
-
           </div>
           <div className="col-0 col-sm-2"></div>
         </div>
@@ -259,4 +257,3 @@ class Movie extends Component {
 }
 
 export default Movie;
-

@@ -170,9 +170,9 @@ html {
 }
 
 .logo-img {
-  /* margin-left: 130px; */
-  margin-top: 0px;
-  width: 68px;
+  margin-left: 130px;
+  /* margin-top: 0px; */
+  /* width: 68px; */
 }
 .movie-body-unit {
   margin-bottom: 30px;
@@ -322,7 +322,6 @@ html {
   color: #7f8c8d;
   padding: 0 0 8px 0;
 }
-
 .email {
   border-bottom: 3px solid #fff;
 }
@@ -424,20 +423,30 @@ html {
   line-height: 1.9;
   margin-top: 50px;
 }
-.mobile-size {
+.people-modal {
   height: 702px;
   width: 1152px;
   background: white;
   color: black;
 }
-.case-image-modal {
-  object-fit: contain;
-  height: 702px;
-}
 .people-card {
   margin: 15px 30px 15px 30px;
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+.people-image-modal {
+  object-fit: contain;
+  height: 703px;
+}
+.case-image-modal {
+  object-fit: contain;
+  height: 680px;
+}
+.image-curve {
+  float: right;
+  height: 680px;
+  width: 400px;
+  shape-outside: ellipse(60%);
 }
 
 @media only screen and (max-width: 768px) {
@@ -450,7 +459,7 @@ html {
     border-bottom: none !important;
   }
   .logo-img {
-    display: none;
+    margin: 0px !important;
   }
   .filters {
     display: none !important;
@@ -552,17 +561,27 @@ html {
   .collection h1 {
     font-size: 28px;
   }
-  .mobile-size {
+  .people-modal {
     height: 636px;
     width: 100%;
     background: white;
     color: black;
   }
-  .case-image-modal {
-    display: contain;
+  .people-image-modal {
     object-fit: contain;
-    height: 355px;
+    height: 385px;
     margin-left: 47%;
+  }
+  .case-image-modal {
+    object-fit: contain;
+    height: 450px;
+    width: 300px;
+  }
+  .image-curve {
+    float: right;
+    height: 450px;
+    width: 300px;
+    shape-outside: ellipse(90%);
   }
 
   .multiline-ellipsis-people-modal {
