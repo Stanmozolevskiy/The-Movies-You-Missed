@@ -15,7 +15,7 @@ class Scroll extends Component {
 
   render() {
     return (
-      <div className="App" >
+      <div className="App">
         <ScrollMenu
           alignCenter={false}
           alignOnResize={false}

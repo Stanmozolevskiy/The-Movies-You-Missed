@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import ModalForCast from "./modalForCast";
 import Scroll from "./horizontalScroll";
-import { TouchScrollable } from 'react-scrolllock';
+import { TouchScrollable } from "react-scrolllock";
 
 class CastContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { lockScroll: false }
+    this.state = { lockScroll: false };
   }
   render() {
     return (
-      <div
-        className='scrolable'>
+      <div className="scrolable">
         <h4 style={{ marginLeft: "20px" }}>
           <strong> Top cast:</strong>
         </h4>
@@ -36,4 +35,3 @@ class CastContainer extends Component {
 }
 
 export default CastContainer;
-

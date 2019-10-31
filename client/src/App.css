@@ -448,6 +448,10 @@ html {
   width: 400px;
   shape-outside: ellipse(60%);
 }
+.people-credits-tab-tiele {
+  text-align: center;
+  margin-top: 25px;
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-btn {
@@ -574,13 +578,13 @@ html {
   }
   .case-image-modal {
     object-fit: contain;
-    height: 450px;
-    width: 300px;
+    max-height: 450px;
+    max-width: 300px;
   }
   .image-curve {
     float: right;
-    height: 450px;
-    width: 300px;
+    max-height: 450px;
+    max-width: 300px;
     shape-outside: ellipse(90%);
   }
 
