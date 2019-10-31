@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
   getPersonDetails,
   getMovieCredit,
-  getTvCredit
+  getTvCredit,
+  getPeoplePictures
 } from "../../../services/peopleServise";
 import formatDate from "../../../utilities/dataFormat";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -16,7 +17,8 @@ class PeopleDetails extends Component {
     this.state = {
       data: {},
       movieCredit: {},
-      tvCredit: {}
+      tvCredit: {},
+      peoplePictures: {}
     };
   }
 
@@ -24,15 +26,17 @@ class PeopleDetails extends Component {
     const data = await getPersonDetails(this.props.match.params.id);
     const movieCredit = await getMovieCredit(this.props.match.params.id);
     const tvCredit = await getTvCredit(this.props.match.params.id);
+    const peoplePictures = await getPeoplePictures(this.props.match.params.id);
     this.setState({
       data: data.data,
       movieCredit: movieCredit.data,
-      tvCredit: tvCredit.data
+      tvCredit: tvCredit.data,
+      peoplePictures: peoplePictures.data
     });
   }
 
   render() {
-    console.log(this.state.data);
+    console.log(this.state);
     if (this.state.data.also_known_as === undefined) {
       return "";
     } else {
@@ -66,30 +70,56 @@ class PeopleDetails extends Component {
               className="row"
               style={{ fontSize: "19px", lineHeight: "1.2" }}
             >
-              <div className="col-0 col-sm-4">
-                Pictures and models are here float left spme facts
-                <br />
-                <br />
-                <br />
-                <h5>
-                  <strong> Also known as: </strong>
-                </h5>
-                <ul>
-                  {this.state.data.also_known_as.map(x => (
-                    <li key={x}> {x} </li>
-                  ))}
-                  {this.state.data.also_known_as.length === 0 ? (
-                    <p> No Information avalable </p>
-                  ) : (
-                    ""
-                  )}
-                </ul>
+              <div className="col-0 col-sm-5">
+                <h3>Known Facts: </h3>
+                <div>
+                  <h5>
+                    <strong>Date of birth: </strong>
+                    {formatDate(this.state.data.birthday, "DD MMMM YYYY")}
+                  </h5>
+                  <h5>
+                    <strong>Date of death: </strong>
+                    {formatDate(this.state.data.deathday, "DD MMMM YYYY")}
+                  </h5>
+                  <h5>
+                    <strong>Gender: </strong>
+                    {this.state.data.gender === 1 ? "Female" : "Male"}
+                  </h5>
+                  <h5>
+                    <strong>Known For: </strong>
+                    {this.state.data.known_for_department === "Directing"
+                      ? this.state.data.known_for_department.replace(
+                          "ing",
+                          "or"
+                        )
+                      : this.state.data.known_for_department.replace(
+                          "ing",
+                          "er"
+                        )}
+                  </h5>
+                </div>
+                <div>
+                  <h5>
+                    <strong> Also known as: </strong>
+                  </h5>
+                  <ul>
+                    {this.state.data.also_known_as.map(x => (
+                      <li key={x}> {x} </li>
+                    ))}
+                    {this.state.data.also_known_as.length === 0 ? (
+                      <p> No Information avalable </p>
+                    ) : (
+                      ""
+                    )}
+                  </ul>
+                </div>
               </div>
               <div className="col-12 col-sm-6">
                 <Tabs>
                   <TabList>
                     <Tab onClick={this.onTabClick}>Movies</Tab>
                     <Tab onClick={this.onTabClick}>Tv Show</Tab>
+                    <Tab onClick={this.onTabClick}>Pictures</Tab>
                   </TabList>
 
                   <TabPanel>
@@ -150,9 +180,22 @@ class PeopleDetails extends Component {
                         ))}
                     </ul>
                   </TabPanel>
+                  <TabPanel>
+                    {this.state.peoplePictures.profiles.map(x => (
+                      <img
+                        key={x.file_path}
+                        style={{
+                          maxHeight: "150px",
+                          margin: "5px"
+                        }}
+                        src={`https://image.tmdb.org/t/p/original/${x.file_path}`}
+                        alt=""
+                      />
+                    ))}
+                  </TabPanel>
                 </Tabs>
               </div>
-              <div className="col-0 col-sm-2"></div>
+              <div className="col-0 col-sm-1"></div>
             </div>
           </div>
         </div>

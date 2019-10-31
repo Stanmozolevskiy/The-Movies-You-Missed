@@ -19,9 +19,9 @@ class People extends Component {
   // get populat people
   async componentDidMount() {
     const data = await getPopularPerson(this.state.curentPage);
-    this.setState({ data: data.data.results });
-    this.setState({ curentPage: data.data.page });
     this.setState({
+      data: data.data.results,
+      curentPage: data.data.page,
       totalPages: totalPages(data)
     });
   }
@@ -30,12 +30,10 @@ class People extends Component {
     if (e.key === "Enter" && this.state.search !== "") {
       const data = await getPerson(this.state.search, 1);
 
-      this.setState({ data: data.data.results });
-      this.setState({ curentPage: data.data.page });
       this.setState({
-        totalPages: totalPages(data)
-      });
-      this.setState({
+        data: data.data.results,
+        curentPage: data.data.page,
+        totalPages: totalPages(data),
         title: `Search > ${this.state.search.charAt(0).toUpperCase() +
           this.state.search.slice(1)}`
       });

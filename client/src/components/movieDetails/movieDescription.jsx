@@ -3,6 +3,7 @@ import RatingCircle from "../common/ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 import IconsForMoVieDescription from "../common/buttons/iconsForMoVieDescription";
 import PlayMovie from "../common/buttons/playMovie";
+import Rating from "react-rating";
 
 const MovieDescription = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -13,7 +14,7 @@ const MovieDescription = ({ data, props }) => {
         </h1>
         <div className="container">
           <div className="row">
-            <div className="col-2 " style={{ padding: "0px" }}>
+            <div className="col-2 ">
               <RatingCircle
                 rating={data.vote_average}
                 className="rating-movie-detail filters"
@@ -22,6 +23,16 @@ const MovieDescription = ({ data, props }) => {
             <div className="col-12 col-sm-10 movie-details-buttons">
               <IconsForMoVieDescription />
             </div>
+            {/* <Rating
+              style={{ color: "gold", textAlign: "center" }}
+              initialRating={data.vote_average / 2}
+              emptySymbol={"fa fa-star-o fa-3x "}
+              fullSymbol={"fa fa-star fa-3x "}
+              start="0"
+              stop="5"
+              step="1"
+              readonly="false"
+            /> */}
           </div>
         </div>
         <h6 className="overview">{data.overview}</h6>

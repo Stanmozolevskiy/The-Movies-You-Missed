@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
+import Rating from "react-rating";
 
 const MovieContainer = ({ data, props, size = "col-md-5" }) => {
   return (
@@ -34,10 +35,19 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
           <div className="card-body">
             {/* <div className="container"> */}
             {/* <div className="row" style={{ padding: "0px" }}> */}
-            <div className="col-12 circle" style={{ marginBottom: "5px" }}>
-              <RatingCircle
-                rating={data.vote_average}
-                className="rating-movie-card"
+            <div
+              className="col-12 circle"
+              style={{ marginBottom: "5px", textAlign: "center" }}
+            >
+              <Rating
+                style={{ color: "gold" }}
+                initialRating={data.vote_average / 2}
+                emptySymbol={"fa fa-star-o fa-1x "}
+                fullSymbol={"fa fa-star fa-1x "}
+                start="0"
+                stop="5"
+                step="1"
+                readonly="true"
               />
             </div>
             <div

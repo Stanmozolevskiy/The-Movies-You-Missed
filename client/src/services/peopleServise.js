@@ -9,9 +9,7 @@ export function getPerson(serch, page) {
   );
 }
 export function getPersonDetails(id) {
-  return http.get(
-    `${baseUrl}3/person/${id}?api_key=${apiKey}&language=en-US&append_to_response=known_for_department`
-  );
+  return http.get(`${baseUrl}3/person/${id}?api_key=${apiKey}&language=en-US`);
 }
 export function getPopularPerson(page) {
   return http.get(
@@ -26,5 +24,10 @@ export function getMovieCredit(id) {
 export function getTvCredit(id) {
   return http.get(
     `${baseUrl}3/person/${id}/tv_credits?api_key=${apiKey}&language=en-US`
+  );
+}
+export function getPeoplePictures(id) {
+  return http.get(
+    `${baseUrl}3/person/${id}/images?api_key=${apiKey}&language=en-US`
   );
 }
