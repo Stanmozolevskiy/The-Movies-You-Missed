@@ -21,7 +21,6 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           contentLasbel="Example Modal"
         >
           {/* The cast's card */}
-
           <button
             type="button"
             className="close btn-lg"
@@ -60,7 +59,9 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                   ""
                 )}
               </ul>
-              <button className="more btn btn-primary btn-sm ">More</button>
+              <a href={`/people/${data.id}`}>
+                <button className="more btn btn-primary btn-sm ">More</button>
+              </a>
             </div>
             <div className=" col-0 col-sm-1"></div>
             <div className="col-12 col-sm-5">

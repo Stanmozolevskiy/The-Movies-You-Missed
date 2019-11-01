@@ -10,6 +10,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import MovieContainer from "../../common/movieContainer";
 import Rating from "react-rating";
+import PeopleDescription from "./peopleDescription";
+import Image from "../../movieDetails/imageMovieDetails";
+import PeopleDetailsBody from "./peopleDetailsBody";
 
 class PeopleDetails extends Component {
   constructor(prpos) {
@@ -42,35 +45,38 @@ class PeopleDetails extends Component {
     } else {
       return (
         <div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h3 style={{ marginLeft: "10px", marginTop: "30px" }}>
-                  <strong>
-                    Hi, I'am {this.state.data.name} (
-                    {formatDate(this.state.data.birthday, "YYYY")})
-                  </strong>
-                </h3>
-                <div className="image-curve">
-                  <img
-                    className="case-image-modal"
-                    src={`https://image.tmdb.org/t/p/original/${this.state.data.profile_path}`}
-                    alt=""
-                  />
+          {/* image gackgroung container start*/}
+          <div className="image-background">
+            <div className="container ">
+              <div className="row">
+                <div className="col-12 col-sm-4">
+                  <Image imageId={this.state.data.profile_path} />
                 </div>
-                <p>
-                  {this.state.data.biography || <p>No Information avalable </p>}
-                </p>
+
+                <div className="col-12 col-sm-8 movie-description-container">
+                  <PeopleDescription data={this.state.data} />
+                </div>
               </div>
             </div>
           </div>
-          <br />
+          {/* image gackgroung container  end*/}
+
+          {/*  */}
+          {/* <br /> */}
+          <PeopleDetailsBody
+            data={this.state.data}
+            movieCredit={this.state.movieCredit}
+            tvCredit={this.state.tvCredit}
+            peoplePictures={this.state.peoplePictures}
+          />
+          {/*  */}
+
           <div className="container">
             <div
               className="row"
               style={{ fontSize: "19px", lineHeight: "1.2" }}
             >
-              <div className="col-0 col-sm-5">
+              {/* <div className="col-0 col-sm-5">
                 <h3>Known Facts: </h3>
                 <div>
                   <h5>
@@ -113,8 +119,8 @@ class PeopleDetails extends Component {
                     )}
                   </ul>
                 </div>
-              </div>
-              <div className="col-12 col-sm-6">
+              </div> */}
+              {/* <div className="col-12 col-sm-6">
                 <Tabs>
                   <TabList>
                     <Tab onClick={this.onTabClick}>Movies</Tab>
@@ -194,7 +200,7 @@ class PeopleDetails extends Component {
                     ))}
                   </TabPanel>
                 </Tabs>
-              </div>
+              </div> */}
               <div className="col-0 col-sm-1"></div>
             </div>
           </div>
