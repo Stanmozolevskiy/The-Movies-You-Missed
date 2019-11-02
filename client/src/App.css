@@ -65,6 +65,18 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.multiline-ellipsis-people-details {
+  display: block;
+  display: -webkit-box;
+  height: 300px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .movie-body-right {
   border-left: 1px solid #e7b6b6;
   background: #f4e3e3;
@@ -452,6 +464,21 @@ html {
   text-align: center;
   margin-top: 25px;
 }
+.display-none {
+  display: none;
+}
+.hide-pc {
+  display: none;
+}
+.people-biography-modal {
+  width: 100%;
+  margin-left: 100px;
+  background: white;
+  color: black;
+  padding: 15px;
+  font-size: 16px;
+  height: auto;
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-btn {
@@ -587,8 +614,18 @@ html {
     max-width: 300px;
     shape-outside: ellipse(90%);
   }
+  .hide-pc {
+    display: block;
+  }
 
   .multiline-ellipsis-people-modal {
+    display: block;
+    height: 200px;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .multiline-ellipsis-people-details {
     display: block;
     height: 200px;
     font-size: 14px;

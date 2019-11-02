@@ -55,48 +55,20 @@ class PeopleDetailsBody extends Component {
         <div className="col-12 col-sm-9">
           <div className="row movie-body-unit">
             <div className="col-0 col-sm-2"></div>
-            <Tabs>
-              <TabList>
-                <Tab>Movies</Tab>
-                <Tab>Tv Show</Tab>
-                <Tab>Pictures</Tab>
-              </TabList>
+            <div className="col-0 col-sm-10">
+              <Tabs>
+                <TabList>
+                  <Tab>Movies</Tab>
+                  <Tab>Tv Show</Tab>
+                  <Tab>Pictures</Tab>
+                </TabList>
 
-              <TabPanel>
-                <h2 className="people-credits-tab-tiele">Acting: </h2>
-                <button onClick={this.onMovieOpen}>Errow down </button>
-                <ul>
-                  {this.props.movieCredit.cast
-                    .filter(x => x !== null)
-                    .slice(0, 3)
-                    .sort(
-                      (a, b) =>
-                        formatDate(b.release_date, "YYYY") -
-                        formatDate(a.release_date, "YYYY")
-                    )
-                    .map(x => (
-                      <li key={x.id}>
-                        <strong> {x.original_title}</strong> (
-                        {formatDate(x.release_date, "YYYY MMM")}){" "}
-                        <Rating
-                          style={{ color: "gold" }}
-                          initialRating={x.vote_average / 2}
-                          emptySymbol={"fa fa-star-o fa-1x "}
-                          fullSymbol={"fa fa-star fa-1x "}
-                          start="0"
-                          stop="5"
-                          step="1"
-                          readonly="true"
-                        />
-                        <p>Character: {x.character}</p>
-                      </li>
-                    ))}
-                </ul>
-                <Collapse isOpened={this.state.isMovieOpen}>
+                <TabPanel>
+                  <h2 className="people-credits-tab-tiele">Acting: </h2>
                   <ul>
                     {this.props.movieCredit.cast
                       .filter(x => x !== null)
-                      .slice(3, this.props.movieCredit.cast.length)
+                      .slice(0, 3)
                       .sort(
                         (a, b) =>
                           formatDate(b.release_date, "YYYY") -
@@ -120,43 +92,60 @@ class PeopleDetailsBody extends Component {
                         </li>
                       ))}
                   </ul>
-                </Collapse>
-              </TabPanel>
-              <TabPanel>
-                <h2 className="people-credits-tab-tiele">Tv Credits</h2>
-                <button onClick={this.onTvOpen}>Errow down </button>
-                <ul>
-                  {this.props.tvCredit.cast
-                    .filter(x => x !== null)
-                    .slice(0, 3)
-                    .sort(
-                      (a, b) =>
-                        formatDate(b.first_air_date, "YYYY") -
-                        formatDate(a.first_air_date, "YYYY")
-                    )
-                    .map(x => (
-                      <li key={x.id}>
-                        <strong> {x.name}</strong> (
-                        {formatDate(x.first_air_date, "YYYY MMM")}){" "}
-                        <Rating
-                          style={{ color: "gold" }}
-                          initialRating={x.vote_average / 2}
-                          emptySymbol={"fa fa-star-o fa-1x "}
-                          fullSymbol={"fa fa-star fa-1x "}
-                          start="0"
-                          stop="5"
-                          step="1"
-                          readonly="true"
-                        />
-                        <p>Character: {x.character}</p>
-                      </li>
-                    ))}
-                </ul>
-                <Collapse isOpened={this.state.isTvOpen}>
+                  <div
+                    onClick={this.onMovieOpen}
+                    className={
+                      this.props.movieCredit.cast.length <= 3
+                        ? "display-none"
+                        : ""
+                    }
+                    style={{ textAlign: "center", cursor: "pointer" }}
+                  >
+                    <i
+                      className={`fa fa-chevron-circle-${
+                        this.state.isMovieOpen ? "up" : "down"
+                      } fa-1x`}
+                      aria-hidden="true"
+                      style={{ margin: "5px" }}
+                    ></i>
+                    {this.state.isMovieOpen ? `see less` : `see more`}
+                  </div>
+                  <Collapse isOpened={this.state.isMovieOpen}>
+                    <ul>
+                      {this.props.movieCredit.cast
+                        .filter(x => x !== null)
+                        .slice(3, this.props.movieCredit.cast.length)
+                        .sort(
+                          (a, b) =>
+                            formatDate(b.release_date, "YYYY") -
+                            formatDate(a.release_date, "YYYY")
+                        )
+                        .map(x => (
+                          <li key={x.id}>
+                            <strong> {x.original_title}</strong> (
+                            {formatDate(x.release_date, "YYYY MMM")}){" "}
+                            <Rating
+                              style={{ color: "gold" }}
+                              initialRating={x.vote_average / 2}
+                              emptySymbol={"fa fa-star-o fa-1x "}
+                              fullSymbol={"fa fa-star fa-1x "}
+                              start="0"
+                              stop="5"
+                              step="1"
+                              readonly="true"
+                            />
+                            <p>Character: {x.character}</p>
+                          </li>
+                        ))}
+                    </ul>
+                  </Collapse>
+                </TabPanel>
+                <TabPanel>
+                  <h2 className="people-credits-tab-tiele">Tv Credits</h2>
                   <ul>
                     {this.props.tvCredit.cast
                       .filter(x => x !== null)
-                      .slice(3, this.props.tvCredit.cast.length)
+                      .slice(0, 3)
                       .sort(
                         (a, b) =>
                           formatDate(b.first_air_date, "YYYY") -
@@ -180,22 +169,67 @@ class PeopleDetailsBody extends Component {
                         </li>
                       ))}
                   </ul>
-                </Collapse>
-              </TabPanel>
-              <TabPanel>
-                {this.props.peoplePictures.profiles.map(x => (
-                  <img
-                    key={x.file_path}
-                    style={{
-                      maxHeight: "150px",
-                      margin: "5px"
-                    }}
-                    src={`https://image.tmdb.org/t/p/original/${x.file_path}`}
-                    alt=""
-                  />
-                ))}
-              </TabPanel>
-            </Tabs>
+                  <div
+                    onClick={this.onTvOpen}
+                    className={
+                      this.props.tvCredit.cast.length <= 3 ? "display-none" : ""
+                    }
+                    style={{ textAlign: "center", cursor: "pointer" }}
+                  >
+                    <i
+                      className={`fa fa-chevron-circle-${
+                        this.state.isTvOpen ? "up" : "down"
+                      } fa-1x`}
+                      aria-hidden="true"
+                      style={{ margin: "5px" }}
+                    ></i>
+                    {this.state.isTvOpen ? `see less` : `see more`}
+                  </div>
+                  <Collapse isOpened={this.state.isTvOpen}>
+                    <ul>
+                      {this.props.tvCredit.cast
+                        .filter(x => x !== null)
+                        .slice(3, this.props.tvCredit.cast.length)
+                        .sort(
+                          (a, b) =>
+                            formatDate(b.first_air_date, "YYYY") -
+                            formatDate(a.first_air_date, "YYYY")
+                        )
+                        .map(x => (
+                          <li key={x.id}>
+                            <strong> {x.name}</strong> (
+                            {formatDate(x.first_air_date, "YYYY MMM")}){" "}
+                            <Rating
+                              style={{ color: "gold" }}
+                              initialRating={x.vote_average / 2}
+                              emptySymbol={"fa fa-star-o fa-1x "}
+                              fullSymbol={"fa fa-star fa-1x "}
+                              start="0"
+                              stop="5"
+                              step="1"
+                              readonly="true"
+                            />
+                            <p>Character: {x.character}</p>
+                          </li>
+                        ))}
+                    </ul>
+                  </Collapse>
+                </TabPanel>
+                <TabPanel>
+                  {this.props.peoplePictures.profiles.map(x => (
+                    <img
+                      key={x.file_path}
+                      style={{
+                        maxHeight: "150px",
+                        margin: "5px"
+                      }}
+                      src={`https://image.tmdb.org/t/p/original/${x.file_path}`}
+                      alt=""
+                    />
+                  ))}
+                </TabPanel>
+              </Tabs>
+            </div>
           </div>
         </div>
         {/*  LEFT SIDE END*/}
