@@ -77,6 +77,7 @@ class PeopleDetails extends Component {
             movieCredit={this.state.movieCredit}
             tvCredit={this.state.tvCredit}
             peoplePictures={this.state.peoplePictures}
+            props={this.props}
           />
           {/*  */}
 

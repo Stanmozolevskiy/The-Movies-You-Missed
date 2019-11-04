@@ -32,7 +32,7 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
         <p style={{ padding: "0px", margin: 0 }}>
           <img
             style={{ maxWidth: "50%" }}
-            src={
+            src={data === undefined ? '' :
               data.profile_path === null
                 ? window.location.origin + "/people-image-placeholder.jpg"
                 : `https://image.tmdb.org/t/p/w400${data.profile_path}`
@@ -41,7 +41,7 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
           />
         </p>
         <h6 className="card-title" style={{ padding: "15px" }}>
-          {data.name}
+          {data === undefined ? '' : data.name}
         </h6>
       </div>
     );
@@ -76,7 +76,7 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
         <p style={{ padding: "0px", margin: 0 }}>
           <img
             style={{ maxWidth: "50%" }}
-            src={
+            src={dataTv === undefined ? '' :
               dataTv.profile_path === null
                 ? window.location.origin + "/people-image-placeholder.jpg"
                 : `https://image.tmdb.org/t/p/w400${dataTv.profile_path}`
@@ -85,7 +85,7 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
           />
         </p>
         <h6 className="card-title" style={{ padding: "15px" }}>
-          Creator: {dataTv.name}
+          Creator: {dataTv === undefined ? '' : dataTv.name}
         </h6>
       </div>
     );
