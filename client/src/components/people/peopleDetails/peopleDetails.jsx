@@ -5,11 +5,7 @@ import {
   getTvCredit,
   getPeoplePictures
 } from "../../../services/peopleServise";
-import formatDate from "../../../utilities/dataFormat";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import MovieContainer from "../../common/movieContainer";
-import Rating from "react-rating";
 import PeopleDescription from "./peopleDescription";
 import Image from "../../movieDetails/imageMovieDetails";
 import PeopleDetailsBody from "./peopleDetailsBody";
@@ -42,6 +38,7 @@ class PeopleDetails extends Component {
   openModal = () => {
     this.setState({ modalIsOpen: true });
   };
+
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };

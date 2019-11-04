@@ -9,6 +9,7 @@ html {
   flex-direction: column;
   background: black;
 }
+
 .image-in-container {
   max-width: 100%;
   max-height: 100%;
@@ -637,9 +638,19 @@ html {
     margin-top: 310px !important;
   }
   .people-card {
-    margin: 15px 16px 15px 16px;
+    margin: 15px 15px 15px 15px;
     padding-left: 0px !important;
     padding-right: 0px !important;
+  }
+  .people-biography-modal {
+    width: 100%;
+    overflow: scroll;
+    /* margin-left: 100px; */
+    /* background: white; */
+    /* color: black; */
+    padding: 15px;
+    font-size: 13px;
+    height: auto;
   }
 
   /* safari mobile */

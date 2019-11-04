@@ -19,11 +19,12 @@ import { Collapse } from "react-collapse";
 // import TrendingContainer from "./trending/trendingContainer";
 
 class PeopleDetailsBody extends Component {
-  constructor(prpos) {
-    super(prpos);
+  constructor(props) {
+    super(props);
     this.state = {
       isMovieOpen: false,
-      isTvOpen: false
+      isTvOpen: false,
+      isMovieCrewOpen: false
     };
   }
 
@@ -32,6 +33,13 @@ class PeopleDetailsBody extends Component {
       this.setState({ isMovieOpen: true });
     } else {
       this.setState({ isMovieOpen: false });
+    }
+  };
+  onMovieCrewOpen = () => {
+    if (this.state.isMovieCrewOpen === false) {
+      this.setState({ isMovieCrewOpen: true });
+    } else {
+      this.setState({ isMovieCrewOpen: false });
     }
   };
   onTvOpen = () => {
@@ -43,6 +51,7 @@ class PeopleDetailsBody extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div
         className="row"
@@ -62,18 +71,17 @@ class PeopleDetailsBody extends Component {
                   <Tab>Tv Show</Tab>
                   <Tab>Pictures</Tab>
                 </TabList>
-
                 <TabPanel>
                   <h2 className="people-credits-tab-tiele">Acting: </h2>
                   <ul>
                     {this.props.movieCredit.cast
                       .filter(x => x !== null)
-                      .slice(0, 3)
                       .sort(
                         (a, b) =>
                           formatDate(b.release_date, "YYYY") -
                           formatDate(a.release_date, "YYYY")
                       )
+                      .slice(0, 3)
                       .map(x => (
                         <li key={x.id}>
                           <strong> {x.original_title}</strong> (
@@ -114,12 +122,12 @@ class PeopleDetailsBody extends Component {
                     <ul>
                       {this.props.movieCredit.cast
                         .filter(x => x !== null)
-                        .slice(3, this.props.movieCredit.cast.length)
                         .sort(
                           (a, b) =>
                             formatDate(b.release_date, "YYYY") -
                             formatDate(a.release_date, "YYYY")
                         )
+                        .slice(3, this.props.movieCredit.cast.length)
                         .map(x => (
                           <li key={x.id}>
                             <strong> {x.original_title}</strong> (
@@ -139,22 +147,98 @@ class PeopleDetailsBody extends Component {
                         ))}
                     </ul>
                   </Collapse>
+                  <hr />
+                  <h2 className="people-credits-tab-tiele">Crew: </h2>
+                  <ul>
+                    {this.props.movieCredit.crew
+                      .filter(x => x !== null)
+                      .sort(
+                        (a, b) =>
+                          formatDate(b.release_date, "YYYY") -
+                          formatDate(a.release_date, "YYYY")
+                      )
+                      .slice(0, 3)
+                      .map(x => (
+                        <li key={x.id}>
+                          <strong> {x.original_title}</strong> (
+                          {formatDate(x.release_date, "YYYY MMM")}){" "}
+                          <Rating
+                            style={{ color: "gold" }}
+                            initialRating={x.vote_average / 2}
+                            emptySymbol={"fa fa-star-o fa-1x "}
+                            fullSymbol={"fa fa-star fa-1x "}
+                            start="0"
+                            stop="5"
+                            step="1"
+                            readonly="true"
+                          />
+                          <p>Job: {x.job}</p>
+                        </li>
+                      ))}
+                  </ul>
+                  <div
+                    onClick={this.onMovieCrewOpen}
+                    className={
+                      this.props.movieCredit.cast.length <= 3
+                        ? "display-none"
+                        : ""
+                    }
+                    style={{ textAlign: "center", cursor: "pointer" }}
+                  >
+                    <i
+                      className={`fa fa-chevron-circle-${
+                        this.state.isMovieCrewOpen ? "up" : "down"
+                      } fa-1x`}
+                      aria-hidden="true"
+                      style={{ margin: "5px" }}
+                    ></i>
+                    {this.state.isMovieCrewOpen ? `see less` : `see more`}
+                  </div>
+                  <Collapse isOpened={this.state.isMovieCrewOpen}>
+                    <ul>
+                      {this.props.movieCredit.crew
+                        .filter(x => x !== null)
+                        .sort(
+                          (a, b) =>
+                            formatDate(b.release_date, "YYYY") -
+                            formatDate(a.release_date, "YYYY")
+                        )
+                        .slice(3, this.props.movieCredit.crew.length)
+                        .map(x => (
+                          <li key={x.id}>
+                            <strong> {x.original_title}</strong> (
+                            {formatDate(x.release_date, "YYYY MMM")}){" "}
+                            <Rating
+                              style={{ color: "gold" }}
+                              initialRating={x.vote_average / 2}
+                              emptySymbol={"fa fa-star-o fa-1x "}
+                              fullSymbol={"fa fa-star fa-1x "}
+                              start="0"
+                              stop="5"
+                              step="1"
+                              readonly="true"
+                            />
+                            <p>Job:{x.job}</p>
+                          </li>
+                        ))}
+                    </ul>
+                  </Collapse>
                 </TabPanel>
                 <TabPanel>
                   <h2 className="people-credits-tab-tiele">Tv Credits</h2>
                   <ul>
                     {this.props.tvCredit.cast
                       .filter(x => x !== null)
-                      .slice(0, 3)
                       .sort(
                         (a, b) =>
                           formatDate(b.first_air_date, "YYYY") -
                           formatDate(a.first_air_date, "YYYY")
                       )
+                      .slice(0, 3)
                       .map(x => (
-                        <li key={x.id}>
+                        <li key={x.credit_id}>
                           <strong> {x.name}</strong> (
-                          {formatDate(x.first_air_date, "YYYY MMM")}){" "}
+                          {formatDate(x.first_air_date, "YYYY MMM")})
                           <Rating
                             style={{ color: "gold" }}
                             initialRating={x.vote_average / 2}
@@ -189,14 +273,14 @@ class PeopleDetailsBody extends Component {
                     <ul>
                       {this.props.tvCredit.cast
                         .filter(x => x !== null)
-                        .slice(3, this.props.tvCredit.cast.length)
                         .sort(
                           (a, b) =>
                             formatDate(b.first_air_date, "YYYY") -
                             formatDate(a.first_air_date, "YYYY")
                         )
+                        .slice(3, this.props.tvCredit.cast.length)
                         .map(x => (
-                          <li key={x.id}>
+                          <li key={x.credit_id}>
                             <strong> {x.name}</strong> (
                             {formatDate(x.first_air_date, "YYYY MMM")}){" "}
                             <Rating
@@ -237,51 +321,58 @@ class PeopleDetailsBody extends Component {
         {/* RIGHT SIDE */}
         <div className="col-12 col-sm-3 movie-body-right">
           <div className="row">
-            <div className="col-3"></div>
-            <div className="col-8" style={{ marginLeft: "20px" }}>
-              <h3>Known Facts: </h3>
-              <div>
+            <div className="col-12" style={{ marginLeft: "20px" }}>
+              <h5>
+                <strong
+                  style={{
+                    background: "#FFF9F7",
+                    padding: "8px",
+                    textAlign: "center",
+                    position: "absolute",
+                    top: " -10px",
+                    left: " 35%",
+                    boxShadow:
+                      "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
+                  }}
+                >
+                  Known Facts
+                </strong>
+              </h5>
+              <div style={{ marginTop: "15%", textAlign: "center" }}>
+                <h6>Date of birth:</h6>
+                <h5> {formatDate(this.props.data.birthday, "DD MMMM YYYY")}</h5>
+                <h6>Date of death:</h6>
+                <h5> {formatDate(this.props.data.deathday, "DD MMMM YYYY")}</h5>
+                <h6>Gender:</h6>
+                <h5> {this.props.data.gender === 1 ? "Female" : "Male"}</h5>
+                <h6>Known For:</h6>
                 <h5>
-                  <strong>Date of birth: </strong>
-                  {formatDate(this.props.data.birthday, "DD MMMM YYYY")}
-                </h5>
-                <h5>
-                  <strong>Date of death: </strong>
-                  {formatDate(this.props.data.deathday, "DD MMMM YYYY")}
-                </h5>
-                <h5>
-                  <strong>Gender: </strong>
-                  {this.props.data.gender === 1 ? "Female" : "Male"}
-                </h5>
-                <h5>
-                  <strong>Known For: </strong>
                   {this.props.data.known_for_department === "Directing"
                     ? this.props.data.known_for_department.replace("ing", "or")
                     : this.props.data.known_for_department.replace("ing", "er")}
                 </h5>
-              </div>
-              <div>
-                <h5>
+                <hr />
+                <h6>
+                  {" "}
                   <strong> Also known as: </strong>
-                </h5>
-                <ul>
-                  {this.props.data.also_known_as.map(x => (
-                    <li key={x}> {x} </li>
-                  ))}
-                  {this.props.data.also_known_as.length === 0 ? (
-                    <p> No Information avalable </p>
-                  ) : (
-                    ""
-                  )}
-                </ul>
+                </h6>
+
+                {this.props.data.also_known_as.map(x => (
+                  <h6 key={x}> {x} </h6>
+                ))}
+                {this.props.data.also_known_as.length === 0 ? (
+                  <p> No Information avalable </p>
+                ) : (
+                  ""
+                )}
               </div>
+
               {/* <HomePage data={data.homepage} />
                   <IMDBIcon data={data.imdb_id} />
                   <FacebookIcon data={data.external_ids.facebook_id} />
                   <InstagramIcon data={data.external_ids.instagram_id} />
                   <Twitter data={data.external_ids.twitter_id} /> */}
             </div>
-            <div className="col-1"></div>
           </div>
         </div>
 
