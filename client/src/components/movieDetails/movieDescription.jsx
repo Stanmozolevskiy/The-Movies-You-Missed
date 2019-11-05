@@ -11,28 +11,25 @@ const MovieDescription = ({ data, props }) => {
       <div>
         <h1 className="movie-title">
           {data.title} ({formatDate(data.release_date, "YYYY")})
+          <Rating
+            style={{ color: "gold", fontSize: '12px', marginLeft: '2%' }}
+            initialRating={data.vote_average / 2}
+            emptySymbol={"fa fa-star-o fa-2x "}
+            fullSymbol={"fa fa-star fa-2x "}
+            start="0"
+            stop="5"
+            step="1"
+            readonly="false"
+          />
         </h1>
+
         <div className="container">
           <div className="row">
-            <div className="col-2 ">
-              <RatingCircle
-                rating={data.vote_average}
-                className="rating-movie-detail filters"
-              />
-            </div>
+            <div className="col-2 "></div>
             <div className="col-12 col-sm-10 movie-details-buttons">
               <IconsForMoVieDescription />
             </div>
-            {/* <Rating
-              style={{ color: "gold", textAlign: "center" }}
-              initialRating={data.vote_average / 2}
-              emptySymbol={"fa fa-star-o fa-3x "}
-              fullSymbol={"fa fa-star fa-3x "}
-              start="0"
-              stop="5"
-              step="1"
-              readonly="false"
-            /> */}
+
           </div>
         </div>
         <h6 className="overview">{data.overview}</h6>
@@ -45,14 +42,20 @@ const MovieDescription = ({ data, props }) => {
       <div>
         <h1 className="movie-title">
           {data.name} ({formatDate(data.first_air_date, "YYYY")})
+          <Rating
+            style={{ color: "gold", fontSize: '12px', marginLeft: '2%' }}
+            initialRating={data.vote_average / 2}
+            emptySymbol={"fa fa-star-o fa-2x "}
+            fullSymbol={"fa fa-star fa-2x "}
+            start="0"
+            stop="5"
+            step="1"
+            readonly="false"
+          />
         </h1>
         <div className="container">
           <div className="row">
             <div className="col-2" style={{ padding: "0px" }}>
-              <RatingCircle
-                rating={data.vote_average}
-                className="rating-movie-detail filters"
-              />
             </div>
             <div className="col-12 col-sm-10 movie-details-buttons">
               <IconsForMoVieDescription />

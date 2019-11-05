@@ -34,7 +34,7 @@ class DropDown extends Component {
                             )
                             .slice(0, 3)
                             .map(x => (
-                                <li key={x.id}>
+                                <li key={x.credit_id}>
                                     <strong> <Link to={x.original_title !== undefined ? `/movies/${x.id}` : `/tv/${x.id}`}> {x.original_title || x.name} </Link></strong> (
                               {formatDate(x.release_date || x.first_air_date, "YYYY MMM")}){" "}
                                     <Rating
@@ -80,7 +80,7 @@ class DropDown extends Component {
                                 )
                                 .slice(3, this.props.data.length)
                                 .map(x => (
-                                    <li key={x.id}>
+                                    <li key={x.credit_id}>
                                         <strong> <Link to={x.original_title !== undefined ? `/movies/${x.id}` : `/tv/${x.id}`}> {x.original_title || x.name} </Link></strong> (
                                 {formatDate(x.release_date || x.first_air_date, "YYYY MMM")}){" "}
                                         <Rating

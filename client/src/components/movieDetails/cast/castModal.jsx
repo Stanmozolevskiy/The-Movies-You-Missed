@@ -35,8 +35,8 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <div className="row people-modal">
-            <div className="col-12 col-sm-6">
+          <div className="row  people-modal">
+            <div className="col-12 col-sm-6 ">
               <hr className="filters" />
               <h3 style={{ marginLeft: "10px" }}>
                 <strong>
@@ -56,15 +56,19 @@ const CastModal = ({ modalIsOpen, closeModal, modalData }) => {
                 {data.also_known_as.length === 0 ? (
                   <p> No Information avalable </p>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </ul>
-              <a href={`/people/${data.id}`}>
+              <a className='filters' href={`/people/${data.id}`}>
                 <button className="more btn btn-primary btn-sm ">More</button>
               </a>
             </div>
-            <div className=" col-0 col-sm-1"></div>
-            <div className="col-12 col-sm-5">
+            <div className=" col-5 col-sm-1">
+              <a className='hide-pc' href={`/people/${data.id}`}>
+                <button className="more btn btn-primary btn-sm ">More</button>
+              </a>
+            </div>
+            <div className="col-7 col-sm-5">
               <img
                 className="people-image-modal"
                 src={`https://image.tmdb.org/t/p/original/${data.profile_path}`}

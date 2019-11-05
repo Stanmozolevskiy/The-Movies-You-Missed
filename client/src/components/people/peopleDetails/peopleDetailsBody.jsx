@@ -1,27 +1,10 @@
 import React, { Component } from "react";
 import formatDate from "../../../utilities/dataFormat";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Rating from "react-rating";
-import { Collapse } from "react-collapse";
 import DropDown from '../dropDown'
-// import SmallPeopleCard from "../smapPeopleCard";
-// import ProductionCompanieIcons from "../common/productionCompanieIcons";
-// import MovieGeneralDetails from "../movieDetails/movieGeneralDetails";
-// import HomePage from "../common/buttons/homePage";
-// import IMDBIcon from "../common/buttons/imdb";
-// import InstagramIcon from "../common/buttons/instagram";
-// import FacebookIcon from "../common/buttons/facebookIcon";
-// import Twitter from "../common/buttons/twittwe";
-// import TrailerContainer from "./trailer/trailersContainer";
-// import Collection from "../movies/collection";
-// import PostersContainer from "./poster/postersContainer";
-// import CommentsBody from "../comments/commentsBody";
-// import CastContainer from "./cast/castContainer";
-// import TrendingContainer from "./trending/trendingContainer";
 
 const PeopleDetailsBody = ({ movieCredit, tvCredit, data, peoplePictures, props }) => {
 
-  // console.log();
   return (
     <div
       className="row"
@@ -107,18 +90,16 @@ const PeopleDetailsBody = ({ movieCredit, tvCredit, data, peoplePictures, props 
               </h5>
               <hr />
               <h6>
-                {" "}
-                <strong> Also known as: </strong>
-              </h6>
 
-              {data.also_known_as.map(x => (
-                <h6 key={x}> {x} </h6>
-              ))}
-              {data.also_known_as.length === 0 ? (
-                <p> No Information avalable </p>
-              ) : (
-                  ""
-                )}
+                {data.also_known_as.length === 0 ? (
+                  ''
+                ) : (
+                    <strong> Also known as: </strong>
+                  )}
+                {data.also_known_as.map(x => (
+                  <h6 key={x}> {x} </h6>
+                ))}
+              </h6>
             </div>
 
             {/* <HomePage data={data.homepage} />

@@ -209,7 +209,7 @@ html {
   color: #fefefe;
 }
 
-.rating-movie-card {
+/* .rating-movie-card {
   dominant-baseline: middle;
   width: 50px;
   text-anchor: middle;
@@ -221,7 +221,7 @@ html {
   width: 70px;
   text-anchor: middle;
   margin-top: 20px;
-}
+} */
 .hover-red :hover {
   color: red;
 }
@@ -600,9 +600,8 @@ html {
     color: black;
   }
   .people-image-modal {
-    object-fit: contain;
     height: 385px;
-    margin-left: 47%;
+    
   }
   .case-image-modal {
     object-fit: contain;

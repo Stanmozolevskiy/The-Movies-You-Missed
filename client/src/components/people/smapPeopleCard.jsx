@@ -84,9 +84,6 @@ const SmallPeopleCard = ({ data, dataTv, props }) => {
             alt=""
           />
         </p>
-        <h6 className="card-title" style={{ padding: "15px" }}>
-          Creator: {dataTv === undefined ? '' : dataTv.name}
-        </h6>
       </div>
     );
   }
