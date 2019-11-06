@@ -97,9 +97,9 @@ class TvShow extends Component {
       // handeling the title change
       title:
         `Search > ${
-          this.state.genreSerch.name !== undefined
-            ? this.state.genreSerch.name
-            : ""
+        this.state.genreSerch.name !== undefined
+          ? this.state.genreSerch.name
+          : ""
         }` +
         " " +
         value,

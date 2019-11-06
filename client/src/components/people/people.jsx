@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getPerson, getPopularPerson } from "../../services/peopleServise";
 import Paginateion from "../common/pagination";
 import SearchBox from "../search/searchBox";
+import { handleSearch } from "../../services/searchService";
 import Title from "../common/title";
 import PeopleCard from "./peopleCard";
 import { totalPages } from "../common/pagination";
@@ -61,7 +62,8 @@ class People extends Component {
   render() {
     return (
       <div>
-        <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} />
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
+        {/* <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} /> */}
         <div className="container">
           <Title text={this.state.title} />
           <div className="container ">
