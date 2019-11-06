@@ -1,5 +1,4 @@
 import React from "react";
-import RatingCircle from "../common/ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 import IconsForMoVieDescription from "../common/buttons/iconsForMoVieDescription";
 import PlayMovie from "../common/buttons/playMovie";

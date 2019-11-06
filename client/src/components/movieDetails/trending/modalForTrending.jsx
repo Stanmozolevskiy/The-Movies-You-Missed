@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Relocate } from "react-router-dom";
 
 const ModalForTrending = ({ props, data }) => {
   const onClick = () => {
-    /movies/.test(props.match.path)
-      ? (window.location = `/movies/${data.id}`)
-      : (window.location = `/tv/${data.id}`);
+    window.location = `/movies/${data.id}`
   };
   return (
     <div

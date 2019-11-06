@@ -480,6 +480,9 @@ html {
   font-size: 16px;
   height: auto;
 }
+.group-list{
+  margin-top: 22%
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-btn {
@@ -650,6 +653,9 @@ html {
     padding: 15px;
     font-size: 13px;
     height: auto;
+  }
+  .group-list{
+    margin-top: 0%
   }
 
   /* safari mobile */

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RatingCircle from "./ratingCircle";
 import formatDate from "../../utilities/dataFormat";
 import Rating from "react-rating";
 
@@ -16,8 +15,10 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
           <Link
             to={
               props === "movies"
-                ? "/movies/" + data.id
-                : `${props.history.location.pathname}/${data.id}`
+                ? "/movies/" + data.id :
+                props === "tv"
+                  ? "/tv/" + data.id
+                  : `${props.history.location.pathname}/${data.id}`
             }
           >
             <img
