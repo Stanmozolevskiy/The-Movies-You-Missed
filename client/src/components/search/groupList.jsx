@@ -5,7 +5,7 @@ const GroupList = ({ movieCount, tvCount, peopleCount, onGroupChange }) => {
     return (
         <div className='group-list'>
             <MDBContainer >
-                <hr />
+                <hr className="filters" />
                 <MDBListGroup >
                     <MDBListGroupItem
                         className="d-flex justify-content-between align-items-center"
@@ -20,7 +20,7 @@ const GroupList = ({ movieCount, tvCount, peopleCount, onGroupChange }) => {
                     </MDBListGroupItem>
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center"
                         type='people'
-                        onClick={''}>People<MDBBadge color="primary"
+                        onClick={onGroupChange}>People<MDBBadge color="primary"
                             pill>{peopleCount}</MDBBadge>
                     </MDBListGroupItem>
                 </MDBListGroup>

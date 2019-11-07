@@ -5,6 +5,7 @@ import { getPerson } from "../../services/peopleServise";
 import SearchBox from "./searchBox";
 import Title from "../common/title";
 import MovieContainer from "../common/movieContainer";
+import PeopleCard from "../people/peopleCard";
 import { totalPages } from "../common/pagination";
 import Paginateion from "../common/pagination";
 import GroupList from "./groupList";
@@ -14,7 +15,6 @@ class SearchComponent extends Component {
     super(prpos);
 
     this.state = {
-      data: [],
       movie: [],
       tv: [],
       people: [],
@@ -30,19 +30,18 @@ class SearchComponent extends Component {
     const search = this.props.location.pathname;
     const query = search.slice(8).replace("%20", " ");
 
-    const data = await getMovies(query, 1);
+    const movie = await getMovies(query, 1);
     const tv = await getTvShows(query, 1);
     const people = await getPerson(query, 1);
     this.setState({
-      data: data.data.results,
-      movie: data.data,
+      movie: movie.data,
       tv: tv.data,
       people: people.data,
-      curentPage: data.data.page,
+      curentPage: movie.data.page,
       search: query,
       //work around for page get back to 1
       forcePage: null,
-      totalPages: totalPages(data),
+      totalPages: totalPages(movie),
       // handeling the title change
       title: `Search > ${query.charAt(0).toUpperCase() + query.slice(1)}`
     });
@@ -83,20 +82,23 @@ class SearchComponent extends Component {
   };
   handleDataChange = () => {
     if (this.state.searchType === 'movies') {
-      return this.state.movie.results
-    } else if (this.state.searchType === 'tv') {
-      return this.state.tv.results
-    } else {
-      // return this.state.people.results
+      return this.state.movie.results.map(x => (
+        <MovieContainer key={x.id} data={x} props={this.state.searchType} />))
+    }
+    else if (this.state.searchType === 'tv') {
+      return this.state.tv.results.map(x => (
+        <MovieContainer key={x.id} data={x} props={this.state.searchType} />))
+    } else if (this.state.searchType === 'people') {
+      return this.state.people.results.map(x =>
+        <PeopleCard data={x} />)
+
     }
   }
-
 
   render() {
     if (this.state.movie.length === 0) {
       return ''
     } else {
-
       return (
         <div>
           <SearchBox
@@ -115,9 +117,7 @@ class SearchComponent extends Component {
             <div className="col-sm-7 col-12">
               <Title text={this.state.title} />
               <div className="row">
-                {this.handleDataChange().map(x => (
-                  <MovieContainer key={x.id} data={x} props={this.state.searchType} />
-                ))}
+                {this.handleDataChange()}
               </div>
             </div>
 
