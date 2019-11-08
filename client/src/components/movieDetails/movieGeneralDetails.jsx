@@ -22,11 +22,25 @@ const MovieGeneralDetails = ({ data, props }) => {
           <h5>${numberWithCommas(data.revenue)}</h5>
           <br />
           <h6>Genres : </h6>
-          <h5>{data.genres.map(g => g.name).join(" ")}</h5>
+          {data.genres.map(g => <h5
+            key={g.name}
+            style={{
+              background: "#FFF9F7",
+              padding: "4px",
+              width: 'fit-content',
+              margin: '5px',
+              cursor: 'pointer',
+              display: 'inline-block',
+              textAlign: "center",
+
+              boxShadow:
+                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
+            }}
+          >{g.name}</h5>)}
+          <br />
           <br />
           <h6>Duration : </h6>
           <h5>{data.runtime + " minutes"}</h5>
-          <hr />
           <br />
         </div>
       </div>
@@ -50,11 +64,25 @@ const MovieGeneralDetails = ({ data, props }) => {
           <h5>{data.episode_run_time + " minutes"}</h5>
           <br />
           <h6>Genres : </h6>
-          <h5>{data.genres.map(g => g.name).join(" ")}</h5>
+          {data.genres.map(g => <h5
+            key={g.name}
+            style={{
+              background: "#FFF9F7",
+              padding: "4px",
+              width: 'fit-content',
+              margin: '5px',
+              cursor: 'pointer',
+              display: 'inline-block',
+              textAlign: "center",
+
+              boxShadow:
+                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
+            }}
+          >{g.name}</h5>)}
+          <br />
           <br />
           <h6>Number of Seasons : </h6>
           <h5>{data.number_of_seasons}</h5>
-          <hr />
           <br />
         </div>
       </div>

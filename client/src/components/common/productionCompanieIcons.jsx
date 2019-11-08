@@ -2,7 +2,8 @@ import React from "react";
 
 const ProductionCompanieIcons = ({ data }) => {
   return (
-    <div style={{  textAlign: "center" }}>
+    <div style={{ textAlign: "center" }}>
+      <hr />
       {data.map(x => (
         <img
           key={x.id}
