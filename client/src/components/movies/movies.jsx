@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { getPopularMovies } from "../../services/movieServise";
 import { getMoviegenres, discoverMovie } from "../../services/genreServise";
 import { totalPages } from "../common/pagination";
-import { handleSearch } from "../../services/searchService";
 import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
-import SearchBox from "../search/searchBox";
 import Title from "../common/title";
 import GenreFilter from "../filter/genreFilter";
 import YearFilter from "../filter/yesrFilter";
@@ -180,7 +178,6 @@ class Movie extends Component {
   render() {
     return (
       <div>
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <div className="row" style={{ margin: "0px" }}>
           <div className="col-3 filters">
             <div className="row">

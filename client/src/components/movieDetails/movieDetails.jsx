@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { getMovie } from "../../services/movieServise";
 import { getTvShow } from "../../services/tvShowServise";
-import { handleSearch } from "../../services/searchService";
-import SearchBox from "../search/searchBox";
 import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
 import TrailerButton from "./trailer/trailerButton";
@@ -35,7 +33,6 @@ class MovieDetais extends Component {
     } else {
       return (
         <div id="modal">
-          <SearchBox onSearchSubmit={handleSearch} />
           <div
             className="movie-background"
             style={{

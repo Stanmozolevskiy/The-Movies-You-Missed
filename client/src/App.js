@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import { handleSearch } from "./services/searchService";
+import SearchBox from "./components/search/searchBox";
 import Movie from "./components/movies/movies";
 import TvShow from "./components/tvShows/tvShows";
 import People from "./components/people/people";
@@ -10,8 +12,9 @@ import SearchComponent from "./components/search/searchComponent";
 import SingUp from "./components/login/register";
 import SingIn from "./components/login/signIn";
 import NavBar from "./components/common/navbar/navBar";
+import Home from "./components/home/home";
 import ConfrimEmail from "./components/login/confirmEmail";
-import PeopleDetails from './components/people/peopleDetails/peopleDetails'
+import PeopleDetails from "./components/people/peopleDetails/peopleDetails";
 
 class App extends Component {
   render() {
@@ -19,12 +22,14 @@ class App extends Component {
       <React.Fragment>
         {/* <ToastContainer /> */}
         <NavBar />
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <Switch>
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
+          <Route path="/home" component={Home} />
           <Route path="/people/:id" component={PeopleDetails} />
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />

@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { getPopularTvShows } from "../../services/tvShowServise";
 import { totalPages } from "../common/pagination";
 import { getTvgenres, discoverTv } from "../../services/genreServise";
-import { handleSearch } from "../../services/searchService";
 import MovieContainer from "../common/movieContainer";
 import Paginateion from "../common/pagination";
-import SearchBox from "../search/searchBox";
 import Title from "../common/title";
 import GenreFilter from "../filter/genreFilter";
 import YearFilter from "../filter/yesrFilter";
@@ -183,7 +181,6 @@ class TvShow extends Component {
   render() {
     return (
       <div>
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <div className="row" style={{ margin: "0px" }}>
           <div className="col-3 filters">
             <div className="row">

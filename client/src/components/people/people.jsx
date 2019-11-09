@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { getPerson, getPopularPerson } from "../../services/peopleServise";
 import Paginateion from "../common/pagination";
-import SearchBox from "../search/searchBox";
-import { handleSearch } from "../../services/searchService";
 import Title from "../common/title";
 import PeopleCard from "./peopleCard";
 import { totalPages } from "../common/pagination";
 
 class People extends Component {
   state = {
-    search: "",
     data: [],
     totalPages: [],
     curentPages: "",
@@ -41,10 +38,6 @@ class People extends Component {
     }
   };
 
-  handleSearch = e => {
-    this.setState({ search: e.target.value });
-  };
-
   handlePageChange = async data => {
     const selected = data.selected + 1;
 
@@ -62,8 +55,6 @@ class People extends Component {
   render() {
     return (
       <div>
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
-        {/* <SearchBox onSearch={this.handleSearch} onSearchSubmit={this.getData} /> */}
         <div className="container">
           <Title text={this.state.title} />
           <div className="container ">

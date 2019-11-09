@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { getMovies } from "../../services/movieServise";
 import { getTvShows } from "../../services/tvShowServise";
 import { getPerson } from "../../services/peopleServise";
-import SearchBox from "./searchBox";
 import Title from "../common/title";
 import MovieContainer from "../common/movieContainer";
 import PeopleCard from "../people/peopleCard";
@@ -23,7 +22,7 @@ class SearchComponent extends Component {
       totalPages: [],
       title: "",
       search: "",
-      searchType: 'movies'
+      searchType: "movies"
     };
   }
   async componentDidMount() {
@@ -49,11 +48,6 @@ class SearchComponent extends Component {
     this.setState({ forcePage: 0 });
   }
 
-  handleSearch = async e => {
-    if (e.key === "Enter" && this.state.search !== "") {
-      window.location.href = `/search/${this.state.search}`;
-    }
-  };
   onSearch = e => {
     this.setState({ search: e.target.value });
   };
@@ -63,48 +57,43 @@ class SearchComponent extends Component {
 
   handlePageChange = async ({ selected }) => {
     const page = selected + 1;
-    if (this.state.searchType === 'movies') {
+    if (this.state.searchType === "movies") {
       const movie = await getMovies(this.state.search, page);
       this.setState({
         curentPage: page,
         movie: movie.data
       });
-      return this.state.movie.results
-    } else if (this.state.searchType === 'tv') {
+      return this.state.movie.results;
+    } else if (this.state.searchType === "tv") {
       const tv = await getTvShows(this.state.search, page);
       this.setState({
         curentPage: page,
         tv: tv.data
       });
     } else {
-      return this.state.people.results
+      return this.state.people.results;
     }
   };
   handleDataChange = () => {
-    if (this.state.searchType === 'movies') {
+    if (this.state.searchType === "movies") {
       return this.state.movie.results.map(x => (
-        <MovieContainer key={x.id} data={x} props={this.state.searchType} />))
-    }
-    else if (this.state.searchType === 'tv') {
+        <MovieContainer key={x.id} data={x} props={this.state.searchType} />
+      ));
+    } else if (this.state.searchType === "tv") {
       return this.state.tv.results.map(x => (
-        <MovieContainer key={x.id} data={x} props={this.state.searchType} />))
-    } else if (this.state.searchType === 'people') {
-      return this.state.people.results.map(x =>
-        <PeopleCard data={x} />)
-
+        <MovieContainer key={x.id} data={x} props={this.state.searchType} />
+      ));
+    } else if (this.state.searchType === "people") {
+      return this.state.people.results.map(x => <PeopleCard data={x} />);
     }
-  }
+  };
 
   render() {
     if (this.state.movie.length === 0) {
-      return ''
+      return "";
     } else {
       return (
         <div>
-          <SearchBox
-            onSearch={this.onSearch}
-            onSearchSubmit={this.handleSearch}
-          />
           <div className="row">
             <div className="col-sm-3 col-12">
               <GroupList
@@ -116,9 +105,7 @@ class SearchComponent extends Component {
             </div>
             <div className="col-sm-7 col-12">
               <Title text={this.state.title} />
-              <div className="row">
-                {this.handleDataChange()}
-              </div>
+              <div className="row">{this.handleDataChange()}</div>
             </div>
 
             <div className="col-sm-2 col-12"></div>

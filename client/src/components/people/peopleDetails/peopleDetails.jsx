@@ -5,8 +5,6 @@ import {
   getTvCredit,
   getPeoplePictures
 } from "../../../services/peopleServise";
-import { handleSearch } from "../../../services/searchService";
-import SearchBox from "../../search/searchBox";
 import "react-tabs/style/react-tabs.css";
 import PeopleDescription from "./peopleDescription";
 import Image from "../../movieDetails/imageMovieDetails";
@@ -51,7 +49,6 @@ class PeopleDetails extends Component {
     } else {
       return (
         <div>
-          <SearchBox onSearchSubmit={handleSearch} props={this.props} />
           {/* image gackgroung container start*/}
           <div className="image-background">
             <div className="container ">
