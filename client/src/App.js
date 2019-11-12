@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { handleSearch } from "./services/searchService";
 import SearchBox from "./components/search/searchBox";
 import Movie from "./components/movies/movies";
@@ -35,7 +35,7 @@ class App extends Component {
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
           <Route path="/confirmemail" component={ConfrimEmail} />
-          {/* <Redirect to="/movies" /> */}
+          <Redirect to="/home" />
           {/* <Route path="/register" component={RegisterForm} />
             
             <Route path="/not-found" component={NotFound} /> */}
