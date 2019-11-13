@@ -480,8 +480,15 @@ html {
   font-size: 16px;
   height: auto;
 }
-.group-list{
-  margin-top: 22%
+.group-list {
+  margin-top: 22%;
+}
+.home-box {
+  height: 400px;
+  background: #272525;
+  color: white;
+  /* text-align: center; */
+  margin: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -604,7 +611,6 @@ html {
   }
   .people-image-modal {
     height: 385px;
-    
   }
   .case-image-modal {
     object-fit: contain;
@@ -654,8 +660,16 @@ html {
     font-size: 13px;
     height: auto;
   }
-  .group-list{
-    margin-top: 5%
+  .group-list {
+    margin-top: 5%;
+  }
+  .home-box {
+    height: 400px;
+    background: #272525;
+    color: white;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5%;
   }
 
   /* safari mobile */
