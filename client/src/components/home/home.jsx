@@ -1,33 +1,43 @@
 import React, { Component } from "react";
-import { getUpcomingMovies } from "../../services/movieServise";
-import GridLayout from "react-grid-layout";
+import { getTrendingMovies } from "../../services/movieServise";
+import { getTrendingTv } from "../../services/tvShowServise";
+import UpcomingContainer from './UpComingContainer'
+
+
 
 class Home extends Component {
   state = {
-    upComingMovies: []
+    trendingMovies: [],
+    trendingTv: []
   };
   async componentDidMount() {
-    const upComingMovies = await getUpcomingMovies();
+    const trendingMovies = await getTrendingMovies();
+    const trendingTv = await getTrendingTv();
     this.setState({
-      upComingMovies: upComingMovies.data.results
-        .sort((a, b) => b.vote_count - a.vote_count)
-        .slice(0, 3)
+      trendingMovies: trendingMovies.data.results
+        // .sort((a, b) => b.vote_count - a.vote_count)
+        .slice(0, 5),
+      trendingTv: trendingTv.data.results
+        // .sort((a, b) => b.vote_count - a.vote_count)
+        .slice(0, 5)
     });
   }
-  layout = [
-    { i: "a", x: 0, y: 0, w: 2, h: 8, static: true },
-    { i: "b", x: 2, y: 0, w: 2, h: 4, static: true },
-    { i: "c", x: 2, y: 0, w: 2, h: 4, static: true }
-  ];
+
   render() {
-    if (this.state.upComingMovies.length === 0) {
+    if (this.state.trendingMovies.length === 0) {
       return "";
     } else {
-      console.log(this.state.upComingMovies);
+      console.log(this.state);
       return (
         <div>
           <div className="row">weeky movies line</div>
           <div className="container">
+            <div className="row">
+              <div className="col-1"></div>
+              <UpcomingContainer data={this.state.trendingTv} title='Trending on TV' />
+
+              <UpcomingContainer data={this.state.trendingMovies} title='Trending Movies' />
+            </div>
             <div className="row">
               <div className="col-1"></div>
               <div className="col-sm-5 col-12 on-tv home-box">On TV</div>
@@ -36,61 +46,9 @@ class Home extends Component {
                 In Theaters
               </div>
             </div>
-            <div className="row">
-              <div className="col-1"></div>
-              <div className="col-sm-5 col-12 netflix home-box">
-                Netflix Box
-              </div>
-
-              <div
-                className="col-sm-5 col-12 up-coming home-box"
-                style={{
-                  padding: "0px "
-                }}
-              >
-                <GridLayout
-                  className="layout"
-                  layout={this.layout}
-                  cols={12}
-                  rowHeight={40}
-                  width={1200}
-                >
-                  <div key="a">
-                    <img
-                      className="image-fit"
-                      src={`https://image.tmdb.org/t/p/original/${this.state.upComingMovies[0].poster_path}`}
-                      alt=""
-                    />
-                  </div>
-                  <div key="b">
-                    <img
-                      className="image-fit"
-                      src={`https://image.tmdb.org/t/p/original/${this.state.upComingMovies[1].poster_path}`}
-                      alt=""
-                    />
-                  </div>
-                  <div key="c">
-                    <img
-                      className=" image-fit"
-                      src={`https://image.tmdb.org/t/p/original/${this.state.upComingMovies[2].poster_path}`}
-                      alt=""
-                    />
-                  </div>
-                </GridLayout>
-                {/* Up Coming:
-              {this.state.upComingMovies.map(x => (
-                <img
-                  style={{
-                    maxHeight: "170px",
-                    margin: "2%",
-                    float: "left"
-                  }}
-                  src={`https://image.tmdb.org/t/p/original/${x.poster_path}`}
-                  alt=""
-                />
-              ))} */}
-              </div>
-            </div>
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       );

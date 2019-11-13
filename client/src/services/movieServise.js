@@ -27,8 +27,8 @@ export function getMovieRecomended(id) {
     `${baseUrl}3/movie/${id}/recommendations?api_key=${apiKey}&language=en-US&page=1`
   );
 }
-export function getUpcomingMovies(id) {
+export function getTrendingMovies() {
   return http.get(
-    `${baseUrl}3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1&region=US`
+    `${baseUrl}3/trending/movie/week?api_key=${apiKey}&language=en-US&page=1&region=US`
   );
 }

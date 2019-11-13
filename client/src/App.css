@@ -184,8 +184,6 @@ html {
 
 .logo-img {
   margin-left: 130px;
-  /* margin-top: 0px; */
-  /* width: 68px; */
 }
 .movie-body-unit {
   margin-bottom: 30px;
@@ -209,19 +207,6 @@ html {
   color: #fefefe;
 }
 
-/* .rating-movie-card {
-  dominant-baseline: middle;
-  width: 50px;
-  text-anchor: middle;
-  margin-right: 5px;
-}
-
-.rating-movie-detail {
-  dominant-baseline: middle;
-  width: 70px;
-  text-anchor: middle;
-  margin-top: 20px;
-} */
 .hover-red :hover {
   color: red;
 }
@@ -419,7 +404,7 @@ html {
   cursor: pointer;
   font-size: 200%;
 }
-/* scroll bar wnd */
+/* scroll bar end */
 .filter-dropbox {
   height: 100px;
 }
@@ -484,11 +469,22 @@ html {
   margin-top: 22%;
 }
 .home-box {
-  height: 400px;
-  background: #272525;
-  color: white;
-  /* text-align: center; */
+  height: 380px;
+  /* background: #272525; */
+  color: black;
+  text-align: left;
   margin: 20px;
+  /* border: 1px solid black; */
+}
+.image-fit-homepage-left{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.image-fit-homepage-right{
+  width: 100%;
+  height: -webkit-fill-available;
+  object-fit: fill;
 }
 
 @media only screen and (max-width: 768px) {
@@ -664,12 +660,11 @@ html {
     margin-top: 5%;
   }
   .home-box {
-    height: 400px;
-    background: #272525;
-    color: white;
+    height: 380;
+    color:black;
     text-align: center;
-    margin: 0;
-    margin-bottom: 5%;
+    margin: 20px;
+
   }
 
   /* safari mobile */

@@ -18,3 +18,9 @@ export function getPopularTvShows(page) {
     `${baseUrl}3/tv/popular?api_key=${apiKey}&language=en-US&&page=${page}`
   );
 }
+
+export function getTrendingTv() {
+  return http.get(
+    `${baseUrl}3/trending/tv/week?api_key=${apiKey}&language=en-US&page=1`
+  );
+}
