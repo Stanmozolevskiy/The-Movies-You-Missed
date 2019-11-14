@@ -116,11 +116,11 @@ html {
     transform: rotate(360deg);
   }
 }
-.App {
+/* .App {
   overflow-x: hidden;
   overflow-y: hidden;
   flex-direction: column;
-}
+} */
 
 .pagination {
   font-size: 20px;

@@ -32,3 +32,9 @@ export function getTrendingMovies() {
     `${baseUrl}3/trending/movie/week?api_key=${apiKey}&language=en-US&page=1&region=US`
   );
 }
+export function getUpcomingMovies() {
+  return http.get(
+    `${baseUrl}3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1&region=US`
+  );
+}
+

@@ -1,25 +1,30 @@
 import React, { Component } from "react";
-import { getTrendingMovies } from "../../services/movieServise";
+import { getTrendingMovies, getUpcomingMovies } from "../../services/movieServise";
 import { getTrendingTv } from "../../services/tvShowServise";
 import UpcomingContainer from './UpComingContainer'
-
+import WeeklyContainer from './weeklyMovies/weeklyContainer'
 
 
 class Home extends Component {
   state = {
     trendingMovies: [],
-    trendingTv: []
+    trendingTv: [],
+    upcomingMovies: []
   };
   async componentDidMount() {
     const trendingMovies = await getTrendingMovies();
+    const upcomingMovies = await getUpcomingMovies();
     const trendingTv = await getTrendingTv();
     this.setState({
       trendingMovies: trendingMovies.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
+        .slice(0, 15),
+      upcomingMovies: upcomingMovies.data.results
+        // .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 5),
       trendingTv: trendingTv.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
-        .slice(0, 5)
+        .slice(0, 5),
     });
   }
 
@@ -30,21 +35,21 @@ class Home extends Component {
       console.log(this.state);
       return (
         <div>
-          <div className="row">weeky movies line</div>
           <div className="container">
             <div className="row">
-              <div className="col-1"></div>
-              <UpcomingContainer data={this.state.trendingTv} title='Trending on TV' />
+              <div className="col-12">
+                <WeeklyContainer data={this.state.trendingMovies} />
 
-              <UpcomingContainer data={this.state.trendingMovies} title='Trending Movies' />
+              </div>
             </div>
+
             <div className="row">
               <div className="col-1"></div>
-              <div className="col-sm-5 col-12 on-tv home-box">On TV</div>
-
               <div className="col-sm-5 col-12 in-theaters home-box">
                 In Theaters
               </div>
+              <UpcomingContainer data={this.state.upcomingMovies} title='Upcoming' />
+
             </div>
             <br />
             <br />
