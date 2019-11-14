@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ModalForWeekly from "./modalForWeekly";
-import Scroll from "./horizontalScroll";
 import { TouchScrollable } from "react-scrolllock";
 
 class WeeklyContainer extends Component {
@@ -11,9 +10,9 @@ class WeeklyContainer extends Component {
   render() {
     return (
       <div className="scrolable">
-        <h4>
+        <h2 style={{ textAlign: 'center' }}>
           <strong> In Theaters</strong>
-        </h4>
+        </h2>
         <div
           className="text-center"
           style={{
@@ -21,15 +20,12 @@ class WeeklyContainer extends Component {
             whiteSpace: "nowrap"
           }}
         >
-          {/* <TouchScrollable> */}
-          {/* <Scroll */}
 
           {this.props.data.map(x => (
             <ModalForWeekly data={x} key={x.name} />
           ))}
 
-          {/* ></Scroll> */}
-          {/* </TouchScrollable> */}
+
         </div>
       </div>
     );

@@ -4,24 +4,27 @@ import React from 'react';
 const UpComingContainer = ({ data, title }) => {
     return (
         <div
-            className="col-sm-5 col-12 up-coming home-box"
+            className="col-sm-3 col-12 up-coming home-box"
             style={{
-                padding: "0px "
+                marginLeft: '5%',
+                padding: "0px",
+
             }}
         >
             <h4
                 style={{
                     textAlign: 'center'
                 }}
-            >{title}</h4>
+            > <strong>{title}</strong></h4>
             <div className="row"
                 style={{
-                    height: '380px',
+                    height: '260px',
+                    boxShadow: '0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
                 }}
             >
                 <div className="col-6"
                     style={{
-                        paddingLeft: '15px',
+                        paddingLeft: '0px',
                         paddingRight: '15px',
                     }}
                 >
@@ -40,10 +43,10 @@ const UpComingContainer = ({ data, title }) => {
                 >
                     <div className="row"
                         style={{
-                            height: '190px'
+                            height: '130px'
                         }}
                     >
-                        <div className="col-5"
+                        <div className="col-6"
                             style={{
                                 paddingLeft: '1px',
                                 paddingRight: '1px',
@@ -56,7 +59,7 @@ const UpComingContainer = ({ data, title }) => {
                                 alt=""
                             />
                         </div>
-                        <div className="col-5"
+                        <div className="col-6"
                             style={{
                                 paddingLeft: '1px',
                                 paddingRight: '1px',
@@ -74,10 +77,10 @@ const UpComingContainer = ({ data, title }) => {
                     </div>
                     <div className="row"
                         style={{
-                            height: '190px'
+                            height: '130px'
                         }}
                     >
-                        <div className="col-5"
+                        <div className="col-6"
                             style={{
                                 paddingLeft: '1px',
                                 paddingRight: '1px',
@@ -90,7 +93,7 @@ const UpComingContainer = ({ data, title }) => {
                                 alt=""
                             />
                         </div>
-                        <div className="col-5"
+                        <div className="col-6"
                             style={{
                                 paddingLeft: '1px',
                                 paddingRight: '1px',

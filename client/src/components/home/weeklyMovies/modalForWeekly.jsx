@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Rating from "react-rating";
+import starColor from '../../../utilities/starColor'
 
 class ModalForWeekly extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ModalForWeekly extends Component {
         <div
           className="text-center "
           style={{
-            width: "160px",
+            width: "180px",
             display: "inline-block",
             cursor: "pointer"
           }}
@@ -34,7 +35,7 @@ class ModalForWeekly extends Component {
           />
         </div>
         <Rating
-          style={{ color: "gold", textAlign: 'center' }}
+          style={{ color: starColor(this.props.data.vote_average / 2) }}
           initialRating={this.props.data.vote_average / 2}
           emptySymbol={"fa fa-star-o fa-1x "}
           fullSymbol={"fa fa-star fa-1x "}

@@ -13,7 +13,8 @@ const PostersContainer = ({ data }) => {
         className="text-center "
         style={{
           overflow: "auto",
-          whiteSpace: "nowrap"
+          whiteSpace: "nowrap",
+          
         }}
       >
         {/* <TouchScrollable>

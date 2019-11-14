@@ -3,6 +3,7 @@ import { Collapse } from "react-collapse";
 import { Link } from "react-router-dom";
 import formatDate from "../../utilities/dataFormat";
 import Rating from "react-rating";
+import starColor from '../../utilities/starColor'
 
 class DropDown extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class DropDown extends Component {
                                     <strong> <Link to={x.original_title !== undefined ? `/movies/${x.id}` : `/tv/${x.id}`}> {x.original_title || x.name} </Link></strong> (
                               {formatDate(x.release_date || x.first_air_date, "YYYY MMM")}){" "}
                                     <Rating
-                                        style={{ color: "gold" }}
+                                        style={{ color: starColor(x.vote_average / 2) }}
                                         initialRating={x.vote_average / 2}
                                         emptySymbol={"fa fa-star-o fa-1x "}
                                         fullSymbol={"fa fa-star fa-1x "}
@@ -84,7 +85,7 @@ class DropDown extends Component {
                                         <strong> <Link to={x.original_title !== undefined ? `/movies/${x.id}` : `/tv/${x.id}`}> {x.original_title || x.name} </Link></strong> (
                                 {formatDate(x.release_date || x.first_air_date, "YYYY MMM")}){" "}
                                         <Rating
-                                            style={{ color: "gold" }}
+                                            style={{ color: starColor(x.vote_average / 2) }}
                                             initialRating={x.vote_average / 2}
                                             emptySymbol={"fa fa-star-o fa-1x "}
                                             fullSymbol={"fa fa-star fa-1x "}

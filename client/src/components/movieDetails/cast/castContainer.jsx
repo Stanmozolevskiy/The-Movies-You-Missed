@@ -10,7 +10,8 @@ class CastContainer extends Component {
   }
   render() {
     return (
-      <div className="scrolable">
+      <div className="scrolable"
+   >
         <h4 style={{ marginLeft: "20px" }}>
           <strong> Top cast:</strong>
         </h4>
@@ -18,7 +19,8 @@ class CastContainer extends Component {
           className="text-center"
           style={{
             overflow: "auto",
-            whiteSpace: "nowrap"
+            whiteSpace: "nowrap",
+
           }}
         >
           {/* <TouchScrollable>

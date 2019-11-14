@@ -3,6 +3,7 @@ import formatDate from "../../utilities/dataFormat";
 import IconsForMoVieDescription from "../common/buttons/iconsForMoVieDescription";
 import PlayMovie from "../common/buttons/playMovie";
 import Rating from "react-rating";
+import starColor from '../../utilities/starColor'
 
 const MovieDescription = ({ data, props }) => {
   if (/movies/.test(props.location.pathname)) {
@@ -11,7 +12,7 @@ const MovieDescription = ({ data, props }) => {
         <h1 className="movie-title">
           {data.title} ({formatDate(data.release_date, "YYYY")})
           <Rating
-            style={{ color: "gold", fontSize: '12px', marginLeft: '2%' }}
+            style={{ color: starColor(data.vote_average / 2), fontSize: '12px', marginLeft: '2%' }}
             initialRating={data.vote_average / 2}
             emptySymbol={"fa fa-star-o fa-2x "}
             fullSymbol={"fa fa-star fa-2x "}
@@ -42,7 +43,7 @@ const MovieDescription = ({ data, props }) => {
         <h1 className="movie-title">
           {data.name} ({formatDate(data.first_air_date, "YYYY")})
           <Rating
-            style={{ color: "gold", fontSize: '12px', marginLeft: '2%' }}
+            style={{ color: starColor(data.vote_average / 2), fontSize: '12px', marginLeft: '2%' }}
             initialRating={data.vote_average / 2}
             emptySymbol={"fa fa-star-o fa-2x "}
             fullSymbol={"fa fa-star fa-2x "}

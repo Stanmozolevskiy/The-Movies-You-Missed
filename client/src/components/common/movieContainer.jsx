@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import formatDate from "../../utilities/dataFormat";
 import Rating from "react-rating";
+import starColor from '../../utilities/starColor'
 
 const MovieContainer = ({ data, props, size = "col-md-5" }) => {
   return (
@@ -39,7 +40,7 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
               style={{ marginBottom: "5px", textAlign: "center" }}
             >
               <Rating
-                style={{ color: "gold" }}
+               style={{ color: starColor(data.vote_average / 2) }}
                 initialRating={data.vote_average / 2}
                 emptySymbol={"fa fa-star-o fa-1x "}
                 fullSymbol={"fa fa-star fa-1x "}

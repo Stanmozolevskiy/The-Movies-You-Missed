@@ -47,7 +47,7 @@ class TrendingContainer extends Component {
           <br />
           {/* <TouchScrollable>
             <Scroll */}
-              {this.state.results.map(x => (
+            {this.state.results.map(x => (
                 <ModalForTrending
                   data={x}
                   key={x.id}
