@@ -22,13 +22,13 @@ class WeeklyContainer extends Component {
           }}
         >
           {/* <TouchScrollable> */}
-            {/* <Scroll */}
+          {/* <Scroll */}
 
-              {this.props.data.map(x => (
-                <ModalForWeekly data={x} key={x.name} />
-              ))}
+          {this.props.data.map(x => (
+            <ModalForWeekly data={x} key={x.name} />
+          ))}
 
-             {/* ></Scroll> */}
+          {/* ></Scroll> */}
           {/* </TouchScrollable> */}
         </div>
       </div>

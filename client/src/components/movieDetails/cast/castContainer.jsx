@@ -21,13 +21,13 @@ class CastContainer extends Component {
             whiteSpace: "nowrap"
           }}
         >
-          <TouchScrollable>
-            <Scroll
-              data={this.props.data.map(x => (
+          {/* <TouchScrollable>
+            <Scroll */}
+            {this.props.data.map(x => (
                 <ModalForCast data={x} key={x.name} />
               ))}
-            ></Scroll>
-          </TouchScrollable>
+            {/* ></Scroll>
+          </TouchScrollable> */}
         </div>
       </div>
     );

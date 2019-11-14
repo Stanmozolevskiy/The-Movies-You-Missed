@@ -34,8 +34,6 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
         </div>
         <div className="col-md-7">
           <div className="card-body">
-            {/* <div className="container"> */}
-            {/* <div className="row" style={{ padding: "0px" }}> */}
             <div
               className="col-12 circle"
               style={{ marginBottom: "5px", textAlign: "center" }}
@@ -63,8 +61,6 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
               </strong>{" "}
               ({formatDate(data.release_date || data.first_air_date, "YYYY")})
             </div>
-            {/* </div> */}
-            {/* </div> */}
 
             <p className="card-text multiline-ellipsis filters">
               {data.overview}

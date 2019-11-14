@@ -4,14 +4,9 @@ import Rating from "react-rating";
 class ModalForWeekly extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalIsOpen: false,
-      modalData: []
-    };
   }
 
   render() {
-    console.log(this.props.data)
     return (
       <div
         style={{
@@ -23,7 +18,6 @@ class ModalForWeekly extends Component {
           style={{
             width: "160px",
             display: "inline-block",
-            // marginLeft: "10px",
             cursor: "pointer"
           }}
         >
@@ -49,15 +43,6 @@ class ModalForWeekly extends Component {
           step="1"
           readonly="true"
         />
-        {/* <h5 style={{ padding: "0px", margin: "0px", fontSize: "18px" }}>
-            {this.props.data.name}
-          </h5>
-          <h6 style={{ whiteSpace: "normal" }}>
-            {this.props.data.character.length >= 30
-              ? this.props.data.character.slice(0, 25) + "..."
-              : this.props.data.character}
-          </h6> */}
-
       </div>
     );
   }

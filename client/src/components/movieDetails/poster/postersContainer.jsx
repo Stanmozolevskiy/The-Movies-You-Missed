@@ -16,13 +16,13 @@ const PostersContainer = ({ data }) => {
           whiteSpace: "nowrap"
         }}
       >
-        <TouchScrollable>
-          <Scroll
-            data={data.map(x => (
+        {/* <TouchScrollable>
+          <Scroll */}
+            {data.map(x => (
               <ModalForPoster data={x} key={x.file_path} />
             ))}
-          />
-        </TouchScrollable>
+          {/* /> */}
+        {/* </TouchScrollable> */}
       </div>
     </div>
   );

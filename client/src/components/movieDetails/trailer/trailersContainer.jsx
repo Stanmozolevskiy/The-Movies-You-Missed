@@ -15,13 +15,14 @@ const TrailerContainer = ({ data }) => {
           overflow: "auto",
           whiteSpace: "nowrap"
         }}
-      ><TouchScrollable>
-          <Scroll
-            data={data.map(x => (
+      >
+        {/* <TouchScrollable>
+          <Scroll */}
+            {data.map(x => (
               <ModalForTrailer key={x.id} data={x} />
             ))}
-          />
-        </TouchScrollable>
+          {/* />
+        </TouchScrollable> */}
       </div>
     </div>
   );
