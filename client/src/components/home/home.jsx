@@ -36,34 +36,38 @@ class Home extends Component {
       return (
         <div>
           <br />
-          <div className="container">
-            <div className="row">
-              <div className="col-12"
-                style={{
-                  boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
-                }}>
-                <WeeklyContainer data={this.state.trendingMovies} />
-              </div>
+          {/* <div className="container"> */}
+          <div className="row">
+            <div className="col-1 col-sm-2"></div>
+            <div className="col-10 col-sm-8"
+              style={{
+                boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
+              }}>
+              <WeeklyContainer data={this.state.trendingMovies} />
             </div>
-            <br />
-            <br />
-            <div className="row">
-              <div className="col-sm-8 col-12 "
-                style={{
-                  color: 'black',
-                  boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
-                }}
-              >
-                Main text is here
-              </div>
-              <UpcomingContainer data={this.state.upcomingMovies} title='Upcoming' />
-
-            </div>
-            <br />
-            <br />
-            <br />
+            <div className="col-1 col-sm-2"></div>
           </div>
+          <br />
+          <br />
+          <div className="row">
+            <div className="col-1 col-sm-2"></div>
+            <div className=" col-10 col-sm-5  "
+              style={{
+                color: 'black',
+                boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
+              }}
+            >
+              Main text is here
+              </div>
+            <UpcomingContainer data={this.state.upcomingMovies} title='Upcoming' />
+
+            <div className="col-1 col-sm-2"></div>
+          </div>
+          <br />
+          <br />
+          <br />
         </div>
+        // </div>
       );
     }
   }

@@ -4,11 +4,10 @@ import React from 'react';
 const UpComingContainer = ({ data, title }) => {
     return (
         <div
-            className="col-sm-3 col-12 up-coming home-box"
+            className="col-sm-2 col-8 up-coming home-box"
             style={{
                 marginLeft: '5%',
                 padding: "0px",
-
             }}
         >
             <h4
