@@ -51,7 +51,7 @@ class Home extends Component {
           <br />
           <div className="row">
             <div className="col-1 col-sm-2"></div>
-            <div className=" col-10 col-sm-5  "
+            <div className="col-10 col-sm-5"
               style={{
                 color: 'black',
                 boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)'
@@ -60,6 +60,28 @@ class Home extends Component {
               Main text is here
               </div>
             <UpcomingContainer data={this.state.upcomingMovies} title='Upcoming' />
+
+            <div className="col-1 col-sm-2"></div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <div className="row">
+            <div className="col-1 col-sm-2"></div>
+            <div className="col-12 col-sm-5"
+              style={{
+                boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)',
+                minHeight: '450px',
+
+              }}
+            >Some articles</div>
+
+            <div className="col-12 col-sm-3"
+              style={{
+                boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)',
+                minHeight: '450px',
+                marginLeft: '5%'
+              }}>Some recent changes or adds</div>
 
             <div className="col-1 col-sm-2"></div>
           </div>
