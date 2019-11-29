@@ -35,6 +35,7 @@ class Register extends Component {
   };
   onSubmitWithAccount = async () => {
     const jwt = await regesterWithAccount(this.state);
+    console.log(jwt);
     localStorage.setItem("token", jwt.data);
     window.location.href = `${window.location.origin}/movies`;
   };
@@ -53,10 +54,10 @@ class Register extends Component {
   responseGoogle = response => {
     this.setState({
       user: {
-        confirmed: true,
         name: response.profileObj.givenName,
         email: response.profileObj.email,
-        password: response.profileObj.googleId
+        password: response.profileObj.googleId,
+        confirmed: true
       }
     });
     this.onSubmitWithAccount();

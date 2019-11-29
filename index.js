@@ -13,7 +13,7 @@ const cors = require("cors");
 const path = require("path");
 const { User } = require("./models/users");
 require("dotenv/config");
-var sslRedirect = require('heroku-ssl-redirect');
+var sslRedirect = require("heroku-ssl-redirect");
 
 mongoose
   .connect(process.env.DB, {
@@ -30,11 +30,10 @@ app.use(sslRedirect());
 // To Fix the CORS Error
 app.use(cors());
 
-app.get("/.well-known/acme-challenge/m9PWs7xgAMaueBP8L-gZ0yXWY9XV6EmDqm5K1p7t56M", (req,res)=> {
-res.send("m9PWs7xgAMaueBP8L-gZ0yXWY9XV6EmDqm5K1p7t56M.FrqwX3b9fL_dJZKKNsvCb3eP_fkT2V7ueeyjyU9XN_w")
-})
-
 // Routes
+app.get("/home", (req, res) => {
+  res.send("hello");
+});
 app.use("/api/users", users);
 app.use("/api/userswithaccount", usersWithAccount);
 app.use("/api/auth", auth);

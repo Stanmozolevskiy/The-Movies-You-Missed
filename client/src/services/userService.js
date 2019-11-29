@@ -23,10 +23,10 @@ export function singnIn(user) {
 
 export function regesterWithAccount(user) {
   return http.post(`${baseURL}/api/userswithaccount`, {
-    confirmed: user.confirmed,
-    name: user.name,
-    email: user.email,
-    password: user.password
+    confirmed: true,
+    name: user.user.name,
+    email: user.user.email,
+    password: user.user.password
   });
 }
 
