@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ModalForWeekly from "./modalForWeekly";
-import { TouchScrollable } from "react-scrolllock";
 
 class WeeklyContainer extends Component {
   constructor(props) {
@@ -10,22 +9,19 @@ class WeeklyContainer extends Component {
   render() {
     return (
       <div className="scrolable">
-        <h2 style={{ textAlign: 'center' }}>
+        <h2 style={{ textAlign: "center" }}>
           <strong> In Theaters</strong>
         </h2>
         <div
-          className="text-center"
+          className="text-center home-shadow"
           style={{
             overflow: "auto",
             whiteSpace: "nowrap"
           }}
         >
-
           {this.props.data.map(x => (
             <ModalForWeekly data={x} key={x.id} />
           ))}
-
-
         </div>
       </div>
     );

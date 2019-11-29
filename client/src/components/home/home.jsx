@@ -40,13 +40,7 @@ class Home extends Component {
           {/* <div className="container"> */}
           <div className="row">
             <div className="col-0 col-sm-2"></div>
-            <div
-              className="col-12 col-sm-8"
-              style={{
-                boxShadow:
-                  "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)"
-              }}
-            >
+            <div className="col-12 col-sm-8">
               <WeeklyContainer data={this.state.trendingMovies} />
             </div>
             <div className="col-0 col-sm-2"></div>
@@ -55,14 +49,7 @@ class Home extends Component {
           <br />
           <div className="row">
             <div className="col-1 col-sm-2"></div>
-            <div
-              className="col-10 col-sm-4"
-              style={{
-                color: "black",
-                boxShadow:
-                  "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)"
-              }}
-            >
+            <div className="col-10 col-sm-4 home-shadow">
               <h2>Main text</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -94,14 +81,7 @@ class Home extends Component {
           <br />
           <div className="row">
             <div className="col-1 col-sm-2"></div>
-            <div
-              className="col-12 col-sm-5"
-              style={{
-                boxShadow:
-                  "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)",
-                minHeight: "450px"
-              }}
-            >
+            <div className="col-12 col-sm-5 home-shadow">
               <h2>Title</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -123,14 +103,7 @@ class Home extends Component {
               </p>
             </div>
 
-            <div
-              className="col-12 col-sm-3 up-coming"
-              style={{
-                boxShadow:
-                  "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)",
-                minHeight: "450px"
-              }}
-            >
+            <div className="col-12 col-sm-3 up-coming home-shadow">
               <h2>Google adds</h2>
             </div>
 

@@ -74,7 +74,7 @@ const UpComingContainer = ({ data, title }) => {
         <strong>{title}</strong>
       </h4>
 
-      <div>
+      <div className="home-shadow">
         <Gallery
           photos={photos}
           direction="column"
