@@ -16,6 +16,7 @@ import Home from "./components/home/home";
 import ConfrimEmail from "./components/login/confirmEmail";
 import PeopleDetails from "./components/people/peopleDetails/peopleDetails";
 import RegisterForm from "./components/login/register";
+import Privacy from "./components/privacy/privacy";
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
           <Route path="/confirmemail" component={ConfrimEmail} />
+          <Route path="/privacy" component={Privacy} />
           <Redirect to="/home" />
           <Route path="/register" component={RegisterForm} />
 
