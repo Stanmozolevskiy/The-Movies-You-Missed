@@ -23,6 +23,10 @@ mongoose
   .then(() => console.log(" Connecting to the database ... "))
   .catch(err => console.log(err));
 
+  app.post('/.well-known/acme-challenge/GgRReblDINRmimignm64sGShNFD9aOnoEWSBp51G3xQ', function (req, res) {
+    res.send('Got a POST request')
+  })
+
 app.use(express.json());
 app.use(helmet());
 // enable ssl redirect
