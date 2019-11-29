@@ -22,7 +22,7 @@ class WeeklyContainer extends Component {
         >
 
           {this.props.data.map(x => (
-            <ModalForWeekly data={x} key={x.name} />
+            <ModalForWeekly data={x} key={x.id} />
           ))}
 
 

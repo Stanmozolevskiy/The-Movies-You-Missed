@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Rating from "react-rating";
-import starColor from '../../../utilities/starColor'
+import { Link } from "react-router-dom";
+import starColor from "../../../utilities/starColor";
 
 class ModalForWeekly extends Component {
   constructor(props) {
@@ -14,26 +15,33 @@ class ModalForWeekly extends Component {
           display: "inline-grid"
         }}
       >
-        <div
-          className="text-center "
-          style={{
-            width: "180px",
-            display: "inline-block",
-            cursor: "pointer"
-          }}
+        <Link
+          to={
+            `movies/${ this.props.data.id}`
+          }
         >
-          <img
-            className=" img-fluid poster-container"
-            style={{ maxWidth: "80%" }}
-            id={this.props.data.id}
-            src={
-              this.props.data.poster_path === null
-                ? window.location.origin + "/people-image-placeholder.jpg"
-                : `https://image.tmdb.org/t/p/w400${this.props.data.poster_path}`
-            }
-            alt=""
-          />
-        </div>
+          <div
+            className="text-center "
+            style={{
+              width: "180px",
+              display: "inline-block",
+              cursor: "pointer"
+            }}
+          >
+            <img
+              className=" img-fluid poster-container"
+              style={{ maxWidth: "80%" }}
+              id={this.props.data.id}
+              src={
+                this.props.data.poster_path === null
+                  ? window.location.origin + "/people-image-placeholder.jpg"
+                  : `https://image.tmdb.org/t/p/w400${this.props.data.poster_path}`
+              }
+              alt=""
+            />
+          </div>
+        </Link>
+
         <Rating
           style={{ color: starColor(this.props.data.vote_average / 2) }}
           initialRating={this.props.data.vote_average / 2}

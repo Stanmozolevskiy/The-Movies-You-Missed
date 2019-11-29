@@ -13,6 +13,7 @@ const cors = require("cors");
 const path = require("path");
 const { User } = require("./models/users");
 require("dotenv/config");
+var sslRedirect = require('heroku-ssl-redirect');
 
 mongoose
   .connect(process.env.DB, {
@@ -24,6 +25,8 @@ mongoose
 
 app.use(express.json());
 app.use(helmet());
+// enable ssl redirect
+app.use(sslRedirect());
 // To Fix the CORS Error
 app.use(cors());
 
