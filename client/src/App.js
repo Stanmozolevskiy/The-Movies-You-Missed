@@ -23,7 +23,7 @@ class App extends Component {
       <React.Fragment>
         {/* <ToastContainer /> */}
         <NavBar />
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} /> }
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} /> 
         <Switch>
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />

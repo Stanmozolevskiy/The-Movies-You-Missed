@@ -25,6 +25,7 @@
     "react-modal": "^3.10.1",
     "react-move": "^6.0.0",
     "react-paginate": "^6.3.0",
+    "react-photo-gallery": "^8.0.0",
     "react-rating": "^2.0.0",
     "react-router-dom": "^5.1.1",
     "react-scripts": "3.1.1",
