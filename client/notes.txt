@@ -1,6 +1,0 @@
---make up a indow with breif datails coming in when click details on the main movie page wwith the close button.
---add future buttons for adding movies to the lists and liking the movies and rating if you are loged in.
--- add the information about the director with the link to the peoples card
--- adjust the movie cards by the section, not by the content inside
---separate serch box from the main place where movies do populate in order for search to work from anywhere
--- make one container for movies and tv show
