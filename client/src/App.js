@@ -15,7 +15,6 @@ import NavBar from "./components/common/navbar/navBar";
 import Home from "./components/home/home";
 import ConfrimEmail from "./components/login/confirmEmail";
 import PeopleDetails from "./components/people/peopleDetails/peopleDetails";
-import ssl from "./components/ssl";
 
 class App extends Component {
   render() {
