@@ -7,7 +7,7 @@ body {
 html {
   overflow-x: hidden;
   flex-direction: column;
-  background: black;
+  /* background: black; */
 }
 
 .image-in-container {

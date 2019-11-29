@@ -11,7 +11,6 @@ const usersWithAccount = require("./routes/userWithAccount");
 const auth = require("./routes/auth");
 const cors = require("cors");
 const path = require("path");
-const sslRedirect = require('heroku-ssl-redirect');
 const { User } = require("./models/users");
 require("dotenv/config");
 
@@ -23,14 +22,8 @@ mongoose
   .then(() => console.log(" Connecting to the database ... "))
   .catch(err => console.log(err));
 
-  app.post('/.well-known/acme-challenge/GgRReblDINRmimignm64sGShNFD9aOnoEWSBp51G3xQ', function (req, res) {
-    res.send('Got a POST request')
-  })
-
 app.use(express.json());
 app.use(helmet());
-// enable ssl redirect
-app.use(sslRedirect());
 // To Fix the CORS Error
 app.use(cors());
 

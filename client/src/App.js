@@ -21,12 +21,12 @@ class App extends Component {
     return (
       <React.Fragment>
         {/* <ToastContainer /> */}
-        <NavBar />
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
+        {/* <NavBar />
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} /> */}
         <Switch>
-          <Route path="/movies/:id" component={MovieDetais} />
-          {/* <Route path="/.well-known/acme-challenge/GgRReblDINRmimignm64sGShNFD9aOnoEWSBp51G3xQ" component={ssl} /> */}
-          <Route path="/tv/:id" component={MovieDetais} />
+          {/* <Route path="/movies/:id" component={MovieDetais} /> */}
+          <Route path="/.well-known/acme-challenge/GgRReblDINRmimignm64sGShNFD9aOnoEWSBp51G3xQ" >GgRReblDINRmimignm64sGShNFD9aOnoEWSBp51G3xQ.FrqwX3b9fL_dJZKKNsvCb3eP_fkT2V7ueeyjyU9XN_w</Route>
+          {/* <Route path="/tv/:id" component={MovieDetais} />
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
@@ -35,13 +35,13 @@ class App extends Component {
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
-          <Route path="/confirmemail" component={ConfrimEmail} />
-          <Redirect to="/home" />
+          <Route path="/confirmemail" component={ConfrimEmail} /> */}
+          {/* <Redirect to="/home" /> */}
           {/* <Route path="/register" component={RegisterForm} />
             
             <Route path="/not-found" component={NotFound} /> */}
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }
