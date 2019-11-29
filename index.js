@@ -27,6 +27,10 @@ app.use(helmet());
 // To Fix the CORS Error
 app.use(cors());
 
+app.get("/.well-known/acme-challenge/m9PWs7xgAMaueBP8L-gZ0yXWY9XV6EmDqm5K1p7t56M", (req,res)=> {
+res.send("m9PWs7xgAMaueBP8L-gZ0yXWY9XV6EmDqm5K1p7t56M.FrqwX3b9fL_dJZKKNsvCb3eP_fkT2V7ueeyjyU9XN_w")
+})
+
 // Routes
 app.use("/api/users", users);
 app.use("/api/userswithaccount", usersWithAccount);
