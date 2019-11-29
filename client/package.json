@@ -1,0 +1,63 @@
+{
+  "name": "movie-apes",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "d3-ease": "^1.0.5",
+    "date-and-time": "^0.9.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
+    "joi-browser": "^13.4.0",
+    "mdbreact": "^4.21.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.1",
+    "react-circular-progressbar": "^2.0.2",
+    "react-collapse": "^5.0.0",
+    "react-dom": "^16.10.1",
+    "react-dropdown": "^1.6.4",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.5",
+    "react-horizontal-scrolling-menu": "^0.7.3",
+    "react-icons": "^3.7.0",
+    "react-modal": "^3.10.1",
+    "react-move": "^6.0.0",
+    "react-paginate": "^6.3.0",
+    "react-rating": "^2.0.0",
+    "react-router-dom": "^5.1.1",
+    "react-scripts": "3.1.1",
+    "react-scrolllock": "^4.0.1",
+    "react-select": "^3.0.8",
+    "react-tabs": "^3.0.0",
+    "react-youtube": "^7.9.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "movie-apes"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

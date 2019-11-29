@@ -1,18 +1,42 @@
 {
-  "name": "server",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcrypt": "^3.0.6",
+    "concurrently": "^5.0.0",
+    "config": "^3.2.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "joi": "^14.3.1",
+    "joi-objectid": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.5",
+    "nodemailer": "^6.3.1",
+    "nodemon": "^1.19.3",
+    "react-scrolllock": "^4.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js", 
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install "
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanmozolevskiy/The-Movies-You-Missed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Stanmozolevskiy/The-Movies-You-Missed/issues"
+  },
+  "homepage": "https://github.com/Stanmozolevskiy/The-Movies-You-Missed#readme",
+  "description": ""
 }
