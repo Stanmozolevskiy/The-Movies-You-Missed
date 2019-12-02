@@ -232,7 +232,6 @@ html {
 
 .movie-description-container {
   margin-top: 35px;
-  /* max-width: 350px; */
   max-height: 520px;
   margin-bottom: 30px;
   margin-left: auto;
@@ -559,9 +558,6 @@ html {
     text-align: center;
   }
   /* movie details */
-  .image-background {
-    height: 100%;
-  }
   .mobile-image {
     margin-top: 40px;
     max-height: 300px;

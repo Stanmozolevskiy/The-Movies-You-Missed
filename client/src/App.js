@@ -16,7 +16,9 @@ import Home from "./components/home/home";
 import ConfrimEmail from "./components/login/confirmEmail";
 import PeopleDetails from "./components/people/peopleDetails/peopleDetails";
 import RegisterForm from "./components/login/register";
-import Privacy from "./components/privacy/privacy";
+import Policy from "./components/common/policy/privacy";
+import About from "./components/common/about/about";
+import NotFound from "./components/common/notfound/notfound";
 
 class App extends Component {
   render() {
@@ -31,17 +33,18 @@ class App extends Component {
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
+          <Route path="/not-found" component={NotFound} />
           <Route path="/home" component={Home} />
           <Route path="/people/:id" component={PeopleDetails} />
           <Route path="/people" component={People} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
           <Route path="/confirmemail" component={ConfrimEmail} />
-          <Route path="/privacy" component={Privacy} />
-          <Redirect to="/home" />
+          <Route path="/policy" component={Policy} />
+          <Route path="/about" component={About} />
+          <Redirect to="/not-found" />
           <Route path="/register" component={RegisterForm} />
 
-          {/* <Route path="/not-found" component={NotFound} /> */}
         </Switch>
         <Footer />
       </React.Fragment>

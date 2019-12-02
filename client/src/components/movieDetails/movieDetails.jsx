@@ -41,7 +41,7 @@ class MovieDetais extends Component {
           >
             {/* image gackgroung container start*/}
             <div className="image-background">
-              <div className="container ">
+              <div className="container">
                 <div className="row">
                   <div className="col-12 col-sm-4">
                     <Image imageId={this.state.data.poster_path} />

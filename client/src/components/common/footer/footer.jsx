@@ -8,12 +8,15 @@ const Footer = () => {
           <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <h4 style={{ marginTop: "3em" }}> Logo or image will be here </h4>
           </div>
-          <div className="col-lg-3 col-sm-2 col-xs-3" style={{ marginTop: "4em" }}>
-            <h3 > Contact </h3>
+          <div
+            className="col-lg-3 col-sm-2 col-xs-3"
+            style={{ marginTop: "4em" }}
+          >
+            <h3> Contact </h3>
             <ul>
               <li>
-                <a className="email" href="" >
-                  insert email here
+                <a className="email" href="">
+                stanmozolevskiy@gmai.com
                 </a>
               </li>
               <br />
@@ -27,9 +30,9 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-sm-2 col-xs-3">
             <ul>
-              <li>                
-                <h5>                
-                  <a href="#" style={{ marginTop: "5em" }}> 
+              <li>
+                <h5>
+                  <a href="/about" style={{ marginTop: "5em" }}>
                     ABOUT US
                   </a>
                 </h5>
@@ -46,7 +49,7 @@ const Footer = () => {
               </li>
               <li>
                 <h5>
-                  <a href="#"> LOOKING BACK </a>
+                  <a href="/policy"> PRIVACY </a>
                 </h5>
               </li>
             </ul>

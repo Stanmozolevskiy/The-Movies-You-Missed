@@ -1,6 +1,6 @@
 import React from "react";
 
-const Privacy = () => {
+const Policy = () => {
   return (
     <div className="container" style={{marginTop: "5%", marginBottom: "5%"}}>
       <h1>Welcome to our Privacy Policy</h1>
@@ -188,4 +188,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default Policy;

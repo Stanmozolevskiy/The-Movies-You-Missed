@@ -38,19 +38,19 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-              <div className="row movie-body-unit">
-                <div className="col-0 col-sm-2"></div>
-                <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
-                  <TrailerContainer
-                    props={props}
-                    data={data.videos.results.splice(
-                      1,
-                      data.videos.results.length
-                    )}
-                  />
-                </div>
+            <div className="row movie-body-unit">
+              <div className="col-0 col-sm-2"></div>
+              <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
               </div>
-            )}
+            </div>
+          )}
           <div className="row movie-body-unit ">
             <div className="col-0 col-sm-2"></div>
             <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
@@ -128,19 +128,19 @@ const MovieDetailBody = ({ data, props }) => {
           {data.videos.results.length <= 1 ? (
             ""
           ) : (
-              <div className="row movie-body-unit">
-                <div className="col-0 col-sm-2"></div>
-                <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
-                  <TrailerContainer
-                    props={props}
-                    data={data.videos.results.splice(
-                      1,
-                      data.videos.results.length
-                    )}
-                  />
-                </div>
+            <div className="row movie-body-unit">
+              <div className="col-0 col-sm-2"></div>
+              <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
+                <TrailerContainer
+                  props={props}
+                  data={data.videos.results.splice(
+                    1,
+                    data.videos.results.length
+                  )}
+                />
               </div>
-            )}
+            </div>
+          )}
           <div className="row movie-body-unit ">
             <div className="col-0 col-sm-2"></div>
             <div className="col-12 col-sm-10" style={{ padding: "0px" }}>
