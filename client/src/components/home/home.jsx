@@ -23,7 +23,8 @@ class Home extends Component {
         .slice(0, 15),
       upcomingMovies: upcomingMovies.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
-        .slice(0, 10),
+        .slice(0, 10)
+        .filter(x=> x.poster_path != null),
       trendingTv: trendingTv.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 5)

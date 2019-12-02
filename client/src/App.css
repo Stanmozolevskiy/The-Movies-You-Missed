@@ -385,7 +385,6 @@ html {
   cursor: pointer;
   border: none;
 }
-
 .card-mobile {
   margin: 3% !important;
 }
@@ -491,6 +490,12 @@ html {
 }
 .home-shadow {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.popcorn-image{
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: left;
+  zoom: '120%'
 }
 
 @media only screen and (max-width: 768px) {
@@ -668,6 +673,12 @@ html {
   .up-coming {
     left: 0px;
     padding: "0px";
+  }
+  .popcorn-image{
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left;
+    zoom: 50%
   }
 
   /* safari mobile */
