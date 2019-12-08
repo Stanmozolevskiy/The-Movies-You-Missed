@@ -22,21 +22,11 @@ const MovieGeneralDetails = ({ data, props }) => {
           <h5>${numberWithCommas(data.revenue)}</h5>
           <br />
           <h6>Genres : </h6>
-          {data.genres.map(g => <h5
-            key={g.name}
-            style={{
-              background: "#FFF9F7",
-              padding: "4px",
-              width: 'fit-content',
-              margin: '5px',
-              cursor: 'pointer',
-              display: 'inline-block',
-              textAlign: "center",
-
-              boxShadow:
-                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
-            }}
-          >{g.name}</h5>)}
+          {data.genres.map(g => (
+            <h5 key={g.name} className="title-tag">
+              {g.name}
+            </h5>
+          ))}
           <br />
           <br />
           <h6>Duration : </h6>
@@ -64,21 +54,11 @@ const MovieGeneralDetails = ({ data, props }) => {
           <h5>{data.episode_run_time + " minutes"}</h5>
           <br />
           <h6>Genres : </h6>
-          {data.genres.map(g => <h5
-            key={g.name}
-            style={{
-              background: "#FFF9F7",
-              padding: "4px",
-              width: 'fit-content',
-              margin: '5px',
-              cursor: 'pointer',
-              display: 'inline-block',
-              textAlign: "center",
-
-              boxShadow:
-                "rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px"
-            }}
-          >{g.name}</h5>)}
+          {data.genres.map(g => (
+            <h5 key={g.name} className="title-tag">
+              {g.name}
+            </h5>
+          ))}
           <br />
           <br />
           <h6>Number of Seasons : </h6>

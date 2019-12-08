@@ -19,6 +19,7 @@ import RegisterForm from "./components/login/register";
 import Policy from "./components/common/policy/privacy";
 import About from "./components/common/about/about";
 import NotFound from "./components/common/notfound/notfound";
+import Genres from "./components/genres/genres";
 
 class App extends Component {
   render() {
@@ -30,18 +31,19 @@ class App extends Component {
         <Switch>
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
+          <Route path="/people/:id" component={PeopleDetails} />
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
-          <Route path="/not-found" component={NotFound} />
-          <Route path="/home" component={Home} />
-          <Route path="/people/:id" component={PeopleDetails} />
           <Route path="/people" component={People} />
+          <Route path="/home" component={Home} />
+          <Route path="/genres" component={Genres} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
           <Route path="/confirmemail" component={ConfrimEmail} />
           <Route path="/policy" component={Policy} />
           <Route path="/about" component={About} />
+          <Route path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
           <Route path="/register" component={RegisterForm} />
 

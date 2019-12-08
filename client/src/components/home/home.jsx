@@ -24,7 +24,7 @@ class Home extends Component {
       upcomingMovies: upcomingMovies.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 10)
-        .filter(x=> x.poster_path != null),
+        .filter(x => x.poster_path != null),
       trendingTv: trendingTv.data.results
         // .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 5)
@@ -38,7 +38,7 @@ class Home extends Component {
       return (
         <div>
           <br />
-          {/* <div className="container"> */}
+
           <div className="row">
             <div className="col-0 col-sm-2"></div>
             <div className="col-12 col-sm-8">
@@ -114,7 +114,6 @@ class Home extends Component {
           <br />
           <br />
         </div>
-        // </div>
       );
     }
   }

@@ -12,13 +12,13 @@ const UpComingContainer = ({ data, title }) => {
   const photos = [
     {
       src: `https://image.tmdb.org/t/p/original/${data[0].poster_path}`,
-      width: 0.5,
+      width: 0.6,
       height: 0.9,
       id: `${data[0].id}`
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[1].poster_path}`,
-      width: 0.5,
+      width: 0.6,
       height: 0.9,
       id: `${data[1].id}`
     },
@@ -36,13 +36,13 @@ const UpComingContainer = ({ data, title }) => {
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[4].poster_path}`,
-      width: 0.5,
+      width: 0.6,
       height: 0.9,
       id: `${data[4].id}`
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[5].poster_path}`,
-      width: 0.5,
+      width: 0.6,
       height: 0.9,
       id: `${data[5].id}`
     },

@@ -61,6 +61,11 @@ class NavBar extends Component {
                 <b>People</b>
               </a>
             </li>
+            {/* <li className="nav-item">
+              <a className="nav-link" href="/genres">
+                <b>Genres</b>
+              </a>
+            </li> */}
           </ul>
         </div>
 
