@@ -31,9 +31,6 @@ app.use(sslRedirect());
 app.use(cors());
 
 // Routes
-app.get("/home", (req, res) => {
-  res.send("hello");
-});
 app.use("/api/users", users);
 app.use("/api/userswithaccount", usersWithAccount);
 app.use("/api/auth", auth);
