@@ -3,7 +3,9 @@ import { getMoviegenres } from "../../services/genreServise";
 import { getPopularMovies } from "../../services/movieServise";
 import {
   isMovieFree,
-  doesMovieContainGenre
+  isGenreFree,
+  doesMovieContainGenre,
+  getGenreImageUrl
 } from "../../utilities/generateMovieImage";
 
 class Genres extends Component {
@@ -11,49 +13,92 @@ class Genres extends Component {
     genres: [],
     popularMovies: [],
     usedMoviesList: [],
+    usedGenreList: [],
     ImageUrlList: []
   };
 
-  // populateTheUrl = (genreId, movie, usedMoviesList, urlList) => {
-  //   if (
-  //     doesMovieContainGenre(genreId, movie) == true &&
-  //     isMovieFree(movie.id, usedMoviesList) == true
-  //   ) {
-  //     let updateUsedMoviesList = usedMoviesList;
-  //     updateUsedMoviesList.push(movie.id);
-  //     let updateUrlList = urlList;
-  //     updateUrlList.push({ path: movie.poster_path, genreId: genreId });
-  //     this.setState({
-  //       ImageUrlList: updateUrlList,
-  //       usedMoviesList: updateUsedMoviesList
-  //     });
-  //   } else {
-  //     console.log(false);
-  //   }
-  // };
+  getGenreUrl = (genresArray, usedGenreList, moviesArray, usedMoviesList) => {
+    for (let i = 0; i < genresArray.length; i++) {
+      //go vover each genre
+      if (isGenreFree(genresArray[i], usedGenreList)) {
+        // if it is free
+        for (let j = 0; j < moviesArray.length; j++) {
+          if (
+            doesMovieContainGenre(genresArray[i].id, moviesArray[j]) &&
+            isMovieFree(moviesArray[j].id, usedMoviesList)
+          ) {
+            let updateGenre = this.state.usedGenreList;
+            updateGenre.push(genresArray[i].id);
+            let updateMovie = this.state.usedMoviesList;
+            updateMovie.push(moviesArray[j].id);
+            let updateImageUrl = this.state.ImageUrlList;
+            updateImageUrl.push({
+              genreId: genresArray[i].id,
+              movieUrl: moviesArray[j].poster_path
+            });
+            this.setState({
+              usedGenreList: updateGenre,
+              usedMoviesList: updateMovie,
+              ImageUrlList: updateImageUrl
+            });
+            break;
+          }
+        }
+      }
+    }
+  };
 
   async componentDidMount() {
     const genres = await getMoviegenres();
     const popularMovies1 = await getPopularMovies(1);
     const popularMovies2 = await getPopularMovies(2);
     const popularMovies3 = await getPopularMovies(3);
+    const popularMovies4 = await getPopularMovies(4);
+    const popularMovies5 = await getPopularMovies(5);
+    const popularMovies6 = await getPopularMovies(6);
+    const popularMovies7 = await getPopularMovies(7);
+    const popularMovies8 = await getPopularMovies(8);
+    const popularMovies9 = await getPopularMovies(9);
+    const popularMovies10 = await getPopularMovies(10);
     const fortyMovies = popularMovies1.data.results.concat(
       popularMovies2.data.results
     );
-    let sixtyMovies = fortyMovies.concat(popularMovies3.data.results);
+    const sixtyMovies = fortyMovies.concat(popularMovies3.data.results);
+    const eightyMovies = sixtyMovies.concat(popularMovies4.data.results);
+    const hundredMovies = eightyMovies.concat(popularMovies5.data.results);
+    const hundredTwantyMovies = hundredMovies.concat(
+      popularMovies6.data.results
+    );
+    const hundredFortyMovies = hundredTwantyMovies.concat(
+      popularMovies7.data.results
+    );
+    const hundredSixtyMovies = hundredFortyMovies.concat(
+      popularMovies8.data.results
+    );
+    const hundredEightyMovies = hundredSixtyMovies.concat(
+      popularMovies9.data.results
+    );
+    const twoHandredsMovies = hundredEightyMovies.concat(
+      popularMovies10.data.results
+    );
+
     this.setState({
-      genres: genres.data.genres,
-      popularMovies: sixtyMovies
-        .sort((a, b) => b.popularity - a.popularity)
-        .filter(x => x.vote_count >= 1000)
+      genres: genres.data.genres.filter(x => x.id != 10770),
+      popularMovies: twoHandredsMovies.sort(
+        (a, b) => b.popularity - a.popularity
+      )
     });
+    this.getGenreUrl(
+      this.state.genres,
+      this.state.usedGenreList,
+      this.state.popularMovies,
+      this.state.usedMoviesList
+    );
   }
   render() {
-    if (this.state.genres.length == 0) {
+    if (this.state.genres.length == 0 || this.state.ImageUrlList.length == 0) {
       return "";
     } else {
-      // console.log(this.state);
-
       return (
         <div className="container">
           <div className="row">
@@ -66,9 +111,15 @@ class Genres extends Component {
                   key={x.id}
                 >
                   <img
-                    src={`${window.location.origin}/genres/${x.id}.jpg`}
+                    src={`https://image.tmdb.org/t/p/original/${getGenreImageUrl(
+                      x.id,
+                      this.state.ImageUrlList
+                    )}`}
+                    // if undefined use preset
+                    // src={`${window.location.origin}/genres/${x.id}.jpg`}
                     className="card-img-top"
                   />
+
                   <div className="card-body">
                     <strong>{x.name + " " + x.id}</strong>
                   </div>

@@ -15,3 +15,10 @@ export function isGenreFree(genreId, containsArray) {
 export function doesMovieContainGenre(genreId, movie) {
   return movie.genre_ids.filter(x => x == genreId).length > 0;
 }
+export function getGenreImageUrl(genreId, array) {
+  if (array.length >= 15 && array.find(x => x.genreId == genreId))
+    return array.filter(x => x.genreId == genreId)[0].movieUrl;
+  else {
+    return ;
+  }
+}
