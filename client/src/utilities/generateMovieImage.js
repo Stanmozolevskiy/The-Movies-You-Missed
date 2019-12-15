@@ -17,8 +17,10 @@ export function doesMovieContainGenre(genreId, movie) {
 }
 export function getGenreImageUrl(genreId, array) {
   if (array.length >= 15 && array.find(x => x.genreId == genreId))
-    return array.filter(x => x.genreId == genreId)[0].movieUrl;
+    return `https://image.tmdb.org/t/p/original/${
+      array.filter(x => x.genreId == genreId)[0].movieUrl
+    }`;
   else {
-    return ;
+    return `${window.location.origin}/genres/${genreId}.jpg`;
   }
 }

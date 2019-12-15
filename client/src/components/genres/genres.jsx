@@ -19,9 +19,7 @@ class Genres extends Component {
 
   getGenreUrl = (genresArray, usedGenreList, moviesArray, usedMoviesList) => {
     for (let i = 0; i < genresArray.length; i++) {
-      //go vover each genre
       if (isGenreFree(genresArray[i], usedGenreList)) {
-        // if it is free
         for (let j = 0; j < moviesArray.length; j++) {
           if (
             doesMovieContainGenre(genresArray[i].id, moviesArray[j]) &&
@@ -47,7 +45,6 @@ class Genres extends Component {
       }
     }
   };
-
   async componentDidMount() {
     const genres = await getMoviegenres();
     const popularMovies1 = await getPopularMovies(1);
@@ -55,38 +52,16 @@ class Genres extends Component {
     const popularMovies3 = await getPopularMovies(3);
     const popularMovies4 = await getPopularMovies(4);
     const popularMovies5 = await getPopularMovies(5);
-    const popularMovies6 = await getPopularMovies(6);
-    const popularMovies7 = await getPopularMovies(7);
-    const popularMovies8 = await getPopularMovies(8);
-    const popularMovies9 = await getPopularMovies(9);
-    const popularMovies10 = await getPopularMovies(10);
-    const fortyMovies = popularMovies1.data.results.concat(
-      popularMovies2.data.results
-    );
-    const sixtyMovies = fortyMovies.concat(popularMovies3.data.results);
-    const eightyMovies = sixtyMovies.concat(popularMovies4.data.results);
-    const hundredMovies = eightyMovies.concat(popularMovies5.data.results);
-    const hundredTwantyMovies = hundredMovies.concat(
-      popularMovies6.data.results
-    );
-    const hundredFortyMovies = hundredTwantyMovies.concat(
-      popularMovies7.data.results
-    );
-    const hundredSixtyMovies = hundredFortyMovies.concat(
-      popularMovies8.data.results
-    );
-    const hundredEightyMovies = hundredSixtyMovies.concat(
-      popularMovies9.data.results
-    );
-    const twoHandredsMovies = hundredEightyMovies.concat(
-      popularMovies10.data.results
-    );
-
+    const hundredMovies = [
+      ...popularMovies1.data.results,
+      ...popularMovies2.data.results,
+      ...popularMovies3.data.results,
+      ...popularMovies4.data.results,
+      ...popularMovies5.data.results
+    ];
     this.setState({
       genres: genres.data.genres.filter(x => x.id != 10770),
-      popularMovies: twoHandredsMovies.sort(
-        (a, b) => b.popularity - a.popularity
-      )
+      popularMovies: hundredMovies.sort((a, b) => b.popularity - a.popularity)
     });
     this.getGenreUrl(
       this.state.genres,
@@ -111,17 +86,14 @@ class Genres extends Component {
                   key={x.id}
                 >
                   <img
-                    src={`https://image.tmdb.org/t/p/original/${getGenreImageUrl(
-                      x.id,
-                      this.state.ImageUrlList
-                    )}`}
-                    // if undefined use preset
-                    // src={`${window.location.origin}/genres/${x.id}.jpg`}
+                    src={`${getGenreImageUrl(x.id, this.state.ImageUrlList)}`}
                     className="card-img-top"
                   />
 
                   <div className="card-body">
-                    <strong>{x.name + " " + x.id}</strong>
+                    <strong style={{ textAlign: "center" }}>
+                      {x.name + x.id}
+                    </strong>
                   </div>
                 </div>
               ))}
