@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getMoviegenres } from "../../services/genreServise";
 import { getPopularMovies } from "../../services/movieServise";
+import { Link } from "react-router-dom";
 import {
   isMovieFree,
   isGenreFree,
@@ -9,13 +10,16 @@ import {
 } from "../../utilities/generateMovieImage";
 
 class Genres extends Component {
-  state = {
-    genres: [],
-    popularMovies: [],
-    usedMoviesList: [],
-    usedGenreList: [],
-    ImageUrlList: []
-  };
+  constructor(prpos) {
+    super(prpos);
+    this.state = {
+      genres: [],
+      popularMovies: [],
+      usedMoviesList: [],
+      usedGenreList: [],
+      ImageUrlList: []
+    };
+  }
 
   getGenreUrl = (genresArray, usedGenreList, moviesArray, usedMoviesList) => {
     for (let i = 0; i < genresArray.length; i++) {
@@ -82,19 +86,23 @@ class Genres extends Component {
               .map(x => (
                 <div
                   className="card col-3"
-                  style={{ width: "18rem", margin: "4%", padding: "0px" }}
+                  style={{
+                    width: "18rem",
+                    margin: "4%",
+                    padding: "0px",
+                    cursor: "pointer"
+                  }}
                   key={x.id}
                 >
-                  <img
-                    src={`${getGenreImageUrl(x.id, this.state.ImageUrlList)}`}
-                    className="card-img-top"
-                  />
-
-                  <div className="card-body">
-                    <strong style={{ textAlign: "center" }}>
-                      {x.name + x.id}
-                    </strong>
-                  </div>
+                  <Link to={`${x.id}`}>
+                    <img
+                      src={`${getGenreImageUrl(x.id, this.state.ImageUrlList)}`}
+                      className="card-img-top"
+                    />
+                    <div className="card-body" style={{ textAlign: "center" }}>
+                      <strong>{x.name}</strong>
+                    </div>
+                  </Link>
                 </div>
               ))}
           </div>

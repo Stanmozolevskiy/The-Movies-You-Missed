@@ -7,6 +7,11 @@ export function getMoviegenres() {
     `${baseUrl}3/genre/movie/list?api_key=${apiKey}&language=en-US`
   );
 }
+export function getMoviesByGenre(genreId, page) {
+  return http.get(
+    `${baseUrl}3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=en-US&include_video=true&page=${page}`
+  );
+}
 export function discoverMovie(
   genreId,
   page,

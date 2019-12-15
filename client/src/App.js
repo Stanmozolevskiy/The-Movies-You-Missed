@@ -20,6 +20,7 @@ import Policy from "./components/common/policy/privacy";
 import About from "./components/common/about/about";
 import NotFound from "./components/common/notfound/notfound";
 import Genres from "./components/genres/genres";
+import GenreDetail from "./components/genres/genreDetails";
 
 class App extends Component {
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
       <React.Fragment>
         {/* <ToastContainer /> */}
         <NavBar />
-        <SearchBox onSearchSubmit={handleSearch} props={this.props} /> 
+        <SearchBox onSearchSubmit={handleSearch} props={this.props} />
         <Switch>
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
@@ -37,6 +38,7 @@ class App extends Component {
           <Route path="/tv" component={TvShow} />
           <Route path="/people" component={People} />
           <Route path="/home" component={Home} />
+          <Route path="/genres/:id" component={GenreDetail} />
           <Route path="/genres" component={Genres} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
@@ -46,7 +48,6 @@ class App extends Component {
           <Route path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
           <Route path="/register" component={RegisterForm} />
-
         </Switch>
         <Footer />
       </React.Fragment>

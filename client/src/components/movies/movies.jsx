@@ -220,9 +220,6 @@ class Movie extends Component {
               <div className="col-2"></div>
               <div className="col-8">
                 <hr />
-                Sort by acter
-                <br />
-                Sort by Produser
               </div>
               <div className="col-2"></div>
             </div>
