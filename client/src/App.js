@@ -33,12 +33,12 @@ class App extends Component {
           <Route path="/movies/:id" component={MovieDetais} />
           <Route path="/tv/:id" component={MovieDetais} />
           <Route path="/people/:id" component={PeopleDetails} />
+          <Route path="/genres/:id" component={GenreDetail} />
           <Route path="/search/:path" component={SearchComponent} />
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
           <Route path="/people" component={People} />
           <Route path="/home" component={Home} />
-          <Route path="/genres/:id" component={GenreDetail} />
           <Route path="/genres" component={Genres} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
