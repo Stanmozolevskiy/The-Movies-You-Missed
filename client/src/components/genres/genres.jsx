@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getMoviegenres } from "../../services/genreServise";
 import { getPopularMovies } from "../../services/movieServise";
-import { Link } from "react-router-dom";
 import {
   isMovieFree,
   isGenreFree,
@@ -74,6 +73,10 @@ class Genres extends Component {
       this.state.usedMoviesList
     );
   }
+ onClick = (data) => {
+    window.location = `/genres/${data.id}`
+  };
+
   render() {
     if (this.state.genres.length == 0 || this.state.ImageUrlList.length == 0) {
       return "";
@@ -93,8 +96,9 @@ class Genres extends Component {
                     cursor: "pointer"
                   }}
                   key={x.id}
+                  onClick={() => this.onClick(x)}
                 >
-                  <Link to={`${x.id}`}>
+                 
                     <img
                       src={`${getGenreImageUrl(x.id, this.state.ImageUrlList)}`}
                       className="card-img-top"
@@ -102,7 +106,7 @@ class Genres extends Component {
                     <div className="card-body" style={{ textAlign: "center" }}>
                       <strong>{x.name}</strong>
                     </div>
-                  </Link>
+                 
                 </div>
               ))}
           </div>
