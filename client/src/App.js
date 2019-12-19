@@ -45,7 +45,7 @@ class App extends Component {
           <Route path="/confirmemail" component={ConfrimEmail} />
           <Route path="/policy" component={Policy} />
           <Route path="/about" component={About} />
-          <Route path="/not-found" component={NotFound} />
+         {/* <Route path="/not-found" component={NotFound} />*/}
           {/* <Redirect to="/not-found" /> */}
           <Route path="/register" component={RegisterForm} />
         </Switch>
