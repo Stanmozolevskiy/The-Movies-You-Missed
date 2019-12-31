@@ -691,6 +691,9 @@ html {
     background-position: left;
     zoom: 50%;
   }
+  .home-page-top-margin-mobile{
+    margin-top: 20px;
+  }
 
   /* safari mobile */
   .col-1,

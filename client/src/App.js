@@ -38,7 +38,6 @@ class App extends Component {
           <Route path="/movies/" component={Movie} />
           <Route path="/tv" component={TvShow} />
           <Route path="/people" component={People} />
-          <Route path="/home" component={Home} />
           <Route path="/genres" component={Genres} />
           <Route path="/register" component={SingUp} />
           <Route path="/signin" component={SingIn} />
@@ -48,6 +47,7 @@ class App extends Component {
          {/* <Route path="/not-found" component={NotFound} />*/}
           {/* <Redirect to="/not-found" /> */}
           <Route path="/register" component={RegisterForm} />
+          <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </React.Fragment>

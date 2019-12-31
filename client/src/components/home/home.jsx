@@ -35,7 +35,6 @@ class Home extends Component {
     if (this.state.trendingMovies.length === 0) {
       return "";
     } else {
-      console.log(this.state);
       return (
         <div>
           <br />
@@ -51,7 +50,7 @@ class Home extends Component {
           <br />
           <div className="row">
             <div className="col-1 col-sm-2"></div>
-            <div className="col-10 col-sm-4 home-shadow">
+            <div className="col-10 col-sm-4 home-shadow ">
               <h2>Main text</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -74,7 +73,7 @@ class Home extends Component {
             </div>
             <UpcomingContainer
               data={this.state.upcomingMovies}
-              title="Upcoming"
+              title="Coming Out Soon"
             />
             <div className="col-1 col-sm-2"></div>
           </div>
@@ -83,7 +82,7 @@ class Home extends Component {
           <br />
           <div className="row">
             <div className="col-1 col-sm-2"></div>
-            <div className="col-12 col-sm-5 home-shadow">
+            <div className="col-12 col-sm-5 home-shadow home-page-top-margin-mobile">
               <h2>Title</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -105,8 +104,11 @@ class Home extends Component {
               </p>
             </div>
 
-            <div className="col-12 col-sm-3 up-coming home-shadow">
+            <div className="col-12 col-sm-3 up-coming home-shadow home-page-top-margin-mobile">
               <h2>Google adds</h2>
+              <p> Google adds are coming in few days/ weeks.(waiting for verification from Google)</p>
+              <p>This usually takes a few days, but in some cases it can take up to 2 weeks. We'll notify you when everything’s ready.
+                  Paste it into the HTML of https://movieapes.com, between the <head> and </head> tags</p>
               <GoogleAds />
             </div>
 

@@ -32,7 +32,7 @@ class NavBar extends Component {
         className="navbar  navbar-expand-md custom-navbar navbar-dark "
         style={{ background: "#201d1d" }}
       >
-        <Link to="/home">
+        <Link to="/">
           <h2
             className="logo-img"
             style={{
