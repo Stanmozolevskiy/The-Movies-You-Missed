@@ -59,7 +59,8 @@ const MovieGeneralDetails = ({ data, props }) => {
           <br />
           <h6>Genres : </h6>
           {data.genres.map(g => (
-            <h5 key={g.name} className="title-tag">
+            <h5 key={g.name} className="title-tag"
+              onClick={() => onClick(g)}>>
               {g.name}
             </h5>
           ))}
