@@ -24,14 +24,14 @@ const UpComingContainer = ({ data, title }) => {
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[2].poster_path}`,
-      width: 0.5,
-      height: 0.6,
+      width: 0.6,
+      height: 0.9,
       id: `${data[2].id}`
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[3].poster_path}`,
-      width: 0.5,
-      height: 0.6,
+      width: 0.6,
+      height: 0.9,
       id: `${data[3].id}`
     },
     {
@@ -48,14 +48,14 @@ const UpComingContainer = ({ data, title }) => {
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[6].poster_path}`,
-      width: 0.5,
-      height: 0.6,
+      width: 0.6,
+      height: 0.9,
       id: `${data[6].id}`
     },
     {
       src: `https://image.tmdb.org/t/p/original/${data[7].poster_path}`,
-      width: 0.5,
-      height: 0.6,
+      width: 0.6,
+      height: 0.9,
       id: `${data[7].id}`
     }
   ];

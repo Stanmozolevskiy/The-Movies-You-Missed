@@ -6,6 +6,7 @@ import {
 import { getTrendingTv } from "../../services/tvShowServise";
 import UpcomingContainer from "./upcoming/UpComingContainer";
 import WeeklyContainer from "./weeklyMovies/weeklyContainer";
+import GoogleAds from "./googleAds"
 
 class Home extends Component {
   state = {
@@ -106,6 +107,7 @@ class Home extends Component {
 
             <div className="col-12 col-sm-3 up-coming home-shadow">
               <h2>Google adds</h2>
+              <GoogleAds />
             </div>
 
             <div className="col-1 col-sm-2"></div>
