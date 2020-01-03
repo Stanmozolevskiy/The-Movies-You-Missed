@@ -1,19 +1,23 @@
 import React from "react";
 
-const PlayMovie = ({ data }) => {
+const PlayMovie = ({ data, year }) => {
   function changePage() {
-    window.location = `https://www.imdb.com/title/${data}/?ref_=inth_ov_i`;
+    window.open(
+      `https://www.amazon.com/s?k=${data}+%28${year}%29&i=shop-instant-video&ref=nb_sb_noss_2`,
+      "_blank"
+    );
   }
-
   return (
-    <div>
-      <h3 className='filters' style={{ textAlign: "center", cursor: "pointer" }}>
-        Rent the movei
+    <div onClick={changePage}>
+      <h3
+        className="filters"
+        style={{ textAlign: "center", cursor: "pointer", marginTop: "60px" }}
+      >
+        Find on Amazon:
         <i
-          className="fa fa-video-camera fa-2x"
+          className="fa fa-amazon fa-1x"
           aria-hidden="true"
-          style={{ margin: "5px" }}
-          onClick={changePage}
+          style={{ margin: "5px", color: "gold" }}
         />
       </h3>
     </div>

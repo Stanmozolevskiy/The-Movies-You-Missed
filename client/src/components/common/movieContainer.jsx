@@ -3,30 +3,32 @@ import { Link } from "react-router-dom";
 import formatDate from "../../utilities/dataFormat";
 import Rating from "react-rating";
 import starColor from "../../utilities/starColor";
-import onMovieCardClick from "../../utilities/onMovieCardClick"
+import onMovieCardClick from "../../utilities/onMovieCardClick";
+import ReactImageAppear from "react-image-appear";
 
 const MovieContainer = ({ data, props, size = "col-md-5" }) => {
-
   return (
     <div
       className={`card col-5 col-sm-3 ${size} card-mobile`}
       style={{ padding: 0, display: "inline-flex" }}
     >
       <div className="row no-gutters">
-        <div className="col-md-5"
+        <div
+          className="col-md-5"
           style={{ cursor: "pointer" }}
           onClick={() => onMovieCardClick(data, props)}
         >
-          <img
+          <ReactImageAppear
             src={
               data.poster_path === null
                 ? window.location.origin + "/no-image-movie.png"
                 : `https://image.tmdb.org/t/p/w300${data.poster_path}`
             }
             className="card-img image-fit"
-            alt="..."
+            animation="fadeIn"
+            animationDuration="0.5s"
+            showLoader={false}
           />
-
         </div>
         <div className="col-md-7">
           <div className="card-body">
@@ -65,8 +67,11 @@ const MovieContainer = ({ data, props, size = "col-md-5" }) => {
             </p>
             <div className="container">
               <div className="row">
-                <div className="col-12 detail" style={{ textAlign: "center", cursor: "pointer" }}
-                  onClick={() => onMovieCardClick(data, props)}>
+                <div
+                  className="col-12 detail"
+                  style={{ textAlign: "center", cursor: "pointer" }}
+                  onClick={() => onMovieCardClick(data, props)}
+                >
                   <hr />
                   <Link to={`/movie/${data.id}`}>Details</Link>
                 </div>

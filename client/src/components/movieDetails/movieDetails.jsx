@@ -5,6 +5,7 @@ import MovieDescription from "./movieDescription";
 import Image from "./imageMovieDetails";
 import TrailerButton from "./trailer/trailerButton";
 import MovieDetailBody from "./movieDetailBody";
+import ReactImageAppear from "react-image-appear";
 
 class MovieDetais extends Component {
   constructor(prpos) {
