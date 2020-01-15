@@ -105,10 +105,6 @@ class Home extends Component {
             </div>
 
             <div className="col-12 col-sm-3 up-coming home-shadow home-page-top-margin-mobile">
-              <h2>Google adds</h2>
-              <p> Google adds are coming in few days/ weeks.(waiting for verification from Google)</p>
-              <p>This usually takes a few days, but in some cases it can take up to 2 weeks. We'll notify you when everything’s ready.
-                  Paste it into the HTML of https://movieapes.com, between the <head> and </head> tags</p>
               <GoogleAds />
             </div>
 
