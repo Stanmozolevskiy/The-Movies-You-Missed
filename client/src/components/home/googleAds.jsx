@@ -8,7 +8,7 @@ class GoogleAds extends Component {
 
             <AdSense.Google
                 client='ca-pub-9427041283177019'
-                slot='7806394673'
+                slot='1719342757'
                 style={{ display: 'block' }}
                 format='auto'
                 responsive='true'
