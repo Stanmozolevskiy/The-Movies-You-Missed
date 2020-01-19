@@ -104,10 +104,7 @@ class Home extends Component {
               </p>
             </div>
 
-            <div
-              className="col-12 col-sm-5 up-coming home-page-top-margin-mobile"
-              style={{ height: "300px" }}
-            >
+            <div className="col-12 col-sm-12 up-coming home-page-top-margin-mobile">
               <GoogleAds />
             </div>
 
