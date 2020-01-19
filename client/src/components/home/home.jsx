@@ -104,8 +104,19 @@ class Home extends Component {
               </p>
             </div>
 
-            <div className="col-12 col-sm-12 up-coming home-page-top-margin-mobile">
-              <GoogleAds />
+            <div className="col-12 col-sm-5 up-coming home-page-top-margin-mobile">
+              <amp-ad
+                width="100vw"
+                height="320"
+                type="adsense"
+                data-ad-client="ca-pub-9427041283177019"
+                data-ad-slot="9282686747"
+                data-auto-format="rspv"
+                data-full-width=""
+              >
+                <div overflow=""></div>
+              </amp-ad>
+              {/* <GoogleAds /> */}
             </div>
 
             <div className="col-1 col-sm-0"></div>
