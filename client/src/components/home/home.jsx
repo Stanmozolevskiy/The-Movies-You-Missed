@@ -51,7 +51,7 @@ class Home extends Component {
           <div className="row">
             <div className="col-1 col-sm-2"></div>
             <div className="col-10 col-sm-4 home-shadow ">
-              <h2>Main text</h2>
+              <h2>News from the movie world</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Impedit, reiciendis. Ut excepturi animi impedit, suscipit
@@ -83,7 +83,7 @@ class Home extends Component {
           <div className="row">
             <div className="col-1 col-sm-2"></div>
             <div className="col-12 col-sm-5 home-shadow home-page-top-margin-mobile">
-              <h2>Title</h2>
+              <h2>New Posters</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Impedit, reiciendis. Ut excepturi animi impedit, suscipit
