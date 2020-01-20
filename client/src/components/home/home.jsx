@@ -7,7 +7,7 @@ import { getTrendingTv } from "../../services/tvShowServise";
 import UpcomingContainer from "./upcoming/UpComingContainer";
 import WeeklyContainer from "./weeklyMovies/weeklyContainer";
 import GoogleAds from "./googleAds";
-import AdSense from "react-adsense";
+// import AdSense from "react-adsense";
 
 
 class Home extends Component {
@@ -107,15 +107,7 @@ class Home extends Component {
             </div>
 
             <div className="col-12 col-sm-3 up-coming home-page-top-margin-mobile">
-              {/* <GoogleAds /> */}
-              <AdSense.Google
-                client="ca-pub-9427041283177019"
-                slot="1719342757"
-                // style={{ display: "block" }}
-                // format="auto"
-                // responsive="true"
-                // layoutKey="-gw-1+2a-9x+5c"
-              />
+              <GoogleAds />
             </div>
 
 

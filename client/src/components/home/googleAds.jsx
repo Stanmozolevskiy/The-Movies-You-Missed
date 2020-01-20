@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import AdSense from "react-adsense";
 
 class GoogleAds extends Component {
-  state = {};
+  componentDidMount() {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+
   render() {
     return (
-      <AdSense.Google
-        client="ca-pub-9427041283177019"
-        slot="1719342757"
-        style={{ display: "block" }}
-        format="auto"
-        responsive="true"
-        layoutKey="-gw-1+2a-9x+5c"
-      />
+      <ins
+        className='adsbygoogle'
+        style={{ display: 'block' }}
+        data-ad-client='ca-pub-9427041283177019'
+        data-ad-slot='1719342757'
+        data-ad-format='auto' />
     );
   }
 }
