@@ -106,7 +106,7 @@ class Home extends Component {
               </p>
             </div>
 
-            <div className="col-12 col-sm-3 up-coming home-page-top-margin-mobile">
+            <div className="col-12 col-sm-3 home-page-top-margin-mobile">
               <GoogleAds />
             </div>
 
