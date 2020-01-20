@@ -706,6 +706,9 @@ html {
     margin-top: 20px;
     
   }
+  .ad{
+    height: auto;
+  }
 
   /* safari mobile */
   .col-1,

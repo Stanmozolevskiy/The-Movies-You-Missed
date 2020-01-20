@@ -7,12 +7,14 @@ class GoogleAds extends Component {
 
   render() {
     return (
-      <ins
-        className='adsbygoogle'
-        style={{ display: 'block' }}
-        data-ad-client='ca-pub-9427041283177019'
-        data-ad-slot='1719342757'
-        data-ad-format='auto' />
+      <div className='ad'>
+        <ins
+          className='adsbygoogle'
+          style={{ display: 'block' }}
+          data-ad-client='ca-pub-9427041283177019'
+          data-ad-slot='1719342757'
+          data-ad-format='auto' />
+      </div>
     );
   }
 }
