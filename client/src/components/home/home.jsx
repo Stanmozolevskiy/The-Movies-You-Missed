@@ -8,6 +8,7 @@ import UpcomingContainer from "./upcoming/UpComingContainer";
 import WeeklyContainer from "./weeklyMovies/weeklyContainer";
 import GoogleAds from "./googleAds";
 
+
 class Home extends Component {
   state = {
     trendingMovies: [],
@@ -105,8 +106,17 @@ class Home extends Component {
             </div>
 
             <div className="col-12 col-sm-3 up-coming home-page-top-margin-mobile">
-              <GoogleAds />
+              {/* <GoogleAds /> */}
+              <AdSense.Google
+                client="ca-pub-9427041283177019"
+                slot="1719342757"
+                style={{ display: "block" }}
+                format="auto"
+                responsive="true"
+                layoutKey="-gw-1+2a-9x+5c"
+              />
             </div>
+
 
             <div className="col-1 col-sm-2"></div>
           </div>
