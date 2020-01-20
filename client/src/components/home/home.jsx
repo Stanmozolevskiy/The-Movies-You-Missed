@@ -7,6 +7,7 @@ import { getTrendingTv } from "../../services/tvShowServise";
 import UpcomingContainer from "./upcoming/UpComingContainer";
 import WeeklyContainer from "./weeklyMovies/weeklyContainer";
 import GoogleAds from "./googleAds";
+import AdSense from "react-adsense";
 
 
 class Home extends Component {
