@@ -118,7 +118,7 @@ class Home extends Component {
 
           <div className="row" style={{ background: "gray" }}>
             <div className="col-12 col-sm-4">
-              <GoogleAds />
+           
             </div>
             <div className="col-12 col-sm-4">
               {/* <GoogleAdsHorizontal /> */}
