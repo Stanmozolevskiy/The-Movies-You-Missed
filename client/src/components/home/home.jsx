@@ -116,19 +116,17 @@ class Home extends Component {
             <div className="col-1 col-sm-2"></div>
           </div>
 
-          <div className="row">
-            <div className="col-12 col-sm-3">
+          <div className="row" style={{ background: "gray" }}>
+            <div className="col-12 col-sm-4">
               <GoogleAds />
             </div>
-            <div className="col-12 col-sm-1" />
-            <div className="col-12 col-sm-3">
+            <div className="col-12 col-sm-4">
               <GoogleAdsHorizontal />
             </div>
-            <div className="col-12 col-sm-1" />
             <div className="col-12 col-sm-4"></div>
             <GoogleAdsInArticle />
           </div>
-          <div className="col-12 col-sm-1" />
+
           <br />
           <br />
           <br />

@@ -517,6 +517,7 @@ html {
 .adContent{
   margin: auto;
   width: 320px;
+  padding: 10%;
 }
 
 @media only screen and (max-width: 768px) {
