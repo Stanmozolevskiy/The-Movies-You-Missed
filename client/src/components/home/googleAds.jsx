@@ -10,10 +10,12 @@ class GoogleAds extends Component {
       <div className='ad'>
         <ins
           className='adsbygoogle '
-          style={{ display: 'block' }}
+          style={{ display: "block", textAlign: "center", width: "100%", height: "auto" }}
           data-ad-client='ca-pub-9427041283177019'
           data-ad-slot='1719342757'
-          data-ad-format='auto' />
+          // data-ad-format='auto'
+          responsive="true"
+        />
       </div>
     );
   }

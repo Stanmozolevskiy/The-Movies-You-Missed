@@ -10,7 +10,7 @@ class GoogleAdsHorizontal extends Component {
       <div className='ad'>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", textAlign: "center", width: "100%", height: "auto", padding: "20%" }}
+          style={{ display: "block", textAlign: "center", width: "100%", height: "auto" }}
           data-ad-client="ca-pub-9427041283177019"
           data-ad-slot="6060383760"
           data-ad-format="auto"
