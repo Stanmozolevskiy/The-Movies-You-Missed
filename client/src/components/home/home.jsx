@@ -117,15 +117,18 @@ class Home extends Component {
           </div>
 
           <div className="row">
-            <div className="col-12 col-sm-4">
+            <div className="col-12 col-sm-3">
               <GoogleAds />
             </div>
-            <div className="col-12 col-sm-4">
+            <div className="col-12 col-sm-1" />
+            <div className="col-12 col-sm-3">
               <GoogleAdsHorizontal />
             </div>
-            <div className="col-12 col-sm-4"></div>
-             {/* <GoogleAdsInArticle /> */}
+            <div className="col-12 col-sm-1" />
+            <div className="col-12 col-sm-3"></div>
+            <GoogleAdsInArticle />
           </div>
+          <div className="col-12 col-sm-1" />
           <br />
           <br />
           <br />
