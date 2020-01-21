@@ -8,7 +8,8 @@ class GoogleAdsInArticle extends Component {
   render() {
     return (
       <div className='ad'>
-        <ins className="adsbygoogle"
+        <ins
+          className="adsbygoogle adContent"
           style={{ display: "block", textAlign: "center" }}
           data-ad-layout="in-article"
           data-ad-format="fluid"
