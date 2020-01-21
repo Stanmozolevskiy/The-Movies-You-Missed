@@ -8,12 +8,13 @@ class GoogleAdsHorizontal extends Component {
   render() {
     return (
       <div className='ad'>
-        <ins class="adsbygoogle"
-          style="display:block"
+        <ins
+          className="adsbygoogle"
+          style={{display:"block"}}
           data-ad-client="ca-pub-9427041283177019"
           data-ad-slot="6060383760"
           data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
+          data-full-width-responsive="true" />
       </div>
     );
   }
