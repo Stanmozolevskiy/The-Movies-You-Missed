@@ -516,9 +516,8 @@ html {
 }
 .adContent {
   display: inline-block;
-  width: 500px;
-  height: 300px;
-  text-align: center;
+  width: 400px;
+  height: 500px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -713,9 +712,8 @@ html {
   }
   .adContent {
     display: inline-block;
-    width: 300px;
-    height: 150px;
-    text-align: center;
+    width: 500px;
+    height: 300px;
   }
 
   /* safari mobile */
