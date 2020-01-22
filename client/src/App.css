@@ -518,6 +518,8 @@ html {
   display: inline-block;
   width: 400px;
   height: 500px;
+  left: 5%;
+  margin: 0 !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -714,7 +716,8 @@ html {
     display: inline-block;
     width: 500px;
     height: 300px;
-    text-align: center;
+    left: 5%;
+    margin: 0 !important;
   }
 
   /* safari mobile */
