@@ -515,9 +515,9 @@ html {
     rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
 .adContent {
-  display: block;
-  width: 400px;
-  height: auto;
+  display: inline-block;
+  width: auto;
+  height: 500px;
   left: 5%;
   margin: 0 !important;
 }
@@ -714,8 +714,8 @@ html {
   }
   .adContent {
     display: inline-block;
-    width: 500px;
-    height: auto;
+    width: auto;
+    height: 200px;
     left: 5%;
     margin: 0 !important;
   }
