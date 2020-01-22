@@ -514,10 +514,11 @@ html {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
     rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
-.adContent{
-  margin: auto;
-  width: 320px;
-  padding: 10%;
+.adContent {
+  display: inline-block;
+  width: 500px;
+  height: 300px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -709,10 +710,12 @@ html {
   }
   .home-page-top-margin-mobile {
     margin-top: 20px;
-    
   }
-  .ad{
-    height: auto;
+  .adContent {
+    display: inline-block;
+    width: 300px;
+    height: 150px;
+    text-align: center;
   }
 
   /* safari mobile */

@@ -7,10 +7,6 @@ import { getTrendingTv } from "../../services/tvShowServise";
 import UpcomingContainer from "./upcoming/UpComingContainer";
 import WeeklyContainer from "./weeklyMovies/weeklyContainer";
 import GoogleAds from "./googleAds";
-import GoogleAdsHorizontal from "./googleAds-horizontal";
-import GoogleAdsInArticle from "./googleAds-inArticle";
-// import AdSense from "react-adsense";
-
 
 class Home extends Component {
   state = {
@@ -112,19 +108,7 @@ class Home extends Component {
               <GoogleAds />
             </div>
 
-
             <div className="col-1 col-sm-2"></div>
-          </div>
-
-          <div className="row" style={{ background: "gray" }}>
-            <div className="col-12 col-sm-4">
-           
-            </div>
-            <div className="col-12 col-sm-4">
-              {/* <GoogleAdsHorizontal /> */}
-            </div>
-            <div className="col-12 col-sm-4"></div>
-            {/* <GoogleAdsInArticle /> */}
           </div>
 
           <br />
