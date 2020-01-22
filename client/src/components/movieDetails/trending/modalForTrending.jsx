@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const ModalForTrending = ({ props, data }) => {
   const onClick = () => {
-    window.location = `/movies/${data.id}`
+    window.location = `/movies/${data.id}`;
   };
   return (
     <div
