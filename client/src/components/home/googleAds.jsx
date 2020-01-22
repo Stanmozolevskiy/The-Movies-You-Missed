@@ -7,7 +7,7 @@ class GoogleAds extends Component {
 
   render() {
     return (
-      <div className="ad" style={{ padding: "20%" }}>
+      <div>
         <ins
           className="adsbygoogle adContent"
           data-ad-client="ca-pub-9427041283177019"
