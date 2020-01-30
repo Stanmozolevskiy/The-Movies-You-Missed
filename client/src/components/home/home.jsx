@@ -108,7 +108,7 @@ class Home extends Component {
               <GoogleAds />
             </div>
 
-            <div className="col-1 col-sm-2"></div>
+    //        <div className="col-1 col-sm-2"></div>
           </div>
 
           <br />
