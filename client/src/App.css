@@ -515,10 +515,9 @@ html {
     rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
 .adContent {
-  display: block;
-  width: 300px;
-  height: 600px;
-  text-aligh: center;
+  display: inherit;
+  min-width: 300px;
+  min-height: 600px;
 }
 
 @media only screen and (max-width: 768px) {
