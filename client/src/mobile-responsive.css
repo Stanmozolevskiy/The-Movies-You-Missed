@@ -1,0 +1,223 @@
+
+@media only screen and (max-width: 768px) {
+    .navbar-btn {
+      display: none;
+    }
+    input {
+      margin-left: 0;
+      margin: 0 !important;
+      border-bottom: none !important;
+    }
+    .logo-img {
+      margin: 0px !important;
+    }
+    .filters {
+      display: none !important;
+    }
+    .image-fit {
+      max-height: 290px;
+    }
+    .card-body {
+      max-height: 260px;
+      padding: 0 !important;
+    }
+    .detail {
+      display: none !important;
+    }
+    .d-inline-block {
+      display: none !important;
+    }
+    .rating-movie-card {
+      /* dominant-baseline: middle; */
+      width: 44px;
+      margin-top: 15px;
+      display: none;
+    }
+    .col-4 {
+      padding: 0 !important;
+    }
+    .card-mobile {
+      margin: 3% !important;
+      height: 380px;
+      margin-left: 20px !important;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .pagination {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 0;
+      margin: 100px;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .card-title {
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 0;
+      padding: 3px;
+    }
+    .header-text {
+      color: white;
+      text-align: center;
+    }
+    /* movie details */
+    .mobile-image {
+      max-height: 300px;
+      /* display: block; */
+      color: white;
+    }
+    .mobile {
+      margin-top: 40px;
+      max-height: 300px;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .watch-trailer-btn-cover {
+      display: none;
+    }
+    .movie-title {
+      font-size: 22px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .movie-details-buttons {
+      text-align: center;
+      margin-top: 0;
+      color: black;
+    }
+    .overview {
+      margin-top: 10px;
+      margin: 10px 5px 5px 5px;
+      line-height: 1.8;
+      font-size: 12px;
+    }
+    .movie-body-unit {
+      margin-bottom: 40px;
+    }
+    .scroll-menu-arrow {
+      padding: 0px;
+      font-size: 0;
+    }
+    .horizontal-menu {
+      display: flow-root !important;
+    }
+    .hover-red {
+      font-size: 15px;
+      margin: 5px !important;
+    }
+    .collection h1 {
+      font-size: 28px;
+    }
+    .people-modal {
+      height: 636px;
+      width: 100%;
+      background: white;
+      color: black;
+    }
+    .people-image-modal {
+      height: 385px;
+    }
+    .case-image-modal {
+      object-fit: contain;
+      max-height: 450px;
+      max-width: 300px;
+    }
+    .image-curve {
+      float: right;
+      max-height: 450px;
+      max-width: 300px;
+      shape-outside: ellipse(90%);
+    }
+    .hide-pc {
+      display: block;
+    }
+  
+    .multiline-ellipsis-people-modal {
+      display: block;
+      height: 200px;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .multiline-ellipsis-people-details {
+      display: block;
+      height: 200px;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .more {
+      position: absolute;
+      margin-top: 310px !important;
+    }
+    .people-card {
+      margin: 15px 15px 15px 15px;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+    .people-biography-modal {
+      width: 100%;
+      overflow: scroll;
+      padding: 15px;
+      font-size: 13px;
+      height: auto;
+    }
+    .group-list {
+      margin-top: 5%;
+    }
+    .home-box {
+      height: 380;
+      color: black;
+      text-align: center;
+      margin: 20px;
+    }
+    .up-coming {
+      left: 0px;
+      padding: "0px";
+    }
+    .popcorn-image {
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: left;
+      zoom: 50%;
+    }
+    .home-page-top-margin-mobile {
+      margin-top: 20px;
+    }
+    .adContent {
+      display: inline-block;
+      width: 320px;
+      height: 100px;
+     
+    }
+  
+    /* safari mobile */
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      padding: 0px !important;
+      width: 100% !important;
+    }
+    .row {
+      margin-right: 0px !important;
+      margin-left: 0px !important;
+    }
+    body {
+      overflow-x: hidden;
+    }
+  }
+  

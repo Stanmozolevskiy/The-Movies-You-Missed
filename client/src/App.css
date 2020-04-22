@@ -7,7 +7,6 @@ body {
 html {
   overflow-x: hidden;
   flex-direction: column;
-  /* background: black; */
 }
 
 .image-in-container {
@@ -37,7 +36,6 @@ html {
   padding: 10px;
   font-family: Roboto, sans-serif;
   max-height: 44px;
-  /* padding: 10px 10px 10px 0px; */
   font-weight: 500;
 }
 
@@ -116,11 +114,6 @@ html {
     transform: rotate(360deg);
   }
 }
-/* .App {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  flex-direction: column;
-} */
 
 .pagination {
   font-size: 20px;
@@ -265,124 +258,6 @@ html {
   background-color: rgb(0, 0, 0, 0.8);
 }
 
-/* .footer  */
-
-.full {
-  width: 100%;
-}
-
-.gap {
-  height: 30px;
-  width: 100%;
-  clear: both;
-  display: block;
-}
-
-.footer {
-  background: #201d1d;
-  height: auto;
-  padding-bottom: 30px;
-  position: relative;
-  width: 100%;
-  border-bottom: 1px solid #cccccc;
-  /* border-top: 1px solid #dddddd; */
-}
-
-.footer p {
-  margin: 0;
-}
-
-.footer img {
-  max-width: 100%;
-}
-
-.footer h3 {
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 27px;
-  padding: 40px 0 0px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-
-.footer h4 {
-  color: white;
-  font-size: 2em;
-  font-weight: 600;
-  line-height: 38px;
-  padding: 40px 0 10px;
-  font-family: cursive;
-  font-weight: lighter;
-}
-
-.footer ul {
-  font-size: 13px;
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
-  margin-top: 0px;
-  color: #7f8c8d;
-  padding: 0 0 8px 0;
-}
-.email {
-  border-bottom: 3px solid #fff;
-}
-
-.footer ul li a {
-  padding: 0 0 12px 0;
-  display: block;
-}
-
-.footer a {
-  color: white;
-  font-weight: lighter;
-}
-
-.footer p {
-  color: white;
-  font-weight: lighter;
-}
-
-.footer a:hover {
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.supportLi h4 {
-  font-size: 20px;
-  font-weight: lighter;
-  line-height: normal;
-  margin-bottom: 0 !important;
-  padding-bottom: 0;
-}
-
-.bg-gray {
-  background-image: -moz-linear-gradient(
-    center bottom,
-    #bbbbbb 0%,
-    #f0f0f0 100%
-  );
-  box-shadow: 0 1px 0 #b4b3b3;
-}
-
-.footer a {
-  color: #78828d;
-}
-
-.footer-bottom {
-  margin-top: 2em;
-  border-top: 1px solid #dddddd;
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.footer-bottom p.pull-left {
-  padding-top: 6px;
-  font-size: 0.75em;
-}
-/* footer end */
-
 /* scroll bar start */
 .menu-item {
   padding: 0 40px;
@@ -474,11 +349,9 @@ html {
 }
 .home-box {
   height: 380px;
-  /* background: #272525; */
   color: black;
   text-align: left;
   margin: 20px;
-  /* border: 1px solid black; */
 }
 .image-fit-homepage-left {
   width: 100%;
@@ -518,226 +391,4 @@ html {
   display: inherit;
   width: 300px;
   height: 600px;
-}
-
-@media only screen and (max-width: 768px) {
-  .navbar-btn {
-    display: none;
-  }
-  input {
-    margin-left: 0;
-    margin: 0 !important;
-    border-bottom: none !important;
-  }
-  .logo-img {
-    margin: 0px !important;
-  }
-  .filters {
-    display: none !important;
-  }
-  .image-fit {
-    max-height: 290px;
-  }
-  .card-body {
-    max-height: 260px;
-    padding: 0 !important;
-  }
-  .detail {
-    display: none !important;
-  }
-  .d-inline-block {
-    display: none !important;
-  }
-  .rating-movie-card {
-    /* dominant-baseline: middle; */
-    width: 44px;
-    margin-top: 15px;
-    display: none;
-  }
-  .col-4 {
-    padding: 0 !important;
-  }
-  .card-mobile {
-    margin: 3% !important;
-    height: 380px;
-    margin-left: 20px !important;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .pagination {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 0;
-    margin: 100px;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  .card-title {
-    margin-bottom: 0;
-    font-size: 13px;
-    line-height: 0;
-    padding: 3px;
-  }
-  .header-text {
-    color: white;
-    text-align: center;
-  }
-  /* movie details */
-  .mobile-image {
-    max-height: 300px;
-    /* display: block; */
-    color: white;
-  }
-  .mobile {
-    margin-top: 40px;
-    max-height: 300px;
-    color: white;
-    margin-top: 20px;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  .watch-trailer-btn-cover {
-    display: none;
-  }
-  .movie-title {
-    font-size: 22px;
-    text-align: center;
-    font-weight: 500;
-  }
-  .movie-details-buttons {
-    text-align: center;
-    margin-top: 0;
-    color: black;
-  }
-  .overview {
-    margin-top: 10px;
-    margin: 10px 5px 5px 5px;
-    line-height: 1.8;
-    font-size: 12px;
-  }
-  .movie-body-unit {
-    margin-bottom: 40px;
-  }
-  .scroll-menu-arrow {
-    padding: 0px;
-    font-size: 0;
-  }
-  .horizontal-menu {
-    display: flow-root !important;
-  }
-  .hover-red {
-    font-size: 15px;
-    margin: 5px !important;
-  }
-  .collection h1 {
-    font-size: 28px;
-  }
-  .people-modal {
-    height: 636px;
-    width: 100%;
-    background: white;
-    color: black;
-  }
-  .people-image-modal {
-    height: 385px;
-  }
-  .case-image-modal {
-    object-fit: contain;
-    max-height: 450px;
-    max-width: 300px;
-  }
-  .image-curve {
-    float: right;
-    max-height: 450px;
-    max-width: 300px;
-    shape-outside: ellipse(90%);
-  }
-  .hide-pc {
-    display: block;
-  }
-
-  .multiline-ellipsis-people-modal {
-    display: block;
-    height: 200px;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  .multiline-ellipsis-people-details {
-    display: block;
-    height: 200px;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  .more {
-    position: absolute;
-    margin-top: 310px !important;
-  }
-  .people-card {
-    margin: 15px 15px 15px 15px;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-  .people-biography-modal {
-    width: 100%;
-    overflow: scroll;
-    padding: 15px;
-    font-size: 13px;
-    height: auto;
-  }
-  .group-list {
-    margin-top: 5%;
-  }
-  .home-box {
-    height: 380;
-    color: black;
-    text-align: center;
-    margin: 20px;
-  }
-  .up-coming {
-    left: 0px;
-    padding: "0px";
-  }
-  .popcorn-image {
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: left;
-    zoom: 50%;
-  }
-  .home-page-top-margin-mobile {
-    margin-top: 20px;
-  }
-  .adContent {
-    display: inline-block;
-    width: 320px;
-    height: 100px;
-   
-  }
-
-  /* safari mobile */
-  .col-1,
-  .col-2,
-  .col-3,
-  .col-4,
-  .col-5,
-  .col-6,
-  .col-7,
-  .col-8,
-  .col-9,
-  .col-10,
-  .col-11,
-  .col-12 {
-    padding: 0px !important;
-    width: 100% !important;
-  }
-  .row {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-  }
-  body {
-    overflow-x: hidden;
-  }
 }
