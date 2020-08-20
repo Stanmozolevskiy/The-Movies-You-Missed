@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.1.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
