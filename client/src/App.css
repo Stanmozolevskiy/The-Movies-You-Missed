@@ -96,7 +96,6 @@ html {
 
 .image-fit {
   width: 100%;
-  height: 310px;
   object-fit: cover;
 }
 
