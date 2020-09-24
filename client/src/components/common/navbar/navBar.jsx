@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
   state = {
     token: undefined,
-    isOpen: "collapse"
+    isOpen: "collapse",
   };
   async componentDidMount() {
     const token = await localStorage.getItem("token");
@@ -33,15 +33,14 @@ class NavBar extends Component {
         style={{ background: "#201d1d" }}
       >
         <Link to="/">
-          <h2
+          <img
+            src={`${window.location.origin}/Logo.png`}
             className="logo-img"
             style={{
-              color: "white",
-              marginLeft: "300px"
+              height: "150px",
+              marginLeft: "300px",
             }}
-          >
-            Movie Apes
-          </h2>
+          />
         </Link>
 
         <div className="collapse navbar-collapse " id="collapsibleNavbar">
