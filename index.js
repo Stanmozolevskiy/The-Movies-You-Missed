@@ -13,7 +13,7 @@ const cors = require("cors");
 const path = require("path");
 const { User } = require("./models/users");
 require("dotenv/config");
-const sslRedirect = require("heroku-ssl-redirect");
+var sslRedirect = require("heroku-ssl-redirect");
 
 mongoose
   .connect(process.env.DB, {
