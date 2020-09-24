@@ -30,7 +30,7 @@
     "react-photo-gallery": "^8.0.0",
     "react-rating": "^2.0.0",
     "react-router-dom": "^5.1.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.4.3",
     "react-scrolllock": "^4.0.1",
     "react-select": "^3.0.8",
     "react-tabs": "^3.0.0",
